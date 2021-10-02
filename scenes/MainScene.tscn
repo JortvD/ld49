@@ -3,7 +3,6 @@
 [ext_resource path="res://world/World.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://npc/NPC.tscn" type="PackedScene" id=3]
-[ext_resource path="res://scenes/MainScene.gd" type="Script" id=4]
 [ext_resource path="res://icon.png" type="Texture" id=5]
 [ext_resource path="res://building/Building.tscn" type="PackedScene" id=6]
 [ext_resource path="res://dialog/DialogueSystem.tscn" type="PackedScene" id=7]
@@ -11,13 +10,15 @@
 [ext_resource path="res://npc/Handler1.gd" type="Script" id=9]
 [ext_resource path="res://items/Items.gd" type="Script" id=10]
 
+[sub_resource type="GDScript" id=2]
+
 [sub_resource type="NavigationPolygon" id=1]
 vertices = PoolVector2Array( -232, -224, 105.1, -243.29, 90.9422, -162.117, -150.69, -153.622, -384, 104, -145.97, 116.326, -152, 256, 129.641, 118.214, 129.641, -171.556, 523.237, -174.388, 432, 240, 160, 232, 134.361, 210.713, 56, 264 )
 polygons = [ PoolIntArray( 0, 1, 2, 3 ), PoolIntArray( 4, 0, 3, 5, 6 ), PoolIntArray( 7, 8, 9, 10, 11, 12 ), PoolIntArray( 13, 6, 5, 7, 12 ) ]
 outlines = [ PoolVector2Array( 134.361, 210.713, 160, 232, 432, 240, 523.237, -174.388, 129.641, -171.556, 129.641, 118.214, -145.97, 116.326, -150.69, -153.622, 90.9422, -162.117, 105.1, -243.29, -232, -224, -384, 104, -152, 256, 56, 264 ) ]
 
 [node name="MainScene" type="Node2D"]
-script = ExtResource( 4 )
+script = SubResource( 2 )
 
 [node name="World" parent="." instance=ExtResource( 1 )]
 
