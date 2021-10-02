@@ -3,7 +3,7 @@ extends Node
 onready var ITEM = preload("res://items/Item.tscn")
 
 var types = [
-	{"name": "gun", "img": "res://icon.png"}
+	{"name": "gun", "img": "res://icon.png", "action": "SHOOT", "options": {"rps": 5, "img": "res://icon.png", "speed": 100, "damage": 10}}
 ]
 
 func create_item_for_player(name, transform, player, weight):

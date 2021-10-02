@@ -35,8 +35,11 @@ func _input(event):
 func get_input():
 	velocity = Vector2()
 	
-	if Input.is_action_pressed("ui_left_click") and $BulletTimer.is_stopped() and interact_lock:
-		shoot()
+	if(interact_lock):
+		return
+	
+	if Input.is_action_pressed("ui_left_click"):
+		interact()
 	if Input.is_action_pressed("ui_right") or Input.is_action_pressed("ui_d"):
 		velocity.x += 1
 	if Input.is_action_pressed("ui_left") or Input.is_action_pressed("ui_a"):
@@ -52,11 +55,12 @@ func get_input():
 		throw_start = 0
 		if diff>1000: diff = 1000
 		throw(selected_slot, diff)
-		
+	
 	if Input.is_action_pressed("ui_shift"):
 		speed = 300 * horse_modifier
 	else:
 		speed = 100 * horse_modifier
+	
 	velocity = velocity.normalized() * speed
 
 func _process(delta):
@@ -64,22 +68,28 @@ func _process(delta):
 	rotation = lerp_angle(rotation, target_position.angle_to_point(global_position), rotation_speed * delta)
 	
 	get_input()
-	if(!interact_lock): velocity = move_and_slide(velocity)
+	
+	velocity = move_and_slide(velocity)
 	
 	if (health <= 0):
 		playerDead();
 	
 	horse_modifier = $"../Horse".horse_modifier
+	
 	if $"../Horse".mounted:
 		$"../Horse".position = self.position
 	
 func playerDead():
 	get_tree().reload_current_scene()
 	
-func shoot():
+func shoot(options):
 	var b = BULLET.instance()
+	b.damage = options.damage
+	b.speed = options.speed
+	b.get_node("Sprite").texture = load(options.img)
 	owner.add_child(b)
 	b.transform = $LocationBullet.global_transform
+	$BulletTimer.wait_time = 1.0 / options.rps
 	$BulletTimer.start()
 
 func pickup(item):
@@ -103,7 +113,17 @@ func throw(slot, weight):
 	inventory[slot] = null
 	
 	switch_holding()
+
+func interact():
+	var item = inventory[selected_slot]
 	
+	if(item == null): return
+	
+	var options = item.options
+	
+	match item.action:
+		"SHOOT":
+			if $BulletTimer.is_stopped(): shoot(options)
 
 func switch_holding():
 	if(inventory[selected_slot] == null): 
