@@ -4,10 +4,11 @@ var DISTANCE_TO_CLOSE = 100
 
 var child
 export var rotation_speed = 5
-var mood = 0
+var mood = 1
 var speed = 50
 var path : = PoolVector2Array()
 var player_close = false
+var health = 100
 onready var BULLET = preload("res://objects/Bullet.tscn")
 
 func _process(delta):
@@ -43,6 +44,9 @@ func _process(delta):
 	var target_position = $"/root/MainScene/Player".position
 	
 	rotation = lerp_angle(rotation, target_position.angle_to_point(global_position), rotation_speed * delta)
+	
+	if (health <= 0):
+		npc_dead()
 		
 
 func _story_message(id):
@@ -65,3 +69,8 @@ func npc_shoot():
 	owner.add_child(b)
 	b.transform = $LocationBullet.global_transform
 	$BulletTimer.start()
+	
+func npc_dead():
+	mood = -1
+	speed = 0
+	rotation_speed = 0
