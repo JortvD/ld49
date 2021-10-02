@@ -7,7 +7,7 @@ var types = [
 ]
 var items = []
 
-func create_item(name, position):
+func create_item(name, transform, player, weight):
 	var type
 	for i in types:
 		if(i["name"] == name):
@@ -19,6 +19,7 @@ func create_item(name, position):
 	var texture = load(type.img)
 	var item = ITEM.instance()
 	owner.add_child(item)
-	item.position = position
+	item.transform = transform
 	item.get_node("Sprite").texture = texture
-	items.push_back(item)
+	item.type = type
+	item.linear_velocity = player.position.direction_to(item.position) * weight
