@@ -7,6 +7,7 @@
 [ext_resource path="res://icon.png" type="Texture" id=5]
 [ext_resource path="res://building/Building.tscn" type="PackedScene" id=6]
 [ext_resource path="res://objects/Fire.tscn" type="PackedScene" id=7]
+[ext_resource path="res://dialog/DialogueSystem.tscn" type="PackedScene" id=7]
 
 [sub_resource type="NavigationPolygon" id=1]
 vertices = PoolVector2Array( -232, -224, 105.1, -243.29, 90.9422, -162.117, -150.69, -153.622, -384, 104, -145.97, 116.326, -152, 256, 129.641, 118.214, 129.641, -171.556, 523.237, -174.388, 432, 240, 160, 232, 134.361, 210.713, 56, 264 )
@@ -44,3 +45,7 @@ scale = Vector2( 4, 4 )
 texture = ExtResource( 5 )
 entrance_location = Vector2( 0, 35 )
 entrance_shape = Vector2( 10, 5 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Dialog" parent="CanvasLayer" instance=ExtResource( 7 )]

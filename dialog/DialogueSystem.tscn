@@ -1,0 +1,63 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://dialog/DialogueSystem.gd" type="Script" id=1]
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Dialogue Box" type="ColorRect" parent="."]
+visible = false
+margin_left = 164.182
+margin_top = 457.523
+margin_right = 847.182
+margin_bottom = 587.523
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Name" type="RichTextLabel" parent="Dialogue Box"]
+margin_left = 19.6546
+margin_top = 7.0
+margin_right = 170.655
+margin_bottom = 47.0
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+
+[node name="Text" type="RichTextLabel" parent="Dialogue Box"]
+margin_left = 18.7818
+margin_top = 34.264
+margin_right = 665.782
+margin_bottom = 92.264
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Choice1" type="Button" parent="Dialogue Box"]
+margin_left = 72.5371
+margin_top = 98.614
+margin_right = 84.5371
+margin_bottom = 118.614
+
+[node name="Choice2" type="Button" parent="Dialogue Box"]
+margin_left = 394.668
+margin_top = 99.7806
+margin_right = 406.668
+margin_bottom = 119.781
+
+[node name="Choice3" type="Button" parent="Dialogue Box"]
+margin_left = 245.984
+margin_top = 100.125
+margin_right = 257.984
+margin_bottom = 120.125
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="Dialogue Box/Choice1" to="." method="_on_Choice1_pressed"]
+[connection signal="pressed" from="Dialogue Box/Choice2" to="." method="_on_Choice2_pressed"]
+[connection signal="pressed" from="Dialogue Box/Choice3" to="." method="_on_Choice3_pressed"]

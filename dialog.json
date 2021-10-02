@@ -1,0 +1,56 @@
+{
+	"stories": [
+		{
+			"id": "test",
+			"dictionary": ["name"],
+			"variables": ["lifes"],
+			"start": "a1",
+			"messages": [
+				{
+					"id": "a1",
+					"type": "CONTINUE",
+					"name": "You",
+					"text": "Life is good.",
+					"next": "a2"
+				},
+				{
+					"id": "a2",
+					"type": "QUESTION",
+					"text": "Do you, #name#, want to die",
+					"name": "Leia",
+					"choices": [
+						{"text": "Yes", "next": "b1"},
+						{"text": "No", "next": "c2"}
+					]
+				},
+				{
+					"id": "b1",
+					"type": "LOGIC",
+					"t": "b2",
+					"f": "b3",
+					"var": "lifes",
+					"prop": "GT",
+					"const": 10
+				},
+				{
+					"id": "b2",
+					"type": "EXIT",
+					"name": "Leia",
+					"text": "I cannot kill you"
+				},
+				{
+					"id": "b3",
+					"type": "EXIT",
+					"name": "Leia",
+					"text": "You died"
+				},
+				{
+					"id": "c1",
+					"type": "EXIT",
+					"name": "Leia",
+					"text": "Goodbye then"
+				}
+			]
+		}
+	]
+}
