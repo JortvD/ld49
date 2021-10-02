@@ -8,9 +8,9 @@
 [ext_resource path="res://building/Building.tscn" type="PackedScene" id=6]
 
 [sub_resource type="NavigationPolygon" id=1]
-vertices = PoolVector2Array( -232, -224, 105.1, -243.29, 86.2228, -149.847, -204.49, -134.745, -384, 104, -211.098, 99.336, -152, 256, 56, 264, 186.273, 86.1218, 134.361, 210.713, 228.748, -180.995, 523.237, -174.388, 432, 240, 160, 232 )
-polygons = [ PoolIntArray( 0, 1, 2, 3 ), PoolIntArray( 4, 0, 3, 5 ), PoolIntArray( 6, 4, 5 ), PoolIntArray( 7, 6, 5, 8, 9 ), PoolIntArray( 10, 11, 12, 8 ), PoolIntArray( 8, 12, 13, 9 ) ]
-outlines = [ PoolVector2Array( 134.361, 210.713, 160, 232, 432, 240, 523.237, -174.388, 228.748, -180.995, 186.273, 86.1218, -211.098, 99.336, -204.49, -134.745, 86.2228, -149.847, 105.1, -243.29, -232, -224, -384, 104, -152, 256, 56, 264 ) ]
+vertices = PoolVector2Array( -232, -224, 105.1, -243.29, 90.9422, -162.117, -150.69, -153.622, -384, 104, -145.97, 116.326, -152, 256, 129.641, 118.214, 129.641, -171.556, 523.237, -174.388, 432, 240, 160, 232, 134.361, 210.713, 56, 264 )
+polygons = [ PoolIntArray( 0, 1, 2, 3 ), PoolIntArray( 4, 0, 3, 5, 6 ), PoolIntArray( 7, 8, 9, 10, 11, 12 ), PoolIntArray( 13, 6, 5, 7, 12 ) ]
+outlines = [ PoolVector2Array( 134.361, 210.713, 160, 232, 432, 240, 523.237, -174.388, 129.641, -171.556, 129.641, 118.214, -145.97, 116.326, -150.69, -153.622, 90.9422, -162.117, 105.1, -243.29, -232, -224, -384, 104, -152, 256, 56, 264 ) ]
 
 [node name="MainScene" type="Node2D"]
 script = ExtResource( 4 )
@@ -18,7 +18,7 @@ script = ExtResource( 4 )
 [node name="World" parent="." instance=ExtResource( 1 )]
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
-position = Vector2( 43.4438, 39.8138 )
+position = Vector2( 126.504, 282.362 )
 
 [node name="NPC" type="Sprite" parent="."]
 position = Vector2( 275.896, 167.678 )
@@ -38,5 +38,8 @@ default_color = Color( 1, 0.4, 0.4, 1 )
 [node name="Buildings" type="Node2D" parent="."]
 
 [node name="Building" parent="Buildings" instance=ExtResource( 6 )]
-scale = Vector2( 6, 3 )
+position = Vector2( 0.943848, -0.943863 )
+scale = Vector2( 4, 4 )
 texture = ExtResource( 5 )
+entrance_location = Vector2( 0, 35 )
+entrance_shape = Vector2( 10, 5 )
