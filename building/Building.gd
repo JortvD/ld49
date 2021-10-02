@@ -16,4 +16,4 @@ func _on_Area2D_body_entered(body):
 	if (body.name == "Player"):
 		get_node("../../Player").position = Vector2(-600,-600)
 	if (body.name == "NPC"):
-		get_node("../../NPC").position = Vector2(256,192)
+		get_node("../../NPC").position = Vector2(200,192)
