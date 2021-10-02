@@ -1,15 +1,71 @@
-[gd_scene format=2]
+[gd_scene load_steps=2 format=2]
 
-[node name="Control" type="Control"]
+[ext_resource path="res://UI/GUI.gd" type="Script" id=1]
+
+[node name="GUI" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ColorRect" type="ColorRect" parent="."]
-margin_left = 768.0
-margin_top = 16.0
-margin_right = 1008.0
-margin_bottom = 56.0
-color = Color( 0.772549, 0, 0, 1 )
+[node name="Panel" type="Panel" parent="."]
+margin_left = 960.0
+margin_top = 128.0
+margin_right = 1024.0
+margin_bottom = 192.0
+rect_pivot_offset = Vector2( 32, 96 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="Panel"]
+
+[node name="Panel2" type="Panel" parent="."]
+margin_left = 960.0
+margin_top = 192.0
+margin_right = 1024.0
+margin_bottom = 256.0
+rect_pivot_offset = Vector2( 32, 96 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite2" type="Sprite" parent="Panel2"]
+
+[node name="Panel3" type="Panel" parent="."]
+margin_left = 960.0
+margin_top = 256.0
+margin_right = 1024.0
+margin_bottom = 320.0
+rect_pivot_offset = Vector2( 32, 96 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite3" type="Sprite" parent="Panel3"]
+
+[node name="Panel4" type="Panel" parent="."]
+margin_left = 960.0
+margin_top = 320.0
+margin_right = 1024.0
+margin_bottom = 384.0
+rect_pivot_offset = Vector2( 32, 96 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite4" type="Sprite" parent="Panel4"]
+
+[node name="Panel5" type="Panel" parent="."]
+margin_left = 960.0
+margin_top = 384.0
+margin_right = 1024.0
+margin_bottom = 448.0
+rect_pivot_offset = Vector2( 32, 96 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite5" type="Sprite" parent="Panel5"]
