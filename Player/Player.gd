@@ -1,11 +1,12 @@
 extends KinematicBody2D
 
-var speed = 100
+export var speed = 100
+export var rotation_speed = 5
 var velocity = Vector2()
 
 func get_input():
 	velocity = Vector2()
-	look_at(get_global_mouse_position())
+	
 	if Input.is_action_pressed("ui_right"):
 		velocity.x += 1
 	if Input.is_action_pressed("ui_left"):
@@ -19,3 +20,7 @@ func get_input():
 func _physics_process(delta):
 	get_input()
 	velocity = move_and_slide(velocity)
+	
+	var target_position = get_global_mouse_position()
+	
+	rotation = lerp_angle(rotation, target_position.angle_to_point(global_position), rotation_speed * delta)
