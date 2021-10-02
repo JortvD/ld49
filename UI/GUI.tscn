@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://UI/GUI.gd" type="Script" id=1]
+[ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://health.png" type="Texture" id=3]
 
 [node name="GUI" type="Control"]
 anchor_right = 1.0
@@ -10,62 +12,108 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Panel" type="Panel" parent="."]
-margin_left = 960.0
-margin_top = 128.0
-margin_right = 1024.0
-margin_bottom = 192.0
+[node name="Panel1" type="Panel" parent="."]
+margin_left = 966.3
+margin_top = 73.2708
+margin_right = 1014.3
+margin_bottom = 121.271
 rect_pivot_offset = Vector2( 32, 96 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Sprite" type="Sprite" parent="Panel"]
+[node name="Sprite1" type="Sprite" parent="Panel1"]
+visible = false
+position = Vector2( 24, 24 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 2 )
 
 [node name="Panel2" type="Panel" parent="."]
-margin_left = 960.0
-margin_top = 192.0
-margin_right = 1024.0
-margin_bottom = 256.0
+margin_left = 966.3
+margin_top = 125.271
+margin_right = 1014.3
+margin_bottom = 173.271
 rect_pivot_offset = Vector2( 32, 96 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Sprite2" type="Sprite" parent="Panel2"]
+visible = false
+position = Vector2( 24, 24 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 2 )
 
 [node name="Panel3" type="Panel" parent="."]
-margin_left = 960.0
-margin_top = 256.0
-margin_right = 1024.0
-margin_bottom = 320.0
+margin_left = 966.3
+margin_top = 177.271
+margin_right = 1014.3
+margin_bottom = 225.271
 rect_pivot_offset = Vector2( 32, 96 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Sprite3" type="Sprite" parent="Panel3"]
+visible = false
+position = Vector2( 24, 24 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 2 )
 
 [node name="Panel4" type="Panel" parent="."]
-margin_left = 960.0
-margin_top = 320.0
-margin_right = 1024.0
-margin_bottom = 384.0
+margin_left = 966.3
+margin_top = 229.271
+margin_right = 1014.3
+margin_bottom = 277.271
 rect_pivot_offset = Vector2( 32, 96 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Sprite4" type="Sprite" parent="Panel4"]
+visible = false
+position = Vector2( 24, 24 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 2 )
 
 [node name="Panel5" type="Panel" parent="."]
-margin_left = 960.0
-margin_top = 384.0
-margin_right = 1024.0
-margin_bottom = 448.0
+margin_left = 966.3
+margin_top = 281.271
+margin_right = 1014.3
+margin_bottom = 329.271
 rect_pivot_offset = Vector2( 32, 96 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Sprite5" type="Sprite" parent="Panel5"]
+visible = false
+position = Vector2( 24, 24 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 2 )
+
+[node name="Panel" type="Panel" parent="."]
+margin_left = 955.0
+margin_top = 5.0
+margin_right = 1019.0
+margin_bottom = 69.0
+
+[node name="HealthBar" type="Panel" parent="."]
+margin_left = 745.0
+margin_top = 10.0
+margin_right = 951.0
+margin_bottom = 33.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureProgress" type="TextureProgress" parent="HealthBar"]
+margin_right = 206.0
+margin_bottom = 23.0
+value = 70.0
+texture_progress = ExtResource( 3 )
+fill_mode = 1
+tint_under = Color( 1, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}

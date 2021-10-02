@@ -74,6 +74,8 @@ func _process(delta):
 	if (health <= 0):
 		playerDead();
 	
+	$"/root/MainScene/CanvasLayer/GUI".set_health(health, health_max)
+	
 	horse_modifier = $"../Horse".horse_modifier
 	
 	if $"../Horse".mounted:
@@ -126,6 +128,8 @@ func interact():
 			if $BulletTimer.is_stopped(): shoot(options)
 
 func switch_holding():
+	$"/root/MainScene/CanvasLayer/GUI".update()
+	
 	if(inventory[selected_slot] == null): 
 		$Item.visible = false
 	else:
