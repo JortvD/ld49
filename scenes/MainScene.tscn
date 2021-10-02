@@ -1,12 +1,36 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://world/World.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/NPC.gd" type="Script" id=3]
+[ext_resource path="res://scenes/MainScene.gd" type="Script" id=4]
+[ext_resource path="res://icon.png" type="Texture" id=5]
+
+[sub_resource type="NavigationPolygon" id=1]
+vertices = PoolVector2Array( 402.276, 188.03, 536.971, 320.48, 86.8642, 315.99, 29.6186, 150.988, 113.803, 43.2319, -202.511, -17.73, -170.402, 286.707, -410.622, 284.329, -378.513, -225.841, 526.473, -219.895, 138.792, -56.9738, 539.216, 102.722, 394.419, 100.477 )
+polygons = [ PoolIntArray( 0, 1, 2, 3, 4 ), PoolIntArray( 5, 6, 7, 8 ), PoolIntArray( 5, 8, 9, 10 ), PoolIntArray( 10, 9, 11, 12, 4 ), PoolIntArray( 4, 12, 0 ) ]
+outlines = [ PoolVector2Array( 113.803, 43.2319, 29.6186, 150.988, 86.8642, 315.99, 536.971, 320.48, 402.276, 188.03, 394.419, 100.477, 539.216, 102.722, 526.473, -219.895, -378.513, -225.841, -410.622, 284.329, -170.402, 286.707, -202.511, -17.73, 138.792, -56.9738 ) ]
 
 [node name="MainScene" type="Node2D"]
 position = Vector2( 168.867, 152.219 )
+script = ExtResource( 4 )
 
 [node name="World" parent="." instance=ExtResource( 1 )]
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 43.4438, 39.8138 )
+
+[node name="NPC" type="Sprite" parent="."]
+position = Vector2( 275.896, 167.678 )
+texture = ExtResource( 5 )
+script = ExtResource( 3 )
+
+[node name="Navigation2D" type="Navigation2D" parent="."]
+
+[node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="Navigation2D"]
+position = Vector2( 0, -2 )
+navpoly = SubResource( 1 )
+
+[node name="Line2D" type="Line2D" parent="."]
+points = PoolVector2Array( 84.7354, 83.5898 )
+default_color = Color( 1, 0.4, 0.4, 1 )
