@@ -22,4 +22,6 @@ func _process(delta):
 	else:
 		if player_close:
 			player_close = false
+	if mounted:
+		rotation = $"/root/MainScene/Player".velocity.angle() + 0.5*PI
 
