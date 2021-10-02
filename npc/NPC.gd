@@ -9,6 +9,7 @@ var speed = 50
 var path : = PoolVector2Array()
 var player_close = false
 var health = 100
+var interact_lock = false
 onready var BULLET = preload("res://objects/Bullet.tscn")
 
 func _process(delta):
@@ -16,7 +17,7 @@ func _process(delta):
 	var distance_to_walk = speed * delta
 
 	# Move the player along the path until he has run out of movement or the path ends.
-	while distance_to_walk > 0 and path.size() > 0:
+	while distance_to_walk > 0 and path.size() > 0 and !interact_lock:
 		var distance_to_next_point = position.distance_to(path[0])
 		if distance_to_walk <= distance_to_next_point:
 			# The player does not have enough movement left to get to the next point.
@@ -47,7 +48,14 @@ func _process(delta):
 	
 	if (health <= 0):
 		npc_dead()
-		
+
+func start_conversation():
+	$"/root/MainScene/Player".interact_lock = true
+	interact_lock = true
+	
+func end_conversation():
+	$"/root/MainScene/Player".interact_lock = false
+	interact_lock = false
 
 func _story_message(id):
 	child._story_message(id)

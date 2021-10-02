@@ -11,6 +11,7 @@ var health_max = 100
 var faction_reputation = {"Rojo": 50, "Arizona": 50, "None": 50}
 var inventory = []
 var selected_slot = 0
+var interact_lock = false
 onready var BULLET = preload("res://objects/Bullet.tscn")
 var throw_start = 0
 
@@ -21,7 +22,7 @@ func _ready():
 func _input(event):
 	if event is InputEventKey and event.pressed:
 		if event.scancode == KEY_R:
-			$"/root/MainScene/Items".create_item("gun", $LocationBullet.global_transform, self, 1000)
+			$"/root/MainScene/Items".create_item_for_player("gun", $LocationBullet.global_transform, self, 1000)
 	if Input.is_action_just_pressed("ui_scroll_down"):
 		selected_slot = (selected_slot+1)%INVENTORY_SIZE
 		if(selected_slot < 0): selected_slot += 5
@@ -34,7 +35,7 @@ func _input(event):
 func get_input():
 	velocity = Vector2()
 	
-	if Input.is_action_pressed("ui_left_click") and $BulletTimer.is_stopped():
+	if Input.is_action_pressed("ui_left_click") and $BulletTimer.is_stopped() and interact_lock:
 		shoot()
 	if Input.is_action_pressed("ui_right") or Input.is_action_pressed("ui_d"):
 		velocity.x += 1
@@ -58,12 +59,12 @@ func get_input():
 		speed = 100 * horse_modifier
 	velocity = velocity.normalized() * speed
 
-func _physics_process(delta):
+func _process(delta):
 	var target_position = get_global_mouse_position()
 	rotation = lerp_angle(rotation, target_position.angle_to_point(global_position), rotation_speed * delta)
 	
 	get_input()
-	velocity = move_and_slide(velocity)
+	if(!interact_lock): velocity = move_and_slide(velocity)
 	
 	if (health <= 0):
 		playerDead();
@@ -97,7 +98,7 @@ func throw(slot, weight):
 	
 	var item = inventory[slot]
 	
-	$"/root/MainScene/Items".create_item(item.name, $LocationBullet.global_transform, self, weight)
+	$"/root/MainScene/Items".create_item_for_player(item.name, $LocationBullet.global_transform, self, weight)
 	
 	inventory[slot] = null
 	

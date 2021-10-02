@@ -5,9 +5,8 @@ onready var ITEM = preload("res://items/Item.tscn")
 var types = [
 	{"name": "gun", "img": "res://icon.png"}
 ]
-var items = []
 
-func create_item(name, transform, player, weight):
+func create_item_for_player(name, transform, player, weight):
 	var type
 	for i in types:
 		if(i["name"] == name):
@@ -23,3 +22,4 @@ func create_item(name, transform, player, weight):
 	item.get_node("Sprite").texture = texture
 	item.type = type
 	item.linear_velocity = player.position.direction_to(item.position) * weight
+	item.angular_velocity = 10
