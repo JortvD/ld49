@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://world/World.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
@@ -11,7 +11,6 @@
 [ext_resource path="res://npc/Handler1.gd" type="Script" id=9]
 [ext_resource path="res://items/Items.gd" type="Script" id=10]
 [ext_resource path="res://scenes/MainScene.gd" type="Script" id=11]
-[ext_resource path="res://UI/GUI.tscn" type="PackedScene" id=12]
 
 [sub_resource type="NavigationPolygon" id=1]
 vertices = PoolVector2Array( -232, -224, 105.1, -243.29, 90.9422, -162.117, -150.69, -153.622, -384, 104, -145.97, 116.326, -152, 256, 129.641, 118.214, 129.641, -171.556, 523.237, -174.388, 432, 240, 160, 232, 134.361, 210.713, 56, 264 )
@@ -28,8 +27,6 @@ position = Vector2( 300, 400 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 126.504, 282.362 )
-
-[node name="GUI" parent="Player" instance=ExtResource( 12 )]
 
 [node name="NPC" parent="." instance=ExtResource( 3 )]
 
