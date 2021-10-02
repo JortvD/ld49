@@ -24,7 +24,7 @@ scale = Vector2( 3.5, 3.5 )
 shape = SubResource( 1 )
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 0.1
+wait_time = 100.0
 one_shot = true
 
 [node name="Check1" type="Area2D" parent="."]
