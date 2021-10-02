@@ -4,9 +4,13 @@ export var speed = 100
 export var rotation_speed = 5
 var velocity = Vector2()
 var health = 100
-var reputation_rojo = 50
-var reputation_Arizona = 50
+var faction_reputation = {"Rojo": 50, "Arizona": 50}
 onready var BULLET = preload("res://objects/Bullet.tscn")
+
+func _input(event):
+	if event is InputEventKey and event.pressed:
+		if event.scancode == KEY_R:
+			$"/root/MainScene/Items".create_item("gun", position)
 
 func get_input():
 	velocity = Vector2()
