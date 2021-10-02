@@ -4,6 +4,7 @@ var speed = 100
 var velocity = Vector2()
 
 func get_input():
+	velocity = Vector2()
 	look_at(get_global_mouse_position())
 	if Input.is_action_pressed("ui_right"):
 		velocity.x += 1
@@ -17,4 +18,4 @@ func get_input():
 
 func _physics_process(delta):
 	get_input()
-	velocity = move_and_slide(velocity)
+	velocity = move_and_slide(velocity) * delta
