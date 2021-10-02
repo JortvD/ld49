@@ -10,6 +10,10 @@ func _unhandled_input(event):
 			var path = $Navigation2D.get_simple_path($NPC.position, Vector2(256,192))
 			$Line2D.points = path
 			$NPC.path = path
+		if Input.is_action_pressed("ui_3"):
+			var path = $Navigation2D.get_simple_path($NPC.position, $Player.position)
+			$Line2D.points = path
+			$NPC.path = path
 
 func _input(event):
 	if event is InputEventKey and event.pressed:

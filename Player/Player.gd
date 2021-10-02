@@ -4,6 +4,8 @@ export var speed = 100
 export var rotation_speed = 5
 var velocity = Vector2()
 var health = 100
+var reputation_rojo
+var reputation_Arizona
 
 func get_input():
 	velocity = Vector2()
