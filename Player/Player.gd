@@ -20,6 +20,14 @@ func _input(event):
 	if event is InputEventKey and event.pressed:
 		if event.scancode == KEY_R:
 			$"/root/MainScene/Items".create_item("gun", $LocationBullet.global_transform, self, 1000)
+	if Input.is_action_just_pressed("ui_scroll_down"):
+		selected_slot = (selected_slot+1)%INVENTORY_SIZE
+		if(selected_slot < 0): selected_slot += 5
+		switch_holding()
+	if Input.is_action_just_pressed("ui_scroll_up"):
+		selected_slot = (selected_slot-1)%INVENTORY_SIZE
+		if(selected_slot < 0): selected_slot += 5
+		switch_holding()
 
 func get_input():
 	velocity = Vector2()
@@ -71,11 +79,13 @@ func pickup(item):
 	for n in range(INVENTORY_SIZE):
 		if(inventory[n] == null):
 			inventory[n] = item
-			print(inventory)
+			
+			switch_holding()
+			
 			return true
 	
 	return false
-	
+
 func throw(slot, weight):
 	if(inventory[slot] == null): return
 	
@@ -85,4 +95,21 @@ func throw(slot, weight):
 	
 	inventory[slot] = null
 	
-	print(inventory)
+	switch_holding()
+	
+
+func switch_holding():
+	if(inventory[selected_slot] == null): 
+		$Item.visible = false
+	else:
+		$Item.texture = load(inventory[selected_slot].img)
+		$Item.visible = true
+	
+	var next_slot = (selected_slot+1)%INVENTORY_SIZE
+	if(next_slot < 0): next_slot += 5
+	
+	if(inventory[next_slot] == null):
+		$Holster.visible = false
+	else:
+		$Holster.texture = load(inventory[next_slot].img)
+		$Holster.visible = true
