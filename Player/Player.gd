@@ -4,8 +4,10 @@ const INVENTORY_SIZE = 5
 
 export var speed = 100
 export var rotation_speed = 5
+var horse_modifier = 2
 var velocity = Vector2()
 var health = 100
+var health_max = 100
 var faction_reputation = {"Rojo": 50, "Arizona": 50, "None": 50}
 var inventory = []
 var selected_slot = 0
@@ -51,9 +53,9 @@ func get_input():
 		throw(selected_slot, diff)
 		
 	if Input.is_action_pressed("ui_shift"):
-		speed = 300
+		speed = 300 * horse_modifier
 	else:
-		speed = 100
+		speed = 100 * horse_modifier
 	velocity = velocity.normalized() * speed
 
 func _physics_process(delta):
@@ -65,6 +67,10 @@ func _physics_process(delta):
 	
 	if (health <= 0):
 		playerDead();
+	
+	horse_modifier = $"../Horse".horse_modifier
+	if $"../Horse".mounted:
+		$"../Horse".position = self.position
 	
 func playerDead():
 	get_tree().reload_current_scene()
