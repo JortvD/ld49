@@ -14,14 +14,3 @@ func _unhandled_input(event):
 			var path = $Navigation2D.get_simple_path($NPC.position, $Player.position)
 			$Line2D.points = path
 			$NPC.path = path
-
-func _input(event):
-	if event is InputEventKey and event.pressed:
-		if event.scancode == KEY_SPACE:
-			$"CanvasLayer/Dialog".start_story("test", {"name": "Jort"}, {"lifes": 5}, self)
-		
-func _story_message(i):
-	pass
-
-func _story_exit(i):
-	pass

@@ -46,6 +46,11 @@ func open_message(id):
 			message = i
 			break
 	
+	if(message == null):
+		printerr("DialogueSystem - could not find message")
+		crash_dialog()
+		return
+	
 	cur_story.node._story_message(message.id)
 	cur_message = message
 	
@@ -96,6 +101,11 @@ func _dialog_pressed(n):
 			cur_story.node._story_exit(cur_message.id)
 			cur_story = null
 			cur_message = null
+			
+func crash_dialog():
+	hide_dialog()
+	cur_story = null
+	cur_message = null
 
 func parse_text(text, dict):
 	var newstr = ""

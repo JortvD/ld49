@@ -1,7 +1,11 @@
 extends KinematicBody2D
 
+var DISTANCE_TO_CLOSE = 100
+
+var child
 var speed = 50
 var path : = PoolVector2Array()
+var player_close = false
 
 func _process(delta):
 	# Calculate the movement distance for this frame
@@ -19,3 +23,28 @@ func _process(delta):
 			path.remove(0)
 		# Update the distance to walk
 		distance_to_walk -= distance_to_next_point
+	
+	var distance = position.distance_to($"/root/MainScene/Player".position)
+	if distance <= DISTANCE_TO_CLOSE:
+		if !player_close: 
+			player_close = true
+			child._handle_entering_player(distance)
+	else:
+		if player_close:
+			player_close = false
+			child._handle_leaving_player(distance)
+
+func _story_message(id):
+	child._story_message(id)
+
+func _story_exit(id):
+	child._story_exit(id)
+
+func show_text():
+	$Label.visible = true
+	
+func hide_text():
+	$Label.visible = false
+
+func set_text(text):
+	$Label.text = text

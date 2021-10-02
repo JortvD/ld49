@@ -20,7 +20,7 @@
 					"name": "Leia",
 					"choices": [
 						{"text": "Yes", "next": "b1"},
-						{"text": "No", "next": "c2"}
+						{"text": "No", "next": "c1"}
 					]
 				},
 				{
