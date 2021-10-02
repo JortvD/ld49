@@ -3,10 +3,11 @@ extends KinematicBody2D
 var DISTANCE_TO_CLOSE = 100
 
 var child
-enum mood {HAPPY, BLOODTHIRSTY, SCARED}
+var mood = 1
 var speed = 50
 var path : = PoolVector2Array()
 var player_close = false
+onready var BULLET = preload("res://objects/Bullet.tscn")
 
 func _process(delta):
 	# Calculate the movement distance for this frame
@@ -34,6 +35,10 @@ func _process(delta):
 		if player_close:
 			player_close = false
 			child._handle_leaving_player(distance)
+	
+	if mood == 1 and $BulletTimer.is_stopped():
+		npc_shoot()
+		
 
 func _story_message(id):
 	child._story_message(id)
@@ -49,3 +54,9 @@ func hide_text():
 
 func set_text(text):
 	$Label.text = text
+
+func npc_shoot():
+	var b = BULLET.instance()
+	owner.add_child(b)
+	b.transform = $LocationBullet.global_transform
+	$BulletTimer.start()
