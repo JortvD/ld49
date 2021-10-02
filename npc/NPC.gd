@@ -3,6 +3,7 @@ extends KinematicBody2D
 var DISTANCE_TO_CLOSE = 100
 
 var child
+enum mood {HAPPY, BLOODTHIRSTY, SCARED}
 var speed = 50
 var path : = PoolVector2Array()
 var player_close = false

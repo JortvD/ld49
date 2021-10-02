@@ -4,12 +4,15 @@ export var speed = 100
 export var rotation_speed = 5
 var velocity = Vector2()
 var health = 100
-var reputation_rojo
-var reputation_Arizona
+var reputation_rojo = 50
+var reputation_Arizona = 50
+onready var BULLET = preload("res://objects/Bullet.tscn")
 
 func get_input():
 	velocity = Vector2()
 	
+	if Input.is_action_pressed("ui_q"):
+		shoot()
 	if Input.is_action_pressed("ui_right") or Input.is_action_pressed("ui_d"):
 		velocity.x += 1
 	if Input.is_action_pressed("ui_left") or Input.is_action_pressed("ui_a"):
@@ -37,5 +40,10 @@ func _physics_process(delta):
 	
 func playerDead():
 	get_tree().reload_current_scene()
+	
+func shoot():
+	var b = BULLET.instance()
+	owner.add_child(b)
+	b.transform = self.global_transform
 	
 
