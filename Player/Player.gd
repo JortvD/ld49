@@ -11,7 +11,7 @@ onready var BULLET = preload("res://objects/Bullet.tscn")
 func get_input():
 	velocity = Vector2()
 	
-	if Input.is_action_pressed("ui_q"):
+	if Input.is_action_pressed("ui_q") and $BulletTimer.is_stopped():
 		shoot()
 	if Input.is_action_pressed("ui_right") or Input.is_action_pressed("ui_d"):
 		velocity.x += 1
@@ -44,6 +44,7 @@ func playerDead():
 func shoot():
 	var b = BULLET.instance()
 	owner.add_child(b)
-	b.transform = self.global_transform
+	b.transform = $LocationBullet.global_transform
+	$BulletTimer.start()
 	
 
