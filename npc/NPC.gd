@@ -3,7 +3,8 @@ extends KinematicBody2D
 var DISTANCE_TO_CLOSE = 100
 
 var child
-var mood = 1
+export var rotation_speed = 5
+var mood = 0
 var speed = 50
 var path : = PoolVector2Array()
 var player_close = false
@@ -38,6 +39,10 @@ func _process(delta):
 	
 	if mood == 1 and $BulletTimer.is_stopped():
 		npc_shoot()
+		
+	var target_position = $"/root/MainScene/Player".position
+	
+	rotation = lerp_angle(rotation, target_position.angle_to_point(global_position), rotation_speed * delta)
 		
 
 func _story_message(id):
