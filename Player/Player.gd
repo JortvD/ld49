@@ -13,6 +13,7 @@ var selected_slot = 0
 var interact_lock = false
 onready var BULLET = preload("res://objects/Bullet.tscn")
 var throw_start = 0
+var in_building = null
 
 var alcohol = 1
 var money = 0

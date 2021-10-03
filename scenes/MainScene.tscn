@@ -537,6 +537,12 @@ position = Vector2( 358.882, -839.291 )
 [node name="BR" type="Node2D" parent="Buildings/Bank"]
 position = Vector2( 470.751, -659.616 )
 
+[node name="Location" type="Node2D" parent="Buildings/Bank"]
+position = Vector2( 379.429, -824.948 )
+
+[node name="Location2" type="Node2D" parent="Buildings/Bank"]
+position = Vector2( 451.013, -825.445 )
+
 [node name="HouseF" parent="Buildings" instance=ExtResource( 6 )]
 position = Vector2( 5059.73, 2431.69 )
 scale = Vector2( 4, 4 )
@@ -865,11 +871,11 @@ in_building = "HouseA"
 [node name="Handler" type="Node" parent="NPCs/Doctor"]
 script = ExtResource( 19 )
 
-[node name="FiredepartmentMan" parent="NPCs" instance=ExtResource( 3 )]
+[node name="FireDepartmentMan" parent="NPCs" instance=ExtResource( 3 )]
 position = Vector2( 8192, 4424 )
 in_building = "HouseA"
 
-[node name="Handler" type="Node" parent="NPCs/FiredepartmentMan"]
+[node name="Handler" type="Node" parent="NPCs/FireDepartmentMan"]
 script = ExtResource( 20 )
 
 [node name="FireDepartmentWoman" parent="NPCs" instance=ExtResource( 3 )]

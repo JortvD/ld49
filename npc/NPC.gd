@@ -29,10 +29,10 @@ var names = {
 	"Postman": "Henk",
 	"Sheriff": "Frank",
 	"GeneralStoreman": "Stef",
-	"Bankwoman": "Leia",
+	"BankWoman": "Leia",
 	"Doctor": "Olivia",
-	"FireDepartmentGuy": "Oliver",
-	"FireDepartmentGirl": "Sophie",
+	"FireDepartmentMan": "Oliver",
+	"FireDepartmentWoman": "Sophie",
 	"OldJoe": "Old Joe",
 	"SaloonOwner": "Silvia"
 }
