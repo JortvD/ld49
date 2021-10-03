@@ -4,7 +4,7 @@ var first_time = false
 
 func _ready():
 	var house_c = $"/root/MainScene/Buildings/HouseC"
-	var post_man_office  = $"/root/MainScene/Buildings/Postmaster"
+	var post_man_office  = $"/root/MainScene/Buildings/Postman"
 	var fire_department  = $"/root/MainScene/Buildings/FireDepartment"
 	var doctor  = $"/root/MainScene/Buildings/Doctor"
 	var house_a = $"/root/MainScene/Buildings/HouseA"

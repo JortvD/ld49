@@ -1,6 +1,7 @@
 extends Node2D
 
 var ending = 0
+var MAX_FIRES = 1000
 
 var city = {
 	"unplaced_money": 4,
@@ -44,12 +45,26 @@ func _process(delta):
 				del_checks.erase(del_check)
 				del_check["item"].remove()
 		$Timers/DeleteTimer.start()
+	
+	if($Timers/FireTimer.is_stopped()):
+		var fires = count_children($World, "Fire")
+		if()
+		$Timers/FireTimer.start()
+	
 	Check_all_dead()
 
 func decrease_all_reputations(amount, subject, exclude):
 	for player in $NPCs/Mayor.names.keys():
 		if(exclude.has(player)): continue
 		get_node("NPCs/" + player).reputation[subject] -= amount
+
+func count_children(node, name):
+	var count = 0
+	
+	for child in node.get_children():
+		if name in child.name: count += 1
+	
+	return count
 
 func hour_events(hour):
 	match hour:
@@ -132,7 +147,11 @@ func _input(event):
 	if event is InputEventKey and event.pressed:
 		if event.scancode == KEY_C:
 			$"NPCs/Mayor".reputation['Player'] = 0
-			
+
+func check_too_many_fires(n):
+	if(n > MAX_FIRES):
+		pass
+
 func Check_all_dead():
 	if($NPCs/Mayor.dead == true and $NPCs/Postman.dead == true and $NPCs/Sheriff.dead == true and $NPCs/GeneralStoreman.dead == true and $NPCs/BankWoman.dead == true and $NPCs/Doctor.dead == true and $NPCs/FireDepartmentMan.dead == true and $NPCs/FireDepartmentWoman.dead == true and $NPCs/OldJoe.dead == true and $NPCs/SaloonOwner.dead == true):
 		ending = 1
