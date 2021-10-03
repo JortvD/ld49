@@ -762,6 +762,7 @@ position = Vector2( 7456, -1120 )
 script = ExtResource( 18 )
 
 [node name="Doctor" parent="NPCs" instance=ExtResource( 3 )]
+position = Vector2( 7984, 2408 )
 
 [node name="Handler" type="Node" parent="NPCs/Doctor"]
 script = ExtResource( 19 )
