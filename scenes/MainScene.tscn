@@ -687,9 +687,9 @@ position = Vector2( 1495.26, 463.886 )
 position = Vector2( 1689.04, 599.695 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 2
 
 [node name="Dialog" parent="CanvasLayer" instance=ExtResource( 7 )]
-mouse_filter = 2
 
 [node name="GUI" parent="CanvasLayer" instance=ExtResource( 12 )]
 mouse_filter = 2

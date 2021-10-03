@@ -18,11 +18,11 @@ func _ready():
 		{"at": 19, "type": "MOVE", "moves": [bank.get_exit_position(), saloon.get_entrance_position(), saloon.get_random_spot()]}
 	]
 	
-#func _input(event):
-#	if event is InputEventKey and event.pressed and $"..".player_close:
-#		if event.scancode == KEY_SPACE:
-#			$"/root/MainScene/CanvasLayer/Dialog".start_story("test", {"name": "Jort"}, {"lifes": 5}, self)
-#			$"..".start_conversation()
+func _input(event):
+	if event is InputEventKey and event.pressed and $"..".player_close:
+		if event.scancode == KEY_SPACE:
+			$"/root/MainScene/CanvasLayer/Dialog".start_story("mayor-intro", {"npc": $"..".names["Mayor"]}, {}, self)
+			$"..".start_conversation()
 
 func _story_message(id):
 	pass
@@ -32,7 +32,7 @@ func _story_exit(id):
 
 func _handle_entering_player(distance):
 	$"..".show_text()
-	$"..".set_text("Press SPACE")
+	$"..".set_text("Press SPACE to talk")
 
 func _handle_leaving_player(distance):
 	$"..".hide_text()

@@ -1,6 +1,51 @@
 {
 	"stories": [
 		{
+			"id": "mayor-intro",
+			"dictionary": ["npc"],
+			"variables": [],
+			"start": "a1",
+			"messages": [
+				{
+					"id": "a1",
+					"type": "CONTINUE",
+					"name": "Mayor #npc#",
+					"text": "Welcome to our town, stranger. As you might notice we are on the edge of what is known as the new frontier, albeit it a bit empty around here.",
+					"next": "a2"
+				},
+				{
+					"id": "a2",
+					"type": "QUESTION",
+					"name": "Mayor #npc#",
+					"text": "What brings you here?",
+					"choices": [
+						{"text": "Freedom", "next": "b1"},
+						{"text": "Business and pleasure", "next": "c1"}
+					]
+				},
+				{
+					"id": "b1",
+					"type": "CONTINUE",
+					"name": "Mayor #npc#",
+					"text": "Yes, freedom we have that here, but that freedom is a bit limited by our environment.",
+					"next": "b2"
+				},
+				{
+					"id": "b2",
+					"type": "EXIT",
+					"name": "Mayor #npc#",
+					"text": "Well, I have to go now. TELL SOMETHING TO DO."
+				},
+				{
+					"id": "c1",
+					"type": "CONTINUE",
+					"name": "Mayor #npc#",
+					"text": "We have neither, nor can we provide any work and you look like you can use some.",
+					"next": "b2"
+				}
+			]
+		},
+		{
 			"id": "test",
 			"dictionary": ["name"],
 			"variables": ["lifes"],

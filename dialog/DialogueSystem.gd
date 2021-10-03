@@ -57,14 +57,14 @@ func open_message(id):
 	match message.type:
 		"CONTINUE":
 			show_dialog()
-			show_text(message.name, parse_text(message.text, cur_story.dict), [{"text": "Continue", "node": self}])
+			show_text(parse_text(message.name, cur_story.dict), parse_text(message.text, cur_story.dict), [{"text": "Continue", "node": self}])
 		"QUESTION":
 			var choices = []
 			for choice in message.choices:
 				choices.push_back({"text": parse_text(choice.text, cur_story.dict), "node": self})
 			
 			show_dialog()
-			show_text(message.name, parse_text(message.text, cur_story.dict), choices)
+			show_text(parse_text(message.name, cur_story.dict), parse_text(message.text, cur_story.dict), choices)
 		"LOGIC":
 			match message.prop:
 				"EQ": # =
@@ -85,7 +85,7 @@ func open_message(id):
 					else: open_message(message.f)
 		"EXIT":
 			show_dialog()
-			show_text(message.name, parse_text(message.text, cur_story.dict), [{"text": "Exit", "node": self}])
+			show_text(parse_text(message.name, cur_story.dict), parse_text(message.text, cur_story.dict), [{"text": "Exit", "node": self}])
 	
 func _dialog_pressed(n):
 	if(cur_story == null): return
