@@ -73,3 +73,8 @@ texture = ExtResource( 1 )
 [node name="AttackTimer" type="Timer" parent="."]
 one_shot = true
 autostart = true
+
+[node name="FollowTimer" type="Timer" parent="."]
+process_mode = 0
+wait_time = 0.1
+one_shot = true

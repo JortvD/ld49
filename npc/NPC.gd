@@ -27,6 +27,8 @@ var last_minutes = -1
 var walking = false
 export(String) var in_building
 var next_moves = []
+var followClose = false
+var followDistance = 300
 # Mostly temporary names
 var names = {
 	"Mayor": "Mark",
@@ -88,6 +90,13 @@ func _process(delta):
 		distance_to_walk -= distance_to_next_point
 		
 		if(len(path) > 0): rotation = position.angle_to_point(path[0]) + PI
+	
+	if($FollowTimer.is_stopped() and mood == MOOD.ATTACK):
+		if(followClose):
+			pass
+		else:
+			var to = position.direction_to(target.global_position) * (position.distance_to(target.global_position) - followDistance)
+		$FollowTimer.start()
 		
 	if(path.size() == 0):
 		if(len(next_moves) > 0):
@@ -106,6 +115,16 @@ func _process(delta):
 			{"at": 6, "mins": 0, "type": "MOVE", "moves": [deranged_positions[randi() % deranged_positions.size()]], "force_outside": true},
 			{"at": 8, "mins": 0, "type": "MOVE", "moves": [saloon.get_entrance_position(), saloon.get_random_spot()], "force_outside": true}
 		]
+	
+	if($AttackTimer.is_stopped()):
+		var seen = $"/root/MainScene".check_player_rays()
+		if(mood == MOOD.ATTACK): mood = MOOD.DEFAULT 
+		for character in seen.keys():
+			if(seen[character] and reputation[character] <= 0 and can_attack and weapon != null):
+				mood = MOOD.ATTACK
+				handle_override_task({"type": "FOLLOW_CLOSE" if weapon.action == "STAB" else "FOLLOW_DISTANT", "target": character})
+				break
+		$AttackTimer.start()
 		
 	if(weapon != null):
 		if(mood == MOOD.ATTACK or mood == MOOD.BLOODTHIRST):
@@ -117,15 +136,10 @@ func _process(delta):
 	else:
 		$Holster.visible = false
 		$Holding.visible = false
-	
-	if($AttackTimer.is_stopped()):
-		var seen = $"/root/MainScene".check_player_rays()
-		if(mood == MOOD.ATTACK): mood = MOOD.DEFAULT 
-		for player in seen.keys():
-			if(seen[player] and reputation[player] <= 0 and can_attack and weapon != null):
-				mood = MOOD.ATTACK
-				target = player
-		$AttackTimer.start()
+		
+	if(mood == MOOD.ATTACK and $BulletTimer.is_stopped()):
+		attack()
+		$BulletTimer.start()
 	
 	var hour = $"/root/MainScene/CanvasLayer/DayNightCycle".hour
 	var minutes = $"/root/MainScene/CanvasLayer/DayNightCycle".minutes
@@ -159,6 +173,9 @@ func _process(delta):
 #	if (health <= 0):
 #		npc_dead()
 
+func attack():
+	pass
+
 func handle_scheduled_task(task):
 	scheduled_task = task
 	
@@ -176,6 +193,12 @@ func handle_task(task):
 		"MOVE":
 			next_moves = task.moves
 			if(in_building != null and "force_outside" in task and task["force_outside"]): next_moves.push_front(get_node("/root/MainScene/Buildings/" + in_building + "/").get_exit_position())
+		"FOLLOW_DISTANT":
+			followClose = false
+			target = task.target
+		"FOLLOW_CLOSE":
+			followClose = true
+			target = task.target
 		_:
 			child._handle_custom_task(task)
 
