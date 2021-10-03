@@ -93,21 +93,27 @@ func _process(delta):
 	
 	if($FollowTimer.is_stopped() and mood == MOOD.ATTACK):
 		if(followClose):
-			pass
+			next_moves = [target.global_position]
 		else:
-			var to = position.direction_to(target.global_position) * (position.distance_to(target.global_position) - followDistance)
-			next_moves
+			var to = position.direction_to(target.global_position) * (position.distance_to(target.global_position) - followDistance) + position
+			next_moves = [to]
+		path = PoolVector2Array()
 		$FollowTimer.start()
+	
+	if(mood == MOOD.ATTACK):
+		rotation = lerp_angle(rotation, target.position.angle_to_point(global_position), rotation_speed * delta)
 		
 	if(path.size() == 0):
 		if(len(next_moves) > 0):
 			var move = next_moves.pop_front()
 			path = $"/root/MainScene/Navigation2D".get_simple_path(position, move)
-	#		print("now moving from ", position, " to ", move, " by ", path)
-			$"/root/MainScene/Line2D".points = path
 		elif(walking):
 			walking = false
 			if($AnimatedSprite.frames != null): $AnimatedSprite.play("default")
+			
+	if(mood == MOOD.ATTACK and len(path) == 0):
+		override_task == null
+		mood = MOOD.DEFAULT
 	
 	if mood == MOOD.DERANGED:
 		schedule = [
@@ -118,13 +124,14 @@ func _process(delta):
 		]
 	
 	if($AttackTimer.is_stopped()):
-		var seen = $"/root/MainScene".check_player_rays()
+		var seen = $"/root/MainScene".check_npc_rays(name)
 		if(mood == MOOD.ATTACK): mood = MOOD.DEFAULT 
-		for character in seen.keys():
-			if(character == name): continue;
-			if(seen[character] and reputation[character] <= 0 and can_attack and weapon != null):
+		for c in seen.keys():
+			if(c == name): continue;
+			#print(c, " ", seen[c], " ", reputation[c], can_attack, weapon)
+			if(seen[c] and reputation[c] <= 0 and can_attack and weapon != null):
 				mood = MOOD.ATTACK
-				handle_override_task({"type": "FOLLOW_CLOSE" if weapon.action == "STAB" else "FOLLOW_DISTANT", "target": character})
+				handle_override_task({"type": "FOLLOW_CLOSE" if weapon.action == "STAB" else "FOLLOW_DISTANT", "target": c})
 				break
 		$AttackTimer.start()
 		
@@ -141,6 +148,7 @@ func _process(delta):
 		
 	if(mood == MOOD.ATTACK and $BulletTimer.is_stopped()):
 		attack()
+		$BulletTimer.wait_time = 1 / weapon.options.rps
 		$BulletTimer.start()
 	
 	var hour = $"/root/MainScene/CanvasLayer/DayNightCycle".hour
@@ -164,19 +172,12 @@ func _process(delta):
 		if player_close:
 			player_close = false
 			#child._handle_leaving_player(distance)
-	
-#	if mood == 1 and $BulletTimer.is_stopped():
-#		npc_shoot()
-#
-#	var target_position = $"/root/MainScene/Player".position
-#
-#	rotation = lerp_angle(rotation, target_position.angle_to_point(global_position), rotation_speed * delta)
-#
-#	if (health <= 0):
-#		npc_dead()
 
 func attack():
-	pass
+	if weapon.action == "STAB":
+		stab()
+	else:
+		shoot()
 
 func handle_scheduled_task(task):
 	scheduled_task = task
@@ -197,10 +198,12 @@ func handle_task(task):
 			if(in_building != null and "force_outside" in task and task["force_outside"]): next_moves.push_front(get_node("/root/MainScene/Buildings/" + in_building + "/").get_exit_position())
 		"FOLLOW_DISTANT":
 			followClose = false
-			target = task.target
+			if(task.target == "Player"): target = $"/root/MainScene/Player"
+			else: target = get_node("../" + task.target)
 		"FOLLOW_CLOSE":
 			followClose = true
-			target = task.target
+			if(task.target == "Player"): target = $"/root/MainScene/Player"
+			else: target = get_node("../" + task.target)
 		_:
 			child._handle_custom_task(task)
 
@@ -231,12 +234,18 @@ func hide_text():
 func set_text(text):
 	$Label.text = text
 
-func npc_shoot():
-	return
+func stab():
+	if(position.distance_to(target.global_position) > 100): return
+	if(position.angle_to(target.global_position) > .5*PI): return
+	
+	target.health -= weapon.options.damage
+
+func shoot():
+	if(!$"/root/MainScene".check_ray(self, target)): return
+	
 	var b = BULLET.instance()
 	owner.add_child(b)
 	b.transform = $LocationBullet.global_transform
-	$BulletTimer.start()
 	
 func npc_dead():
 #	mood = -1

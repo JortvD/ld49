@@ -22,6 +22,7 @@ func _ready():
 		{"at": 19, "mins": 0, "type": "MOVE", "moves": [bank.get_exit_position(), saloon.get_entrance_position(), saloon.get_random_spot()]}
 	]
 	$"..".weapon = $"/root/MainScene/Items".get_type("gun")
+	$"..".can_attack = true
 	
 func _input(event):
 	if event is InputEventKey and event.pressed and $"..".player_close:
