@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=44 format=2]
 
 [ext_resource path="res://world/World.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
@@ -20,6 +20,90 @@ vertices = PoolVector2Array( -232, -224, 105.1, -243.29, 90.9422, -162.117, -150
 polygons = [ PoolIntArray( 0, 1, 2, 3 ), PoolIntArray( 4, 0, 3, 5, 6 ), PoolIntArray( 7, 8, 9, 10, 11, 12 ), PoolIntArray( 13, 6, 5, 7, 12 ) ]
 outlines = [ PoolVector2Array( 134.361, 210.713, 160, 232, 432, 240, 523.237, -174.388, 129.641, -171.556, 129.641, 118.214, -145.97, 116.326, -150.69, -153.622, 90.9422, -162.117, 105.1, -243.29, -232, -224, -384, 104, -152, 256, 56, 264 ) ]
 
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 15.6731, 2.98639 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 27.1401, 3.927 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 15.4459, 2.392 )
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 22.729, 4.28056 )
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 21.7654, 2.98639 )
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 27.1401, 3.927 )
+
+[sub_resource type="RectangleShape2D" id=8]
+extents = Vector2( 2.62097, 16.1433 )
+
+[sub_resource type="RectangleShape2D" id=9]
+extents = Vector2( 4.354, 21.7891 )
+
+[sub_resource type="RectangleShape2D" id=10]
+extents = Vector2( 15.9665, 2.98639 )
+
+[sub_resource type="RectangleShape2D" id=11]
+extents = Vector2( 22.631, 3.927 )
+
+[sub_resource type="RectangleShape2D" id=12]
+extents = Vector2( 15.9665, 2.98639 )
+
+[sub_resource type="RectangleShape2D" id=13]
+extents = Vector2( 22.631, 3.927 )
+
+[sub_resource type="RectangleShape2D" id=14]
+extents = Vector2( 15.9665, 3.1434 )
+
+[sub_resource type="RectangleShape2D" id=15]
+extents = Vector2( 22.631, 3.927 )
+
+[sub_resource type="RectangleShape2D" id=16]
+extents = Vector2( 15.9665, 3.1434 )
+
+[sub_resource type="RectangleShape2D" id=17]
+extents = Vector2( 22.631, 3.927 )
+
+[sub_resource type="RectangleShape2D" id=18]
+extents = Vector2( 15.9665, 3.1434 )
+
+[sub_resource type="RectangleShape2D" id=19]
+extents = Vector2( 22.631, 3.927 )
+
+[sub_resource type="RectangleShape2D" id=20]
+extents = Vector2( 2.59387, 16.5221 )
+
+[sub_resource type="RectangleShape2D" id=21]
+extents = Vector2( 3.45886, 18.51 )
+
+[sub_resource type="RectangleShape2D" id=22]
+extents = Vector2( 2.59387, 16.5221 )
+
+[sub_resource type="RectangleShape2D" id=23]
+extents = Vector2( 3.45886, 18.51 )
+
+[sub_resource type="RectangleShape2D" id=24]
+extents = Vector2( 2.59387, 16.5221 )
+
+[sub_resource type="RectangleShape2D" id=25]
+extents = Vector2( 3.45886, 18.51 )
+
+[sub_resource type="RectangleShape2D" id=26]
+extents = Vector2( 2.59387, 16.5221 )
+
+[sub_resource type="RectangleShape2D" id=27]
+extents = Vector2( 3.45886, 18.51 )
+
+[sub_resource type="RectangleShape2D" id=28]
+extents = Vector2( 15.6008, 2.99347 )
+
+[sub_resource type="RectangleShape2D" id=29]
+extents = Vector2( 18.9092, 4.20313 )
+
 [node name="MainScene" type="Node2D"]
 script = ExtResource( 11 )
 
@@ -29,7 +113,7 @@ script = ExtResource( 11 )
 position = Vector2( 300, 400 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
-position = Vector2( 5373.5, -923.845 )
+position = Vector2( 2914.22, 2144.31 )
 z_index = 2
 
 [node name="NPC" parent="." instance=ExtResource( 3 )]
@@ -49,12 +133,383 @@ default_color = Color( 1, 0.4, 0.4, 1 )
 
 [node name="Buildings" type="Node" parent="."]
 
-[node name="Building" parent="Buildings" instance=ExtResource( 6 )]
-position = Vector2( 246.367, 801.19 )
+[node name="Postmaster" parent="Buildings" instance=ExtResource( 6 )]
+position = Vector2( 1663.9, 1852.45 )
 scale = Vector2( 4, 4 )
 texture = ExtResource( 5 )
 entrance_location = Vector2( 0, 35 )
 entrance_shape = Vector2( 10, 5 )
+
+[node name="ExitLocation" type="Node2D" parent="Buildings/Postmaster"]
+position = Vector2( -334.679, -648.85 )
+
+[node name="Entrance" type="Area2D" parent="Buildings/Postmaster"]
+position = Vector2( -4.75, 25.25 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Buildings/Postmaster/Entrance"]
+position = Vector2( 4.47955, 7.33951 )
+shape = SubResource( 2 )
+
+[node name="Exit" type="Area2D" parent="Buildings/Postmaster"]
+position = Vector2( -332.68, -633.797 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Buildings/Postmaster/Exit"]
+position = Vector2( -2.66968, 7.34161 )
+shape = SubResource( 3 )
+
+[node name="EntranceLocation" type="Node2D" parent="Buildings/Postmaster"]
+position = Vector2( 0.174438, 44.6563 )
+
+[node name="HouseC" parent="Buildings" instance=ExtResource( 6 )]
+position = Vector2( 2044.45, 1852.45 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 5 )
+entrance_location = Vector2( 0, 35 )
+entrance_shape = Vector2( 10, 5 )
+
+[node name="ExitLocation" type="Node2D" parent="Buildings/HouseC"]
+position = Vector2( -303.644, -647.174 )
+
+[node name="Entrance" type="Area2D" parent="Buildings/HouseC"]
+position = Vector2( -4.75, 25.25 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Buildings/HouseC/Entrance"]
+position = Vector2( 6.15326, 7.66364 )
+shape = SubResource( 4 )
+
+[node name="Exit" type="Area2D" parent="Buildings/HouseC"]
+position = Vector2( -332.68, -633.797 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Buildings/HouseC/Exit"]
+position = Vector2( 29.1501, 8.75583 )
+shape = SubResource( 5 )
+
+[node name="EntranceLocation" type="Node2D" parent="Buildings/HouseC"]
+position = Vector2( 1.51233, 46.1487 )
+
+[node name="Saloon" parent="Buildings" instance=ExtResource( 6 )]
+position = Vector2( 2800, 1792 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 5 )
+entrance_location = Vector2( 0, 35 )
+entrance_shape = Vector2( 10, 5 )
+
+[node name="ExitLocation" type="Node2D" parent="Buildings/Saloon"]
+position = Vector2( 109.042, -638.145 )
+
+[node name="Entrance" type="Area2D" parent="Buildings/Saloon"]
+position = Vector2( -4.75, 25.25 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Buildings/Saloon/Entrance"]
+position = Vector2( 4.81546, 7.81232 )
+shape = SubResource( 6 )
+
+[node name="Exit" type="Area2D" parent="Buildings/Saloon"]
+position = Vector2( 110.3, -618.932 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Buildings/Saloon/Exit"]
+position = Vector2( -2.66968, 7.34161 )
+shape = SubResource( 7 )
+
+[node name="EntranceLocation" type="Node2D" parent="Buildings/Saloon"]
+position = Vector2( 0.471741, 48.774 )
+
+[node name="HouseD" parent="Buildings" instance=ExtResource( 6 )]
+position = Vector2( 2689.5, 1022.29 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 5 )
+entrance_location = Vector2( 0, 35 )
+entrance_shape = Vector2( 10, 5 )
+
+[node name="ExitLocation" type="Node2D" parent="Buildings/HouseD"]
+position = Vector2( -245.451, -477.429 )
+
+[node name="Entrance" type="Area2D" parent="Buildings/HouseD"]
+position = Vector2( -31.4084, 2.52017 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Buildings/HouseD/Entrance"]
+position = Vector2( -1.78732, 0.13559 )
+shape = SubResource( 8 )
+
+[node name="Exit" type="Area2D" parent="Buildings/HouseD"]
+position = Vector2( -265.12, -485.59 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Buildings/HouseD/Exit"]
+position = Vector2( -5.44763, 9.32587 )
+shape = SubResource( 9 )
+
+[node name="EntranceLocation" type="Node2D" parent="Buildings/HouseD"]
+position = Vector2( -54.5457, 1.26498 )
+
+[node name="HouseE" parent="Buildings" instance=ExtResource( 6 )]
+position = Vector2( 3648.35, 1856.11 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 5 )
+entrance_location = Vector2( 0, 35 )
+entrance_shape = Vector2( 10, 5 )
+
+[node name="ExitLocation" type="Node2D" parent="Buildings/HouseE"]
+position = Vector2( 253.541, -650.457 )
+
+[node name="Entrance" type="Area2D" parent="Buildings/HouseE"]
+position = Vector2( -4.75, 25.25 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Buildings/HouseE/Entrance"]
+position = Vector2( 4.81546, 7.21771 )
+shape = SubResource( 10 )
+
+[node name="Exit" type="Area2D" parent="Buildings/HouseE"]
+position = Vector2( 253.143, -634.681 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Buildings/HouseE/Exit"]
+position = Vector2( 0.637634, 8.60153 )
+shape = SubResource( 11 )
+
+[node name="EntranceLocation" type="Node2D" parent="Buildings/HouseE"]
+position = Vector2( 0.769043, 45.355 )
+
+[node name="Sheriff" parent="Buildings" instance=ExtResource( 6 )]
+position = Vector2( 4331.41, 1856.11 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 5 )
+entrance_location = Vector2( 0, 35 )
+entrance_shape = Vector2( 10, 5 )
+
+[node name="ExitLocation" type="Node2D" parent="Buildings/Sheriff"]
+position = Vector2( 292.756, -651.114 )
+
+[node name="Entrance" type="Area2D" parent="Buildings/Sheriff"]
+position = Vector2( -4.75, 25.25 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Buildings/Sheriff/Entrance"]
+position = Vector2( 8.2803, 7.84766 )
+shape = SubResource( 12 )
+
+[node name="Exit" type="Area2D" parent="Buildings/Sheriff"]
+position = Vector2( 292.516, -636.413 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Buildings/Sheriff/Exit"]
+position = Vector2( 1.26764, 10.3339 )
+shape = SubResource( 13 )
+
+[node name="EntranceLocation" type="Node2D" parent="Buildings/Sheriff"]
+position = Vector2( 3.76135, 46.9299 )
+
+[node name="Bank" parent="Buildings" instance=ExtResource( 6 )]
+position = Vector2( 4865.98, 1919.74 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 5 )
+entrance_location = Vector2( 0, 35 )
+entrance_shape = Vector2( 10, 5 )
+
+[node name="ExitLocation" type="Node2D" parent="Buildings/Bank"]
+position = Vector2( 413.578, -667.965 )
+
+[node name="Entrance" type="Area2D" parent="Buildings/Bank"]
+position = Vector2( -4.75, 25.25 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Buildings/Bank/Entrance"]
+position = Vector2( 4.97305, 6.90271 )
+shape = SubResource( 14 )
+
+[node name="Exit" type="Area2D" parent="Buildings/Bank"]
+position = Vector2( 413.468, -652.32 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Buildings/Bank/Exit"]
+position = Vector2( 1.89764, 10.3339 )
+shape = SubResource( 15 )
+
+[node name="EntranceLocation" type="Node2D" parent="Buildings/Bank"]
+position = Vector2( -0.0183105, 48.0323 )
+
+[node name="HouseF" parent="Buildings" instance=ExtResource( 6 )]
+position = Vector2( 5059.73, 2431.69 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 5 )
+entrance_location = Vector2( 0, 35 )
+entrance_shape = Vector2( 10, 5 )
+
+[node name="ExitLocation" type="Node2D" parent="Buildings/HouseF"]
+position = Vector2( 622.762, -895.492 )
+
+[node name="Entrance" type="Area2D" parent="Buildings/HouseF"]
+position = Vector2( 0.0887451, -25.8077 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Buildings/HouseF/Entrance"]
+position = Vector2( 0.468048, -7.27991 )
+shape = SubResource( 16 )
+
+[node name="Exit" type="Area2D" parent="Buildings/HouseF"]
+position = Vector2( 621.123, -936.786 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Buildings/HouseF/Exit"]
+position = Vector2( 1.89764, 10.3339 )
+shape = SubResource( 17 )
+
+[node name="EntranceLocation" type="Node2D" parent="Buildings/HouseF"]
+position = Vector2( 0.31543, -48.4099 )
+
+[node name="GeneralStore" parent="Buildings" instance=ExtResource( 6 )]
+position = Vector2( 4637.01, 2432.65 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 5 )
+entrance_location = Vector2( 0, 35 )
+entrance_shape = Vector2( 10, 5 )
+
+[node name="ExitLocation" type="Node2D" parent="Buildings/GeneralStore"]
+position = Vector2( 1097.51, -899.057 )
+
+[node name="Entrance" type="Area2D" parent="Buildings/GeneralStore"]
+position = Vector2( 0.0887451, -25.8077 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Buildings/GeneralStore/Entrance"]
+position = Vector2( 0.468048, -7.27991 )
+shape = SubResource( 18 )
+
+[node name="Exit" type="Area2D" parent="Buildings/GeneralStore"]
+position = Vector2( 1095.48, -936.786 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Buildings/GeneralStore/Exit"]
+position = Vector2( 1.89764, 10.3339 )
+shape = SubResource( 19 )
+
+[node name="EntranceLocation" type="Node2D" parent="Buildings/GeneralStore"]
+position = Vector2( 0.31543, -48.4099 )
+
+[node name="CityHall" parent="Buildings" instance=ExtResource( 6 )]
+position = Vector2( 3202.83, 2487.36 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 5 )
+entrance_location = Vector2( 0, 35 )
+entrance_shape = Vector2( 10, 5 )
+
+[node name="ExitLocation" type="Node2D" parent="Buildings/CityHall"]
+position = Vector2( 1153.91, -543.216 )
+
+[node name="Entrance" type="Area2D" parent="Buildings/CityHall"]
+position = Vector2( -25.8975, 2.12311 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Buildings/CityHall/Entrance"]
+position = Vector2( -6.50601, 0.0478516 )
+shape = SubResource( 20 )
+
+[node name="Exit" type="Area2D" parent="Buildings/CityHall"]
+position = Vector2( 1120.97, -549.797 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Buildings/CityHall/Exit"]
+position = Vector2( 0.481873, 7.26632 )
+shape = SubResource( 21 )
+
+[node name="EntranceLocation" type="Node2D" parent="Buildings/CityHall"]
+position = Vector2( -50.5963, 1.61798 )
+
+[node name="HouseB" parent="Buildings" instance=ExtResource( 6 )]
+position = Vector2( 3202.83, 3005.85 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 5 )
+entrance_location = Vector2( 0, 35 )
+entrance_shape = Vector2( 10, 5 )
+
+[node name="ExitLocation" type="Node2D" parent="Buildings/HouseB"]
+position = Vector2( 1149.46, -401.464 )
+
+[node name="Entrance" type="Area2D" parent="Buildings/HouseB"]
+position = Vector2( -26.8339, 2.12311 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Buildings/HouseB/Entrance"]
+position = Vector2( -6.3187, -1.07587 )
+shape = SubResource( 22 )
+
+[node name="Exit" type="Area2D" parent="Buildings/HouseB"]
+position = Vector2( 1134.45, -399.967 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Buildings/HouseB/Exit"]
+position = Vector2( -13.003, 0.523933 )
+shape = SubResource( 23 )
+
+[node name="EntranceLocation" type="Node2D" parent="Buildings/HouseB"]
+position = Vector2( -50.9708, 1.61798 )
+
+[node name="HouseA" parent="Buildings" instance=ExtResource( 6 )]
+position = Vector2( 2689.09, 2910.72 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 5 )
+entrance_location = Vector2( 0, 35 )
+entrance_shape = Vector2( 10, 5 )
+
+[node name="ExitLocation" type="Node2D" parent="Buildings/HouseA"]
+position = Vector2( 1395.77, -120.11 )
+
+[node name="Entrance" type="Area2D" parent="Buildings/HouseA"]
+position = Vector2( 39.2789, 2.12311 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Buildings/HouseA/Entrance"]
+position = Vector2( -6.3187, -1.07587 )
+shape = SubResource( 24 )
+
+[node name="Exit" type="Area2D" parent="Buildings/HouseA"]
+position = Vector2( 1435.57, -120.894 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Buildings/HouseA/Exit"]
+position = Vector2( -13.003, 0.523933 )
+shape = SubResource( 25 )
+
+[node name="EntranceLocation" type="Node2D" parent="Buildings/HouseA"]
+position = Vector2( 53.5361, 1.80524 )
+
+[node name="Doctor" parent="Buildings" instance=ExtResource( 6 )]
+position = Vector2( 2368, 2423.14 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 5 )
+entrance_location = Vector2( 0, 35 )
+entrance_shape = Vector2( 10, 5 )
+
+[node name="ExitLocation" type="Node2D" parent="Buildings/Doctor"]
+position = Vector2( 1476.83, 211.19 )
+
+[node name="Entrance" type="Area2D" parent="Buildings/Doctor"]
+position = Vector2( 39.2789, 2.12311 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Buildings/Doctor/Entrance"]
+position = Vector2( -6.3187, -1.07587 )
+shape = SubResource( 26 )
+
+[node name="Exit" type="Area2D" parent="Buildings/Doctor"]
+position = Vector2( 1516.75, 209.462 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Buildings/Doctor/Exit"]
+position = Vector2( -13.003, 0.523933 )
+shape = SubResource( 27 )
+
+[node name="EntranceLocation" type="Node2D" parent="Buildings/Doctor"]
+position = Vector2( 53.5361, 1.80524 )
+
+[node name="FireDepartment" parent="Buildings" instance=ExtResource( 6 )]
+position = Vector2( 1725.83, 2432.65 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 5 )
+entrance_location = Vector2( 0, 35 )
+entrance_shape = Vector2( 10, 5 )
+
+[node name="ExitLocation" type="Node2D" parent="Buildings/FireDepartment"]
+position = Vector2( 1649.41, 475.782 )
+
+[node name="Entrance" type="Area2D" parent="Buildings/FireDepartment"]
+position = Vector2( 39.2789, 2.12311 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Buildings/FireDepartment/Entrance"]
+position = Vector2( -37.1868, -35.5662 )
+shape = SubResource( 28 )
+
+[node name="Exit" type="Area2D" parent="Buildings/FireDepartment"]
+position = Vector2( 1661.75, 447.462 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Buildings/FireDepartment/Exit"]
+position = Vector2( -13.003, 0.523933 )
+shape = SubResource( 29 )
+
+[node name="EntranceLocation" type="Node2D" parent="Buildings/FireDepartment"]
+position = Vector2( 1.72186, -53.0013 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -82,6 +537,7 @@ __meta__ = {
 wait_time = 0.5
 
 [node name="DayNightCycle" parent="CanvasLayer" instance=ExtResource( 14 )]
+position = Vector2( 5.99319, 39.7052 )
 
 [node name="Items" type="Node" parent="."]
 script = ExtResource( 10 )

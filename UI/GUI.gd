@@ -17,8 +17,8 @@ func update():
 		node.texture = load(item.img)
 		
 func _process(delta):
-	$Label.text =  ($"/root/MainScene/DayNightCycle/CanvasLayer".hour).to_string() if ($"/root/MainScene/DayNightCycle/CanvasLayer".hour != null) else 6
-	$Label2.text = ($"/root/MainScene/DayNightCycle/CanvasLayer".minutes).to_string() if ($"/root/MainScene/DayNightCycle/CanvasLayer".hour != null) else 0
+	$Label.text =  str($"/root/MainScene/CanvasLayer/DayNightCycle".hour) if ($"/root/MainScene/CanvasLayer/DayNightCycle".hour != null) else 6
+	$Label2.text = str($"/root/MainScene/CanvasLayer/DayNightCycle".minutes) if ($"/root/MainScene/CanvasLayer/DayNightCycle".minutes != null) else 0
 
 func set_health(value, maximum):
 	$HealthBar/TextureProgress.max_value = maximum
