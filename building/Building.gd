@@ -32,6 +32,7 @@ func get_exit_position():
 func _on_entrance_entered(body):
 	if (body.name == "Player"):
 		entering = true
+		body.in_building = name
 		$"/root/MainScene/CanvasLayer/Blacken".effect(effect_duration)
 		$Timer.wait_time = effect_duration
 		$Timer.start()
@@ -47,6 +48,7 @@ func _on_exit_entered(body):
 		$"/root/MainScene/CanvasLayer/Blacken".effect(effect_duration)
 		$Timer.wait_time = effect_duration
 		$Timer.start()
+		body.in_building = null
 	
 	if ("NPC" in body.get_parent().name):
 		body.path = PoolVector2Array()
