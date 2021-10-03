@@ -183,50 +183,50 @@ extents = Vector2( 15.6008, 2.99347 )
 [sub_resource type="RectangleShape2D" id=42]
 extents = Vector2( 18.9092, 4.20313 )
 
-[sub_resource type="AtlasTexture" id=52]
-atlas = ExtResource( 28 )
-region = Rect2( 320, 0, 160, 100 )
-
 [sub_resource type="AtlasTexture" id=43]
 atlas = ExtResource( 28 )
-region = Rect2( 0, 0, 160, 100 )
+region = Rect2( 320, 0, 160, 100 )
 
 [sub_resource type="AtlasTexture" id=44]
 atlas = ExtResource( 28 )
-region = Rect2( 160, 0, 160, 100 )
+region = Rect2( 0, 0, 160, 100 )
 
 [sub_resource type="AtlasTexture" id=45]
 atlas = ExtResource( 28 )
-region = Rect2( 320, 0, 160, 100 )
+region = Rect2( 160, 0, 160, 100 )
 
 [sub_resource type="AtlasTexture" id=46]
 atlas = ExtResource( 28 )
-region = Rect2( 480, 0, 160, 100 )
+region = Rect2( 320, 0, 160, 100 )
 
 [sub_resource type="AtlasTexture" id=47]
 atlas = ExtResource( 28 )
-region = Rect2( 640, 0, 160, 100 )
+region = Rect2( 480, 0, 160, 100 )
 
 [sub_resource type="AtlasTexture" id=48]
 atlas = ExtResource( 28 )
-region = Rect2( 800, 0, 160, 100 )
+region = Rect2( 640, 0, 160, 100 )
 
 [sub_resource type="AtlasTexture" id=49]
 atlas = ExtResource( 28 )
-region = Rect2( 960, 0, 160, 100 )
+region = Rect2( 800, 0, 160, 100 )
 
 [sub_resource type="AtlasTexture" id=50]
 atlas = ExtResource( 28 )
+region = Rect2( 960, 0, 160, 100 )
+
+[sub_resource type="AtlasTexture" id=51]
+atlas = ExtResource( 28 )
 region = Rect2( 1120, 0, 160, 100 )
 
-[sub_resource type="SpriteFrames" id=51]
+[sub_resource type="SpriteFrames" id=52]
 animations = [ {
-"frames": [ SubResource( 52 ) ],
+"frames": [ SubResource( 43 ) ],
 "loop": true,
 "name": "default",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 43 ), SubResource( 44 ), SubResource( 45 ), SubResource( 46 ), SubResource( 47 ), SubResource( 48 ), SubResource( 49 ), SubResource( 50 ) ],
+"frames": [ SubResource( 44 ), SubResource( 45 ), SubResource( 46 ), SubResource( 47 ), SubResource( 48 ), SubResource( 49 ), SubResource( 50 ), SubResource( 51 ) ],
 "loop": true,
 "name": "walking",
 "speed": 5.0
@@ -823,7 +823,7 @@ position = Vector2( 560, 424 )
 
 [node name="Mayor" parent="NPCs" instance=ExtResource( 3 )]
 position = Vector2( 8072.75, 1423.1 )
-shoulders = SubResource( 51 )
+shoulders = SubResource( 52 )
 hat = ExtResource( 27 )
 in_building = "HouseB"
 

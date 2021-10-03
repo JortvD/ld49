@@ -54,3 +54,4 @@ func _input(event):
 		if event.scancode == KEY_SPACE and (($"/root/MainScene/CanvasLayer/DayNightCycle".hour >= 12 and $"/root/MainScene/CanvasLayer/DayNightCycle".hour < 14) or ($"/root/MainScene/CanvasLayer/DayNightCycle".hour >= 20 and $"/root/MainScene/CanvasLayer/DayNightCycle".hour < 23)):
 			$"/root/MainScene/CanvasLayer/Dialog".start_story("postman-relaxing", {"npc": $"..".names["Postman"]}, {}, self)
 			$"..".start_conversation()
+		

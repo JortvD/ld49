@@ -537,6 +537,115 @@
 			]
 		},
 		{
+			"id": "sheriff-first-time",
+			"dictionary": ["npc"],
+			"variables": [],
+			"start": "a1",
+			"messages": [
+				{
+					"id": "a1",
+					"name": "Sheriff",
+					"text": "I don't know who you are, but I don't trust you",
+					"next": "a2",
+					"type": "CONTINUE"
+				},{
+					"id": "a2",
+					"name": "Sheriff",
+					"text": "I've heard about rumors that a tourist has made multiple cities very unstable",
+					"next": "a3",
+					"type": "CONTINUE"
+				},{
+					"id": "a3",
+					"name": "Sheriff",
+					"text": "And my hunch says that you might had something to do with that...",
+					"type": "EXIT"
+				}
+			]
+		},
+		{
+			"id": "sheriff-sleep",
+			"dictionary": ["npc"],
+			"variables": [],
+			"start": "a1",
+			"messages": [
+				{
+					"id": "a1",
+					"name": "Sheriff",
+					"text": "What the do you think you are doing?! LET ME SLEEP!",
+					"type": "EXIT"
+				}
+			]
+		},
+		{
+			"id": "sheriff-working",
+			"dictionary": ["npc"],
+			"variables": ["reputation"],
+			"start": "a1",
+			"messages": [
+				{
+					"id": "a1",
+					"t": "b1",
+					"f": "c1",
+					"var": "reputation",
+					"prop": "GT",
+					"const": "80",
+					"type": "LOGIC"
+				},{
+					"id": "b1",
+					"name": "Sheriff",
+					"text": "Just.. let me work.. I am confused about things",
+					"type": "EXIT"
+				},{
+					"id": "c1",
+					"name": "Sheriff",
+					"text": "Go away from here. I don't trust you being here",
+					"type": "EXIT"
+				}
+			]
+		},
+		{
+			"id": "sheriff-bank",
+			"dictionary": ["npc"],
+			"variables": [],
+			"start": "a1",
+			"messages": [
+				{
+					"id": "a1",
+					"name": "Sheriff",
+					"text": "I don't like you being near the bank",
+					"type": "EXIT"
+				}
+			]
+		},
+		{
+			"id": "sheriff-following",
+			"dictionary": ["npc"],
+			"variables": [],
+			"start": "a1",
+			"messages": [
+				{
+					"id": "a1",
+					"name": "Sheriff",
+					"text": "Don't mind me I'm just having a walk *Stares intensely at you*",
+					"type": "EXIT"
+				}
+			]
+		},
+		{
+			"id": "sheriff-city-hall",
+			"dictionary": ["npc"],
+			"variables": [],
+			"start": "a1",
+			"messages": [
+				{
+					"id": "a1",
+					"name": "Sheriff",
+					"text": "Don't do anything funny near our mayor",
+					"type": "EXIT"
+				}
+			]
+		},
+		{
 			"id": "template",
 			"dictionary": ["npc"],
 			"variables": ["money", "reputation"],
