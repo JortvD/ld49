@@ -55,3 +55,21 @@ frames = SubResource( 2 )
 
 [node name="DerangedTimer" type="Timer" parent="."]
 wait_time = 0.25
+
+[node name="Holster" type="Sprite" parent="."]
+visible = false
+position = Vector2( -5.46585, 26.0678 )
+rotation = 1.5708
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 1 )
+
+[node name="Holding" type="Sprite" parent="."]
+visible = false
+position = Vector2( 12.6135, 14.7157 )
+rotation = 1.5708
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 1 )
+
+[node name="AttackTimer" type="Timer" parent="."]
+one_shot = true
+autostart = true

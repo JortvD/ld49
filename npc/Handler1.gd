@@ -21,7 +21,7 @@ func _ready():
 		{"at": 18, "mins": 0, "type": "MOVE", "moves": [city_hall.get_exit_position(), bank.get_entrance_position(), bank.get_random_spot()]},
 		{"at": 19, "mins": 0, "type": "MOVE", "moves": [bank.get_exit_position(), saloon.get_entrance_position(), saloon.get_random_spot()]}
 	]
-	$"..".mood = $"..".MOOD.DERANGED
+	$"..".weapon = $"/root/MainScene/Items".get_type("gun")
 	
 func _input(event):
 	if event is InputEventKey and event.pressed and $"..".player_close:
