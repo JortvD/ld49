@@ -1,13 +1,12 @@
 extends Node2D
 
-onready var hour = 20
-onready var minutes = 0
+onready var hour = 6
+onready var minutes = 30
 onready var tween = get_node("Tween")
 var transition = false
 
 func _ready():
 	$MinuteTimer.start()
-	print(hour)
 
 func _process(delta):
 	
@@ -36,8 +35,6 @@ func _process(delta):
 		tween.start()
 		transition = true
 
-
-
 func _on_MinuteTimer_timeout():
 	minutes += 10
 	if (minutes == 60):
@@ -45,6 +42,4 @@ func _on_MinuteTimer_timeout():
 		hour += 1
 	if (hour == 24):
 		hour = 0
-	print(hour)
-	print(minutes)
 	$MinuteTimer.start()

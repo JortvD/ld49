@@ -17,15 +17,30 @@ func _ready():
 	if($Entrance != null): $Entrance.connect("body_entered", self, "_on_entrance_entered")
 	if($Exit != null): $Exit.connect("body_entered", self, "_on_exit_entered")
 
+func get_random_spot():
+	var x = round(($BR.global_position.x - $TL.global_position.x) * randf()) + $TL.global_position.x
+	var y = round(($BR.global_position.y - $TL.global_position.y) * randf()) + $TL.global_position.y
+	
+	return Vector2(x, y)
+
+func get_entrance_position():
+	return $Entrance/CollisionShape2D.global_position
+
+func get_exit_position():
+	return $Exit/CollisionShape2D.global_position
+
 func _on_entrance_entered(body):
 	if (body.name == "Player"):
 		entering = true
 		$"/root/MainScene/CanvasLayer/Blacken".effect(effect_duration)
 		$Timer.wait_time = effect_duration
 		$Timer.start()
-		
-	#if (body.name == "NPC"):
-	#	get_node("../../NPC").position = $ExitLocation.global_position
+	
+	print("jump en", body.name)
+	if ("NPC" in body.get_parent().name):
+		body.path = PoolVector2Array()
+		body.position = $ExitLocation.global_position
+#		body.in_building = name
 		
 func _on_exit_entered(body):
 	if (body.name == "Player"):
@@ -33,9 +48,12 @@ func _on_exit_entered(body):
 		$"/root/MainScene/CanvasLayer/Blacken".effect(effect_duration)
 		$Timer.wait_time = effect_duration
 		$Timer.start()
-		
-	#if (body.name == "NPC"):
-	#	get_node("../../NPC").position = $EntranceLocation.global_position
+	
+	print("jump ex", body.name)
+	if ("NPC" in body.get_parent().name):
+		body.path = PoolVector2Array()
+		body.position = $EntranceLocation.global_position
+#		body.in_building = null
 
 func _on_Timer_timeout():
 	if(!moving_camera):
@@ -45,6 +63,7 @@ func _on_Timer_timeout():
 			entering = false
 		else:
 			get_node("../../Player").position = $EntranceLocation.global_position
+		
 		get_node("../../Player/Camera2D").set_follow_smoothing(20)
 		moving_camera = true
 	else:

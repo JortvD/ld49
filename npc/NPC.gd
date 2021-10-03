@@ -5,12 +5,20 @@ var DISTANCE_TO_CLOSE = 100
 var child
 export var rotation_speed = 5
 var mood = 1
-var speed = 50
+var speed = 200
 var path : = PoolVector2Array()
 var player_close = false
 var health = 100
 var interact_lock = false
 onready var BULLET = preload("res://objects/Bullet.tscn")
+var override_task = null
+var scheduled_task = null
+var in_building = null
+var next_moves = []
+
+var npc_name = "Test"
+var schedule = []
+var last_hour = -1
 
 func _process(delta):
 	# Calculate the movement distance for this frame
@@ -28,26 +36,59 @@ func _process(delta):
 			path.remove(0)
 		# Update the distance to walk
 		distance_to_walk -= distance_to_next_point
-	
-	var distance = position.distance_to($"/root/MainScene/Player".position)
-	if distance <= DISTANCE_TO_CLOSE:
-		if !player_close: 
-			player_close = true
-			child._handle_entering_player(distance)
-	else:
-		if player_close:
-			player_close = false
-			child._handle_leaving_player(distance)
-	
-	if mood == 1 and $BulletTimer.is_stopped():
-		npc_shoot()
 		
-	var target_position = $"/root/MainScene/Player".position
+	if(path.size() == 0 and len(next_moves) > 0):
+		var move = next_moves.pop_front()
+		path = $"/root/MainScene/Navigation2D".get_simple_path(position, move)
+		print("now moving from ", position, " to ", move, " by ", path)
+		$"/root/MainScene/Line2D".points = path
 	
-	rotation = lerp_angle(rotation, target_position.angle_to_point(global_position), rotation_speed * delta)
+	var hour = $"/root/MainScene/CanvasLayer/DayNightCycle".hour
 	
-	if (health <= 0):
-		npc_dead()
+	if(hour != last_hour):
+		last_hour = hour
+		
+		var task = find_task_at(hour)
+		
+		if(task != null):
+			handle_scheduled_task(task)
+	
+#	var distance = position.distance_to($"/root/MainScene/Player".position)
+#	if distance <= DISTANCE_TO_CLOSE:
+#		if !player_close: 
+#			player_close = true
+#			child._handle_entering_player(distance)
+#	else:
+#		if player_close:
+#			player_close = false
+#			child._handle_leaving_player(distance)
+	
+#	if mood == 1 and $BulletTimer.is_stopped():
+#		npc_shoot()
+#
+#	var target_position = $"/root/MainScene/Player".position
+#
+#	rotation = lerp_angle(rotation, target_position.angle_to_point(global_position), rotation_speed * delta)
+#
+#	if (health <= 0):
+#		npc_dead()
+
+func handle_scheduled_task(task):
+	scheduled_task = task
+	
+	if(override_task != null): return
+	
+	handle_task(task)
+	
+func handle_task(task):
+	match task.type:
+		"MOVE":
+			next_moves = task.moves
+#			if(in_building != null): get_node("/root/MainScene/Buildings" + in_building + "/").
+
+func find_task_at(hour):
+	for i in schedule:
+		if(i["at"] == hour): return i
 
 func start_conversation():
 	$"/root/MainScene/Player".interact_lock = true
