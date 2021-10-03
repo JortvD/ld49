@@ -48,7 +48,6 @@ func _on_exit_entered(body):
 		$"/root/MainScene/CanvasLayer/Blacken".effect(effect_duration)
 		$Timer.wait_time = effect_duration
 		$Timer.start()
-		body.in_building = null
 	
 	if ("NPC" in body.get_parent().name):
 		body.path = PoolVector2Array()
@@ -63,7 +62,8 @@ func _on_Timer_timeout():
 			entering = false
 		else:
 			get_node("../../Player").position = $EntranceLocation.global_position
-		
+			get_node("../../Player").in_building = null
+			
 		get_node("../../Player/Camera2D").set_follow_smoothing(20)
 		moving_camera = true
 	else:
