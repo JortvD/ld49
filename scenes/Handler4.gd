@@ -15,3 +15,18 @@ func _ready():
 		{"at": 21, "mins": 0,  "type": "MOVE", "moves": [general_store.get_exit_position(), house_f.get_entrance_position(), house_f.get_random_spot()]}
 	]
 
+func _story_message(id):
+	pass
+
+func _story_exit(id):
+	$"..".end_conversation()
+
+func _handle_entering_player(distance):
+	$"..".show_text()
+	$"..".set_text("Press SPACE to talk")
+
+func _handle_leaving_player(distance):
+	$"..".hide_text()
+
+func _handle_custom_task(task):
+	pass

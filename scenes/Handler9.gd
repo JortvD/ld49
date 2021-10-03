@@ -26,3 +26,13 @@ func _story_message(id):
 
 func _story_exit(id):
 	$"..".end_conversation()
+
+func _handle_entering_player(distance):
+	$"..".show_text()
+	$"..".set_text("Press SPACE to talk")
+
+func _handle_leaving_player(distance):
+	$"..".hide_text()
+
+func _handle_custom_task(task):
+	pass

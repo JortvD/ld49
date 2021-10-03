@@ -17,3 +17,19 @@ func _ready():
 		{"at": 17, "mins": 0,  "type": "MOVE", "moves": [bank.get_exit_position(), general_store.get_entrance_position(), general_store.get_random_spot()]},
 		{"at": 18, "mins": 0,  "type": "MOVE", "moves": [general_store.get_exit_position(), saloon.get_entrance_position(), saloon.get_random_spot()]}
 	]
+
+func _story_message(id):
+	pass
+
+func _story_exit(id):
+	$"..".end_conversation()
+
+func _handle_entering_player(distance):
+	$"..".show_text()
+	$"..".set_text("Press SPACE to talk")
+
+func _handle_leaving_player(distance):
+	$"..".hide_text()
+
+func _handle_custom_task(task):
+	pass

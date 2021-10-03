@@ -56,13 +56,18 @@ func _ready():
 	reputation["Player"] = 50
 
 func _process(delta):
+	# Death
+	if(health <= 0):
+		
+		return
+	
 	# Calculate the movement distance for this frame
 	var distance_to_walk = speed * delta * deranged_speed
 	
 	if(mood == MOOD.DERANGED and $DerangedTimer.is_stopped()):
 		deranged_speed = randf()
 		$DerangedTimer.start()
-
+		
 	# Move the player along the path until he has run out of movement or the path ends.
 	while distance_to_walk > 0 and path.size() > 0 and !interact_lock:
 		walking = true
