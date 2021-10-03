@@ -29,6 +29,8 @@ export(String) var in_building
 var next_moves = []
 var followClose = false
 var followDistance = 300
+var fireDistance = 100
+var fightFire = false
 # Mostly temporary names
 var names = {
 	"Mayor": "Mark",
@@ -90,6 +92,13 @@ func _process(delta):
 		distance_to_walk -= distance_to_next_point
 		
 		if(len(path) > 0): rotation = position.angle_to_point(path[0]) + PI
+	
+	if($FireTimer.is_stopped() and fightFire and mood == MOOD.DEFAULT and in_building == null):
+		var fire = find_fire()
+		var to = position.direction_to(fire.global_position) * (position.distance_to(fire.global_position) - fireDistance) + position + Vector2(rand_range(-50, 50), rand_range(-50, 50))
+		next_moves = [to]
+		path = PoolVector2Array()
+		$FireTimer.start()
 	
 	if($FollowTimer.is_stopped() and mood == MOOD.ATTACK):
 		if(followClose):
@@ -179,6 +188,10 @@ func attack():
 	else:
 		shoot()
 
+func find_fire():
+	for node in $"/root/MainScene/World".get_children():
+		if("Fire" in node.name): return node
+
 func handle_scheduled_task(task):
 	scheduled_task = task
 	
@@ -204,6 +217,9 @@ func handle_task(task):
 			followClose = true
 			if(task.target == "Player"): target = $"/root/MainScene/Player"
 			else: target = get_node("../" + task.target)
+		"EXTINGUISH_FIRE":
+			if(in_building != null and "force_outside" in task and task["force_outside"]): next_moves.push_front(get_node("/root/MainScene/Buildings/" + in_building + "/").get_exit_position())
+			fightFire = true
 		_:
 			child._handle_custom_task(task)
 

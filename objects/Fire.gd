@@ -7,6 +7,7 @@ var eastFire
 var southFire
 var westFire
 var sidesFire = [false, false, false, false]
+var PEOPLE_CLOSE = 300
 
 func _ready():
 	rng.randomize()
@@ -19,8 +20,22 @@ func _on_CollisionShape2D_body_entered(body):
 	
 func _process(delta):
 	if ($Timer.is_stopped()):
-		spread()
+		var result = check_remove()
+		if !result: spread()
 		$Timer.start()
+
+func check_remove():
+	var fire_department_close = false
+	
+	for npc in $"/root/MainScene/NPCs".get_children():
+		if(npc.fightFire and position.distance_to(npc.global_position) <= PEOPLE_CLOSE):
+			fire_department_close = true
+	
+	if(fire_department_close and rng.randi_range(1, 2) == 1):
+		queue_free()
+		return true
+		
+	return false
 
 func spread():
 	if (rng.randi_range(1, 10) == 1):

@@ -48,7 +48,16 @@ func _process(delta):
 	
 	if($Timers/FireTimer.is_stopped()):
 		var fires = count_children($World, "Fire")
-		if()
+		check_too_many_fires(fires)
+		
+		if(fires > 0 and ($NPCs/FireDepartmentMan.override_task == null or $NPCs/FireDepartmentWoman.override_task == null)):
+			$NPCs/FireDepartmentMan.handle_override_task({"type": "EXTINGUISH_FIRE", "force_outside": true})
+			$NPCs/FireDepartmentWoman.handle_override_task({"type": "EXTINGUISH_FIRE", "force_outside": true})
+		elif(fires == 0 and $NPCs/FireDepartmentMan.override_task != null and $NPCs/FireDepartmentWoman.override_task != null and ($NPCs/FireDepartmentMan.override_task.type == "EXTINGUISH_FIRE" or $NPCs/FireDepartmentWoman.override_task.type == "EXTINGUISH_FIRE")):
+			$NPCs/FireDepartmentMan.override_task = null
+			$NPCs/FireDepartmentMan.fightFire = false
+			$NPCs/FireDepartmentWoman.override_task = null
+			$NPCs/FireDepartmentWoman.fightFire = false
 		$Timers/FireTimer.start()
 	
 	Check_all_dead()
