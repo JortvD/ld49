@@ -23,3 +23,19 @@ func _ready():
 		{"at": 21, "mins": 0,  "type": "MOVE", "moves": [city_hall.get_exit_position(), saloon.get_entrance_position(), saloon.get_random_spot()]},
 		{"at": 23, "mins": 0,  "type": "MOVE", "moves": [saloon.get_exit_position(), house_e.get_entrance_position(), house_e.get_random_spot()]}
 	]
+
+func _story_message(id):
+	pass
+
+func _story_exit(id):
+	$"..".end_conversation()
+
+func _handle_entering_player(distance):
+	$"..".show_text()
+	$"..".set_text("Press SPACE to talk")
+
+func _handle_leaving_player(distance):
+	$"..".hide_text()
+
+func _handle_custom_task(task):
+	pass
