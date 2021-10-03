@@ -33,7 +33,7 @@ func _input(event):
 		if(selected_slot < 0): selected_slot += 5
 		switch_holding()
 
-func get_input():
+func get_input(multi):
 	velocity = Vector2()
 	
 	if(interact_lock):
@@ -62,14 +62,18 @@ func get_input():
 	else:
 		speed = 100 * horse_modifier
 	
-	velocity = velocity.normalized() * speed
+	velocity = velocity.normalized() * speed * multi
+
+func modulo(a, n):
+	return a - floor(a/n) * n
 
 func _process(delta):
 	var target_position = get_global_mouse_position()
 	rotation = lerp_angle(rotation, target_position.angle_to_point(global_position), rotation_speed * delta)
 	
-	get_input()
+	var good_direction = abs(atan2(sin(target_position.angle_to_point(global_position)-velocity.angle()), cos(target_position.angle_to_point(global_position)-velocity.angle())))
 	
+	get_input(1 - (good_direction / PI) * .5)
 	velocity = move_and_slide(velocity)
 	
 	if (health <= 0):
