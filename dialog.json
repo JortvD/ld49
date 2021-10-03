@@ -235,9 +235,225 @@
 					"type": "EXIT",
 					"name": "#npc#",
 					"text": "If you didn't need to be here, why are you here than?"
+				},
+				{
+					"id": "b2",
+					"type": "LOGIC",
+					"t": "b3",
+					"f": "d1",
+					"var": "money",
+					"prop": "EQ",
+					"const": "1"
+				},
+				{
+					"id": "b2",
+					"type": "EXIT",
+					"name": "Mayor",
+					"text": "Oh wow, I don't know what to say. Thanks for the 'donation' though!"
+				},
+				{
+					"id": "d1",
+					"type": "EXIT",
+					"name": "Mayor",
+					"text": "You can't make a 'donation' without money"
 				}
 			]	
 				
+		},
+		{
+			"id": "mayor-buying-city",
+			"dictionary": ["npc"],
+			"variables": ["money", "reputation"],
+			"start": "a1",
+			"messages": [
+				{
+					"id": "a1",
+					"name": "Mayor",
+					"text": "I don't know what to do...",
+					"next": "a2",
+					"type": "CONTINUE"
+				},{
+					"id": "a2",
+					"name": "Mayor",
+					"text": "We are all out of money....",
+					"next": "a3",
+					"type": "CONTINUE"
+				},{
+					"id": "a3",
+					"name": "Mayor",
+					"text": "I don't have any options left...",
+					"next": "a4",
+					"type": "CONTINUE"
+				},{
+					"id": "a4",
+					"name": "Mayor",
+					"text": "Do you have any idea what I should do?",
+					"choices": [
+						{
+							"text": "Sell the city",
+							"next": "a4a1"
+						},
+						{
+							"text": "I can 'donate' money",
+							"next": "a4b1"
+						},
+						{
+							"text": "I don't know",
+							"next": "a4c1"
+						}
+					],
+					"type": "QUESTION"
+				},{
+					"id": "a4a1",
+					"t": "a4a2",
+					"f": "a4a3",
+					"var": "reputation",
+					"prop": "EQ",
+					"const": "100",
+					"type": "LOGIC"
+				},{
+					"id": "a4a2",
+					"name": "Mayor",
+					"text": "You know what. You are right. I put my full trust in you. ",
+					"type": "EXIT"
+				},{
+					"id": "a4a3",
+					"name": "Mayor",
+					"text": "Why would you even suggest that? That is a very stupid idea",
+					"type": "EXIT"
+				},{
+					"id": "a4b1",
+					"t": "a4b2",
+					"f": "a4b3",
+					"var": "money",
+					"prop": "EQ",
+					"const": "1",
+					"type": "LOGIC"
+				},{
+					"id": "a4b2",
+					"name": "Mayor",
+					"text": "Thank you! In these dificult times a 'donation' is always welcome!",
+					"type": "EXIT"
+				},{
+					"id": "a4b3",
+					"name": "Mayor",
+					"text": "I would love to have a 'donation', but it seems like you don't have that kind of money",
+					"type": "EXIT"
+				},{
+					"id": "a4c1",
+					"name": "Mayor",
+					"text": "I think I am doomed...",
+					"type": "EXIT"
+				}
+			]
+		},
+		{
+			"id": "mayor-bank",
+			"dictionary": ["npc"],
+			"variables": [],
+			"start": "a1",
+			"messages": [
+				{
+					"id": "a1",
+					"name": "mayor",
+					"text": "Oh don't mind me I am just withdrawing some money",
+					"next": "a2",
+					"type": "CONTINUE"
+				},{
+					"id": "a2",
+					"name": "Mayor",
+					"text": "Probably shouldn't do this after those few beers at the saloon",
+					"next": "a3",
+					"type": "CONTINUE"
+				},{
+					"id": "a3",
+					"name": "Mayor",
+					"text": "I can get quite forgetful",
+					"next": "a4",
+					"type": "CONTINUE"
+				},{
+					"id": "a4",
+					"name": "Mayor",
+					"text": "Well I should probably get back to work very soon",
+					"type": "EXIT"
+				}
+			]
+		},
+		{
+			"id": "mayor-sleeping",
+			"dictionary": ["npc"],
+			"variables": [],
+			"start": "a1",
+			"messages": [
+				{
+					"id": "a1",
+					"name": "Mayor",
+					"text": "Get out of my home I am trying to sleep",
+					"type": "EXIT"
+				}
+			]
+		},
+		{
+			"id": "mayor-working",
+			"dictionary": ["npc"],
+			"variables": ["reputation"],
+			"start": "a1",
+			"messages": [
+				{
+					"id": "a1",
+					"t": "b1",
+					"f": "c1",
+					"var": "reputation",
+					"prop": "GT",
+					"const": "70",
+					"type": "LOGIC"
+				},{
+					"id": "b1",
+					"name": "Mayor",
+					"text": "Nice to see you. I can use someone to brighten the room while working",
+					"type": "EXIT"
+				},{
+					"id": "c1",
+					"t": "d1",
+					"f": "e1",
+					"var": "reputation",
+					"prop": "LT",
+					"const": "30",
+					"type": "LOGIC"
+				},{
+					"id": "d1",
+					"name": "Mayor",
+					"text": "Go away while I'm working!",
+					"type": "EXIT"
+				},{
+					"id": "e1",
+					"name": "Mayor",
+					"text": "Would you like to be quiet while I'm working",
+					"type": "EXIT"
+				}
+			]
+		},
+		{
+			"id": "mayor-relaxing",
+			"dictionary": ["npc"],
+			"variables": ["money", "reputation"],
+			"start": "a1",
+			"messages": [
+				{
+					"id": "a1",
+					"name": "Mayor",
+					"text": "I'm sorry I would like to be left alone and enjoy my beer on my own.",
+					"type": "EXIT"
+				}
+			]
+		},
+		{
+			"id": "template",
+			"dictionary": ["npc"],
+			"variables": ["money", "reputation"],
+			"start": "a1",
+			"messages": [
+			]
 		}
 	]
 }

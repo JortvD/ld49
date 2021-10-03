@@ -66,17 +66,22 @@ func open_message(id):
 			show_dialog()
 			show_text(parse_text(message.name, cur_story.dict), parse_text(message.text, cur_story.dict), choices)
 		"LOGIC":
+			var constant = message["const"]
+			
+			if(constant.is_valid_integer()): constant = int(constant)
+			elif(constant.is_valid_float()): constant = float(constant)
+			
 			match message.prop:
 				"EQ": # =
-					if(cur_story.vars[message.var] == message["const"]):
+					if(cur_story.vars[message.var] == constant):
 						open_message(message.t)
 					else: open_message(message.f)
 				"LT": # <
-					if(cur_story.vars[message.var] < message["const"]):
+					if(cur_story.vars[message.var] < constant):
 						open_message(message.t)
 					else: open_message(message.f)
 				"GT": # >
-					if(cur_story.vars[message.var] > message["const"]):
+					if(cur_story.vars[message.var] > constant):
 						open_message(message.t)
 					else: open_message(message.f)
 				"HAS": # .has

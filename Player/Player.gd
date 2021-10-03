@@ -16,6 +16,7 @@ var throw_start = 0
 
 var alcohol = 1
 var money = 0
+var city_money = 0
 
 func _ready():
 	for n in range(INVENTORY_SIZE):
