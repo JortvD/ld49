@@ -183,6 +183,61 @@
 				}
 			]	
 				
+		},
+		{
+			"id": "mayor-bribing",
+			"dictionary": ["npc"],
+			"variables": ["money", "reputation"],
+			"start": "a1",
+			"messages": [
+				{
+					"id": "a1",
+					"type": "QUESTION",
+					"name": "#npc#",
+					"text": "Welcome to our city hall, what can I do for you?",
+					"choices": [
+						{"text": "I have a proposition for you (Bribe)", "next": "b1"},
+						{"text": "Just passing by", "next": "c1"}
+					]
+				},
+				{
+					"id": "c1",
+					"type": "LOGIC",
+					"t": "c2",
+					"f": "c3",
+					"var": "reputation",
+					"prop": "LT",
+					"const": 30
+				},
+				{
+					"id": "c2",
+					"type": "EXIT",
+					"name": "#npc#",
+					"text": "If you don't need to be here please go away"
+				},
+				{
+					"id": "c3",
+					"type": "LOGIC",
+					"t": "c4",
+					"f": "c5",
+					"var": "reputation",
+					"prop": "GT",
+					"const": 70
+				},
+				{
+					"id": "c4",
+					"type": "EXIT",
+					"name": "#npc#",
+					"text": "Always a pleasure seeing you!"
+				},
+				{
+					"id": "c5",
+					"type": "EXIT",
+					"name": "#npc#",
+					"text": "If you didn't need to be here, why are you here than?"
+				}
+			]	
+				
 		}
 	]
 }

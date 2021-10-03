@@ -31,6 +31,9 @@ func _input(event):
 		if event.scancode == KEY_SPACE and $"/root/MainScene/CanvasLayer/DayNightCycle".hour == 7:
 			$"/root/MainScene/CanvasLayer/Dialog".start_story("mayor-walking", {"npc": $"..".names["Mayor"]}, {}, self)
 			$"..".start_conversation()
+		if event.scancode == KEY_SPACE and $"/root/MainScene/CanvasLayer/DayNightCycle".hour >= 15 and $"/root/MainScene/CanvasLayer/DayNightCycle".hour <= 18:
+			$"/root/MainScene/CanvasLayer/Dialog".start_story("mayor-bribing", {"npc": $"..".names["Mayor"]}, {"money": $"/root/MainScene/Player".money, "reputation": $"..".reputation["Player"]}, self)
+			$"..".start_conversation()
 
 func _story_message(id):
 	pass

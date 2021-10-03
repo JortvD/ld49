@@ -15,6 +15,7 @@ onready var BULLET = preload("res://objects/Bullet.tscn")
 var throw_start = 0
 
 var alcohol = 1
+var money = 0
 
 func _ready():
 	for n in range(INVENTORY_SIZE):
