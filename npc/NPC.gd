@@ -33,6 +33,7 @@ var reputation = {}
 var npc_name = "Test"
 var schedule = []
 var last_hour = -1
+var last_minutes = -1
 
 func _ready():
 	for key in names.keys():
@@ -66,11 +67,13 @@ func _process(delta):
 		$"/root/MainScene/Line2D".points = path
 	
 	var hour = $"/root/MainScene/CanvasLayer/DayNightCycle".hour
+	var minutes = $"/root/MainScene/CanvasLayer/DayNightCycle".minutes
 	
-	if(hour != last_hour):
+	if(hour != last_hour or minutes != last_minutes):
 		last_hour = hour
+		last_minutes = minutes
 		
-		var task = find_task_at(hour)
+		var task = find_task_at(hour, minutes)
 		
 		if(task != null):
 			handle_scheduled_task(task)
@@ -115,9 +118,9 @@ func handle_task(task):
 		_:
 			child._handle_custom_task(task)
 
-func find_task_at(hour):
+func find_task_at(hour, minutes):
 	for i in schedule:
-		if(i["at"] == hour): return i
+		if(i["at"] == hour and i["mins"] == minutes): return i
 
 func start_conversation():
 	$"/root/MainScene/Player".interact_lock = true

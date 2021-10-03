@@ -9,13 +9,13 @@ func _ready():
 	$"..".npc_name = "Mayor"
 	$"..".child = self
 	$"..".schedule = [
-		{"at": 2, "type": "MOVE", "moves": [house_b.get_entrance_position(), house_b.get_random_spot()]},
-		{"at": 7, "type": "MOVE", "moves": [house_b.get_exit_position(), Vector2(2000, 2200)]},
-		{"at": 8, "type": "MOVE", "moves": [city_hall.get_entrance_position(), city_hall.get_random_spot()]},
-		{"at": 12, "type": "MOVE", "moves": [city_hall.get_exit_position(), saloon.get_entrance_position(), saloon.get_random_spot()]},
-		{"at": 14, "type": "MOVE", "moves": [saloon.get_exit_position(), city_hall.get_entrance_position(), city_hall.get_random_spot()]},
-		{"at": 18, "type": "MOVE", "moves": [city_hall.get_exit_position(), bank.get_entrance_position(), bank.get_random_spot()]},
-		{"at": 19, "type": "MOVE", "moves": [bank.get_exit_position(), saloon.get_entrance_position(), saloon.get_random_spot()]}
+		{"at": 2, "mins": 0, "type": "MOVE", "moves": [house_b.get_entrance_position(), house_b.get_random_spot()]},
+		{"at": 7, "mins": 0, "type": "MOVE", "moves": [house_b.get_exit_position(), Vector2(2000, 2200)]},
+		{"at": 8, "mins": 0, "type": "MOVE", "moves": [city_hall.get_entrance_position(), city_hall.get_random_spot()]},
+		{"at": 12, "mins": 0, "type": "MOVE", "moves": [city_hall.get_exit_position(), saloon.get_entrance_position(), saloon.get_random_spot()]},
+		{"at": 14, "mins": 0, "type": "MOVE", "moves": [saloon.get_exit_position(), city_hall.get_entrance_position(), city_hall.get_random_spot()]},
+		{"at": 18, "mins": 0, "type": "MOVE", "moves": [city_hall.get_exit_position(), bank.get_entrance_position(), bank.get_random_spot()]},
+		{"at": 19, "mins": 0, "type": "MOVE", "moves": [bank.get_exit_position(), saloon.get_entrance_position(), saloon.get_random_spot()]}
 	]
 	
 func _input(event):
