@@ -14,6 +14,7 @@ var path : = PoolVector2Array()
 var player_close = false
 var health = 100
 var deranged_speed = 1
+var dead = false
 var interact_lock = false
 onready var BULLET = preload("res://objects/Bullet.tscn")
 onready var saloon  = $"/root/MainScene/Buildings/Saloon"
@@ -21,6 +22,9 @@ var deranged_positions = [Vector2(1000, 2100), Vector2(2400, 1000), Vector2(5500
 
 var override_task = null
 var scheduled_task = null
+var last_hour = -1
+var last_minutes = -1
+var walking = false
 export(String) var in_building
 var next_moves = []
 # Mostly temporary names
@@ -37,12 +41,12 @@ var names = {
 	"SaloonOwner": "Silvia"
 }
 var reputation = {}
+var target = null
 
 var npc_name = "Test"
 var schedule = []
-var last_hour = -1
-var last_minutes = -1
-var walking = false
+var can_attack = false
+var weapon = null
 
 func _ready():
 	if hat != null: $Sprite.texture = hat 
@@ -58,7 +62,7 @@ func _ready():
 func _process(delta):
 	# Death
 	if(health <= 0):
-		
+		dead = true
 		return
 	
 	# Calculate the movement distance for this frame
@@ -83,7 +87,7 @@ func _process(delta):
 		# Update the distance to walk
 		distance_to_walk -= distance_to_next_point
 		
-		if(len(path) > 0): rotation = position.angle_to_point(path[0])
+		if(len(path) > 0): rotation = position.angle_to_point(path[0]) + PI
 		
 	if(path.size() == 0):
 		if(len(next_moves) > 0):
@@ -102,6 +106,26 @@ func _process(delta):
 			{"at": 6, "mins": 0, "type": "MOVE", "moves": [deranged_positions[randi() % deranged_positions.size()]], "force_outside": true},
 			{"at": 8, "mins": 0, "type": "MOVE", "moves": [saloon.get_entrance_position(), saloon.get_random_spot()], "force_outside": true}
 		]
+		
+	if(weapon != null):
+		if(mood == MOOD.ATTACK or mood == MOOD.BLOODTHIRST):
+			$Holster.visible = false
+			$Holding.visible = true
+		else:
+			$Holster.visible = true
+			$Holding.visible = false
+	else:
+		$Holster.visible = false
+		$Holding.visible = false
+	
+	if($AttackTimer.is_stopped()):
+		var seen = $"/root/MainScene".check_player_rays()
+		if(mood == MOOD.ATTACK): mood = MOOD.DEFAULT 
+		for player in seen.keys():
+			if(seen[player] and reputation[player] <= 0 and can_attack and weapon != null):
+				mood = MOOD.ATTACK
+				target = player
+		$AttackTimer.start()
 	
 	var hour = $"/root/MainScene/CanvasLayer/DayNightCycle".hour
 	var minutes = $"/root/MainScene/CanvasLayer/DayNightCycle".minutes

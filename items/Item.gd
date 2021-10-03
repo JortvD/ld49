@@ -16,5 +16,9 @@ func _process(delta):
 
 func _input(event):
 	if event is InputEventKey and event.pressed and player_close and Input.is_action_pressed("ui_e"):
+		$"/root/MainScene"._on_item_pickup(type, self)
 		var result = $"/root/MainScene/Player".pickup(type)
 		if result: queue_free()
+
+func delete():
+	queue_free()
