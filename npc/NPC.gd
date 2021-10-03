@@ -242,3 +242,4 @@ func npc_dead():
 #	mood = -1
 	speed = 0
 	rotation_speed = 0
+	dead = true

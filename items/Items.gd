@@ -3,7 +3,7 @@ extends Node
 onready var ITEM = preload("res://items/Item.tscn")
 
 var types = [
-	{"name": "gun", "img": "res://icon.png", "action": "SHOOT", "options": {"rps": 5, "img": "res://icon.png", "speed": 100, "damage": 10}},
+	{"name": "gun", "img": "res://icon.png", "action": "SHOOT", "options": {"rps": 20, "img": "res://icon.png", "speed": 1000, "damage": 50}},
 	{"name": "money", "img": "res://icon.png", "action": "NONE", "options": {}}
 ]
 
