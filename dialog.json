@@ -448,6 +448,95 @@
 			]
 		},
 		{
+			"id": "postman-warning",
+			"dictionary": ["npc"],
+			"variables": [],
+			"start": "a1",
+			"messages": [
+				{
+					"id": "a1",
+					"name": "Postman",
+					"text": "Alright I am only going to say this once. Don't disturb my while I'm working. I am a busy man",
+					"type": "EXIT"
+				}
+			]
+		},
+		{
+			"id": "postman-sleeping",
+			"dictionary": ["npc"],
+			"variables": [],
+			"start": "a1",
+			"messages": [
+				{
+					"id": "a1",
+					"name": "Postman",
+					"text": "Let me sleep I need to work the whole day tomorrow!!",
+					"type": "EXIT"
+				}
+			]
+		},
+		{
+			"id": "postman-working",
+			"dictionary": ["npc"],
+			"variables": [],
+			"start": "a1",
+			"messages": [
+				{
+					"id": "a1",
+					"name": "Postman",
+					"text": "LEAVE ME ALONE!!",
+					"type": "EXIT"
+				}
+			]
+		},
+		{
+			"id": "postman-relaxing",
+			"dictionary": ["npc"],
+			"variables": [],
+			"start": "a1",
+			"messages": [
+				{
+					"id": "a1",
+					"name": "Postman",
+					"text": "Finally a break, so what do you want from me?",
+					"choices": [
+						{
+							"text": "give post",
+							"next": "aa1"
+						},
+						{
+							"text": "just checking on you",
+							"next": "ab1"
+						}
+					],
+					"type": "QUESTION"
+				},{
+					"id": "aa1",
+					"t": "b1",
+					"f": "c1",
+					"var": "post",
+					"prop": "EQ",
+					"const": "1",
+					"type": "LOGIC"
+				},{
+					"id": "b1",
+					"name": "Postman",
+					"text": "I.. I never received post before thank you very much!!!",
+					"type": "EXIT"
+				},{
+					"id": "c1",
+					"name": "Postman",
+					"text": "Don't worry about it.. it's not like I received post ever anyway...",
+					"type": "EXIT"
+				},{
+					"id": "ab1",
+					"name": "Postman",
+					"text": "Just don't bother me then",
+					"type": "EXIT"
+				}
+			]
+		},
+		{
 			"id": "template",
 			"dictionary": ["npc"],
 			"variables": ["money", "reputation"],

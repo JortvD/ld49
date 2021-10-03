@@ -1,5 +1,7 @@
 extends Node
 
+var first_time = false
+
 func _ready():
 	var house_c = $"/root/MainScene/Buildings/HouseC"
 	var post_man_office  = $"/root/MainScene/Buildings/Postmaster"
@@ -36,3 +38,19 @@ func _ready():
 		{"at": 20, "mins": 0,  "type": "MOVE", "moves": [house_e.get_exit_position(), saloon.get_entrance_position(), saloon.get_random_spot()]},
 		{"at": 23, "mins": 0,  "type": "MOVE", "moves": [saloon.get_exit_position(), house_d.get_entrance_position(), house_d.get_random_spot()]}
 	]
+	
+func _input(event):
+	if event is InputEventKey and event.pressed and $"..".player_close:
+		if event.scancode == KEY_SPACE and not first_time:
+			first_time = true
+			$"/root/MainScene/CanvasLayer/Dialog".start_story("postman-warning", {"npc": $"..".names["Postman"]}, {}, self)
+			$"..".start_conversation()
+		if event.scancode == KEY_SPACE and ($"/root/MainScene/CanvasLayer/DayNightCycle".hour >= 23 or $"/root/MainScene/CanvasLayer/DayNightCycle".hour < 6):
+			$"/root/MainScene/CanvasLayer/Dialog".start_story("postman-sleeping", {"npc": $"..".names["Postman"]}, {}, self)
+			$"..".start_conversation()
+		if event.scancode == KEY_SPACE and (($"/root/MainScene/CanvasLayer/DayNightCycle".hour >= 8 and $"/root/MainScene/CanvasLayer/DayNightCycle".hour < 12) or ($"/root/MainScene/CanvasLayer/DayNightCycle".hour >= 14 and $"/root/MainScene/CanvasLayer/DayNightCycle".hour < 20)):
+			$"/root/MainScene/CanvasLayer/Dialog".start_story("postman-working", {"npc": $"..".names["Postman"]}, {}, self)
+			$"..".start_conversation()
+		if event.scancode == KEY_SPACE and (($"/root/MainScene/CanvasLayer/DayNightCycle".hour >= 12 and $"/root/MainScene/CanvasLayer/DayNightCycle".hour < 14) or ($"/root/MainScene/CanvasLayer/DayNightCycle".hour >= 20 and $"/root/MainScene/CanvasLayer/DayNightCycle".hour < 23)):
+			$"/root/MainScene/CanvasLayer/Dialog".start_story("postman-relaxing", {"npc": $"..".names["Postman"]}, {}, self)
+			$"..".start_conversation()
