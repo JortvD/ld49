@@ -10,7 +10,7 @@ func _ready():
 
 	
 	
-	$"..".npc_name = "Postman"
+	$"..".npc_name = "Sheriff"
 	$"..".child = self
 	$"..".schedule = [
 		{"at": 7, "type": "MOVE", "moves": [house_e.get_exit_position(), sheriff.get_entrance_position(), sheriff.get_random_spot()]},
