@@ -79,11 +79,11 @@ func _process(delta):
 	if distance <= DISTANCE_TO_CLOSE:
 		if !player_close: 
 			player_close = true
-			child._handle_entering_player(distance)
+			#child._handle_entering_player(distance)
 	else:
 		if player_close:
 			player_close = false
-			child._handle_leaving_player(distance)
+			#child._handle_leaving_player(distance)
 	
 #	if mood == 1 and $BulletTimer.is_stopped():
 #		npc_shoot()
