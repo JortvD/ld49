@@ -102,11 +102,36 @@ func check_player_rays():
 		else: results[name] = true
 		
 	return results
+	
+func check_npc_rays(name):
+	var names = $NPCs/Mayor.names.keys()
+	names.erase(name)
+	var results = {}
+	
+	for name_ in names:
+		var result = get_world_2d().direct_space_state.intersect_ray(get_node("NPCs/" + name_).global_position, get_node("NPCs/" + name).global_position, [get_node("NPCs/" + name_), get_node("NPCs/" + name)])
+		if result: results[name_] = false
+		else: results[name_] = true
+	
+	var result = get_world_2d().direct_space_state.intersect_ray($Player.global_position, get_node("NPCs/" + name).global_position, [$Player, get_node("NPCs/" + name)])
+	if result: results["Player"] = false
+	else: results["Player"] = true
+	
+	return results
+
+func check_ray(c1, c2):
+	var result = get_world_2d().direct_space_state.intersect_ray(c1.global_position, c2.global_position, [c1, c2])
+	if result: return false
+	
+	return true
 
 func _input(event):
 	if event is InputEventKey and event.pressed:
 		if event.scancode == KEY_H:
 			print(check_player_rays())
+	if event is InputEventKey and event.pressed:
+		if event.scancode == KEY_C:
+			$"NPCs/Mayor".reputation['Player'] = 0
 			
 func Check_all_dead():
 	if($NPCs/Mayor.dead == true and $NPCs/Postman.dead == true and $NPCs/Sheriff.dead == true and $NPCs/GeneralStoreman.dead == true and $NPCs/BankWoman.dead == true and $NPCs/Doctor.dead == true and $NPCs/FireDepartmentMan.dead == true and $NPCs/FireDepartmentWoman.dead == true and $NPCs/OldJoe.dead == true and $NPCs/SaloonOwner.dead == true):
