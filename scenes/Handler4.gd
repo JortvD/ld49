@@ -1,5 +1,7 @@
 extends Node
 
+var first_time = false
+
 func _ready():
 	var saloon = $"/root/MainScene/Buildings/Saloon"
 	var general_store = $"/root/MainScene/Buildings/GeneralStore"
@@ -30,3 +32,17 @@ func _handle_leaving_player(distance):
 
 func _handle_custom_task(task):
 	pass
+	
+func _input(event):
+	if event is InputEventKey and event.pressed and $"..".player_close:
+		if event.scancode == KEY_SPACE and not first_time:
+			first_time = true
+			$"/root/MainScene/CanvasLayer/Dialog".start_story("generalstoreman-first-time", {"npc": $"..".names["GeneralStoreman"]}, {}, self)
+			$"..".start_conversation()
+		if event.scancode == KEY_SPACE and (($"/root/MainScene/CanvasLayer/DayNightCycle".hour >= 7 and $"/root/MainScene/CanvasLayer/DayNightCycle".hour < 12) or ($"/root/MainScene/CanvasLayer/DayNightCycle".hour >= 14 and $"/root/MainScene/CanvasLayer/DayNightCycle".hour < 21)):
+			$"/root/MainScene/CanvasLayer/Dialog".start_story("generalstoreman-working", {"npc": $"..".names["GeneralStoreman"]}, {"money": $"/root/MainScene/Player".money, "reputation": $"..".reputation["Player"]}, self)
+			$"..".start_conversation()
+		if event.scancode == KEY_SPACE and ($"/root/MainScene/CanvasLayer/DayNightCycle".hour >= 21 or $"/root/MainScene/CanvasLayer/DayNightCycle".hour < 7):
+			$"/root/MainScene/CanvasLayer/Dialog".start_story("generalstoreman-sleeping", {"npc": $"..".names["GeneralStoreman"]}, {}, self)
+			$"..".start_conversation()
+
