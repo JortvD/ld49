@@ -36,3 +36,6 @@ func _handle_entering_player(distance):
 
 func _handle_leaving_player(distance):
 	$"..".hide_text()
+
+func _handle_custom_task(task):
+	pass

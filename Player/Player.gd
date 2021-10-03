@@ -8,7 +8,6 @@ var horse_modifier = 2
 var velocity = Vector2()
 var health = 100
 var health_max = 100
-var faction_reputation = {"Rojo": 50, "Arizona": 50, "None": 50}
 var inventory = []
 var selected_slot = 0
 var interact_lock = false

@@ -15,10 +15,32 @@ var override_task = null
 var scheduled_task = null
 var in_building = null
 var next_moves = []
+# Mostly temporary names
+var names = {
+	"Mayor": "Mark",
+	"Postman": "Henk",
+	"Sheriff": "Frank",
+	"GeneralStoreman": "Stef",
+	"Bankwoman": "Leia",
+	"Doctor": "Olivia",
+	"FireDepartmentGuy": "Oliver",
+	"FireDepartmentGirl": "Sophie",
+	"OldJoe": "Old Joe",
+	"SaloonOwner": "Silvia"
+}
+var reputation = {}
 
 var npc_name = "Test"
 var schedule = []
 var last_hour = -1
+
+func _ready():
+	for key in names.keys():
+		if(key == name): continue
+		
+		reputation[key] = 50
+	
+	reputation["Player"] = 50
 
 func _process(delta):
 	# Calculate the movement distance for this frame
@@ -80,11 +102,18 @@ func handle_scheduled_task(task):
 	
 	handle_task(task)
 	
+func handle_override_task(task):
+	override_task = task
+	
+	handle_task(task)
+
 func handle_task(task):
 	match task.type:
 		"MOVE":
 			next_moves = task.moves
 #			if(in_building != null): get_node("/root/MainScene/Buildings" + in_building + "/").
+		_:
+			child._handle_custom_task(task)
 
 func find_task_at(hour):
 	for i in schedule:
