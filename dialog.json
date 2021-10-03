@@ -778,6 +778,93 @@
 			]
 		},
 		{
+			"id": "bankwoman-first-time",
+			"dictionary": ["npc"],
+			"variables": [],
+			"start": "a1",
+			"messages": [
+				{
+					"id": "a1",
+					"name": "BankWoman",
+					"text": "Welcome to the city, if you need somewhere to leave your money come visit me!",
+					"type": "EXIT"
+				}
+			]
+		},
+		{
+			"id": "bankwoman-working",
+			"dictionary": ["npc"],
+			"variables": ["money"],
+			"start": "a1",
+			"messages": [
+				{
+					"id": "a1",
+					"name": "BankWoman",
+					"text": "Tell me can I help you with dropping of some money?",
+					"choices": [
+						{
+							"text": "Yes (give money)",
+							"next": "a1a1"
+						},
+						{
+							"text": "Yes (give lottery ticket)",
+							"next": "a1b1"
+						},
+						{
+							"text": "No",
+							"next": "c1"
+						}
+					],
+					"type": "QUESTION"
+				},{
+					"id": "a1a1",
+					"t": "b1",
+					"f": "c1",
+					"var": "money",
+					"prop": "EQ",
+					"const": "1",
+					"type": "LOGIC"
+				},{
+					"id": "b1",
+					"name": "BankWoman",
+					"text": "Thank you for dropping off the money!",
+					"type": "EXIT"
+				},{
+					"id": "c1",
+					"name": "BankWoman",
+					"text": "No money on you right now? don't worry I'll wait",
+					"type": "EXIT"
+				},{
+					"id": "a1b1",
+					"t": "bb1",
+					"f": "c1",
+					"var": "money",
+					"prop": "EQ",
+					"const": "1",
+					"type": "LOGIC"
+				},{
+					"id": "bb1",
+					"name": "BankWoman",
+					"text": "Thank you for your purchase!",
+					"type": "EXIT"
+				}
+			]
+		},
+		{
+			"id": "bankwoman-sleeping",
+			"dictionary": ["npc"],
+			"variables": [],
+			"start": "a1",
+			"messages": [
+				{
+					"id": "a1",
+					"name": "BankWoman",
+					"text": "Unless you got some money with you, please don't wake me up",
+					"type": "EXIT"
+				}
+			]
+		},
+		{
 			"id": "template",
 			"dictionary": ["npc"],
 			"variables": ["money", "reputation"],

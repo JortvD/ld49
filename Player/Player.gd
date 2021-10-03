@@ -91,7 +91,8 @@ func _process(delta):
 	velocity = move_and_slide(velocity)
 	
 	if (health <= 0):
-		playerDead();
+		Global.ending = 3
+		get_tree().change_scene("res://Ending.tscn")
 	
 	$"/root/MainScene/CanvasLayer/GUI".set_health(health, health_max)
 	
