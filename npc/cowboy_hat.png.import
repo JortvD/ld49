@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/sheriff_hat.png-23c7931a0660b60711adc7f3377d6ee0.stex"
+path="res://.import/cowboy_hat.png-a90eb8f2d1d6274b3c373cf93bca285c.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sheriff_hat.png"
-dest_files=[ "res://.import/sheriff_hat.png-23c7931a0660b60711adc7f3377d6ee0.stex" ]
+source_file="res://npc/cowboy_hat.png"
+dest_files=[ "res://.import/cowboy_hat.png-a90eb8f2d1d6274b3c373cf93bca285c.stex" ]
 
 [params]
 

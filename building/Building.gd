@@ -36,11 +36,10 @@ func _on_entrance_entered(body):
 		$Timer.wait_time = effect_duration
 		$Timer.start()
 	
-	print("jump en", body.name)
 	if ("NPC" in body.get_parent().name):
 		body.path = PoolVector2Array()
 		body.position = $ExitLocation.global_position
-#		body.in_building = name
+		body.in_building = name
 		
 func _on_exit_entered(body):
 	if (body.name == "Player"):
@@ -49,11 +48,10 @@ func _on_exit_entered(body):
 		$Timer.wait_time = effect_duration
 		$Timer.start()
 	
-	print("jump ex", body.name)
 	if ("NPC" in body.get_parent().name):
 		body.path = PoolVector2Array()
 		body.position = $EntranceLocation.global_position
-#		body.in_building = null
+		body.in_building = null
 
 func _on_Timer_timeout():
 	if(!moving_camera):

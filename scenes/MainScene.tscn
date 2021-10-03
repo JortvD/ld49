@@ -1,4 +1,4 @@
-[gd_scene load_steps=69 format=2]
+[gd_scene load_steps=81 format=2]
 
 [ext_resource path="res://world/World.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
@@ -26,6 +26,8 @@
 [ext_resource path="res://building/HouseB.png" type="Texture" id=24]
 [ext_resource path="res://building/HouseD.png" type="Texture" id=25]
 [ext_resource path="res://building/water_tower.png" type="Texture" id=26]
+[ext_resource path="res://npc/top_hat.png" type="Texture" id=27]
+[ext_resource path="res://npc/shoulders_gray.png" type="Texture" id=28]
 
 [sub_resource type="NavigationPolygon" id=1]
 vertices = PoolVector2Array( 2744, 1388.74, 3816.79, 2113.92, 1059.91, 1940.11, 802.198, 1166.99, 999.975, 2030.01, -2512.06, 2107.92, -1265.47, 1274.87, 251.185, 1158.89, -1660.57, -1218.25, -2694.61, -2065.82, 751.4, -2050.19, -2739.8, 2167.86, -2741.22, -2002.25, -1711.43, -1201.3, -1359.68, -591.046, -1698.94, 155.267, -1019.74, 1017.16, 23.7671, 995.418, 241.106, 966.122, 59.677, 867.848, 3993.33, -1873.65, 3990.6, 1922.13, 2779.96, 1352.78, 2484.69, 708.249, 2523.93, 162.402, 2282.44, -33.2422, 2335.27, -1888.77, 2336.86, 126.691, -1286.6, -593.394, -262.686, -1318.88, 1270.51, 659.491, 2431.62, 744.603, 819.763, 708.684, 1076.67, 655.923, 13.0601, 871.628, 16.9052, 733.074, 60.9373, 731.777, 236.066, 813.672, 1478.41, -55.8323, 1469.69, -138.381, 1625.76, -140.176, 1626.34, -64.1829, 1993.29, -9.30664, 1988.77, -78.0596, 2142.75, -76.4722, 2141.21, -11.6926, 292.762, 818.711, 296.542, 967.382, 239.221, 452.856, 48.3379, 619.644, -260.343, 384.863, -313.26, 387.383, -313.26, 241.232, -263.394, 238.766, 230.545, 304.689, -224.888, -1156.35, -226.653, -1012.73, -276.545, -1015.24, -280.589, -1157.6, 1910.99, 193.386, 1760.19, 191.799, 1763.04, 131.463, 1913.36, 127.885, 290.243, 303.316, 297.802, 451.987, 784.104, -77.3057, 782.348, -149.493, 923.627, -147.905, 923.681, -73.7268, -816.753, -82.0774, -818.311, -143.044, -677.2, -143.044, -675.983, -79.6915, -79.5168, -147.713, -79.5801, -210.732, 91.769, -206.952, 91.29, -147.713, 1271.7, 154.078, 1082.61, 102.942, -1206.37, -101.467, -1206.37, -141.784, -1052.66, -140.524, -1054.15, -78.4985, -1134.55, 142.958, 841.197, -2036.72, 2282.44, -2009.78, 2249.85, -600.726, 1092.67, -623.968, 563.474, -1403.61, 1087.32, -401.243, 580.767, -411.985, 548.658, -124.197, 580.767, -130.143, 2334.83, 193.386, 2199.9, 190.211, 2199.67, 132.656, 247.79, 83.9148, -261.192, 131.483, -272.348, 566.639, -980.887, 151.342, -992.18, 197.135, -1126.99, 197.135, -282.597, -144.414, -927.924, 150.518, -519.25, -88.5205, -1702.51, 739.168, -1619.07, 1412.71, 356.214, -1331.06, -514.493, -551.122, -1367.16, -89.7106 )
@@ -181,6 +183,55 @@ extents = Vector2( 15.6008, 2.99347 )
 [sub_resource type="RectangleShape2D" id=42]
 extents = Vector2( 18.9092, 4.20313 )
 
+[sub_resource type="AtlasTexture" id=52]
+atlas = ExtResource( 28 )
+region = Rect2( 320, 0, 160, 100 )
+
+[sub_resource type="AtlasTexture" id=43]
+atlas = ExtResource( 28 )
+region = Rect2( 0, 0, 160, 100 )
+
+[sub_resource type="AtlasTexture" id=44]
+atlas = ExtResource( 28 )
+region = Rect2( 160, 0, 160, 100 )
+
+[sub_resource type="AtlasTexture" id=45]
+atlas = ExtResource( 28 )
+region = Rect2( 320, 0, 160, 100 )
+
+[sub_resource type="AtlasTexture" id=46]
+atlas = ExtResource( 28 )
+region = Rect2( 480, 0, 160, 100 )
+
+[sub_resource type="AtlasTexture" id=47]
+atlas = ExtResource( 28 )
+region = Rect2( 640, 0, 160, 100 )
+
+[sub_resource type="AtlasTexture" id=48]
+atlas = ExtResource( 28 )
+region = Rect2( 800, 0, 160, 100 )
+
+[sub_resource type="AtlasTexture" id=49]
+atlas = ExtResource( 28 )
+region = Rect2( 960, 0, 160, 100 )
+
+[sub_resource type="AtlasTexture" id=50]
+atlas = ExtResource( 28 )
+region = Rect2( 1120, 0, 160, 100 )
+
+[sub_resource type="SpriteFrames" id=51]
+animations = [ {
+"frames": [ SubResource( 52 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 43 ), SubResource( 44 ), SubResource( 45 ), SubResource( 46 ), SubResource( 47 ), SubResource( 48 ), SubResource( 49 ), SubResource( 50 ) ],
+"loop": true,
+"name": "walking",
+"speed": 5.0
+} ]
+
 [node name="MainScene" type="Node2D"]
 script = ExtResource( 11 )
 
@@ -194,6 +245,7 @@ position = Vector2( 2432.48, 1136.89 )
 z_index = 2
 
 [node name="Navigation2D" type="Navigation2D" parent="."]
+visible = false
 
 [node name="Main" type="NavigationPolygonInstance" parent="Navigation2D"]
 position = Vector2( 2798.2, 2115.59 )
@@ -771,60 +823,72 @@ position = Vector2( 560, 424 )
 
 [node name="Mayor" parent="NPCs" instance=ExtResource( 3 )]
 position = Vector2( 8072.75, 1423.1 )
+shoulders = SubResource( 51 )
+hat = ExtResource( 27 )
+in_building = "HouseB"
 
 [node name="Handler" type="Node" parent="NPCs/Mayor"]
 script = ExtResource( 9 )
 
 [node name="Postman" parent="NPCs" instance=ExtResource( 3 )]
 position = Vector2( 328, -848 )
+in_building = "Postmaster"
 
 [node name="Handler" type="Node" parent="NPCs/Postman"]
 script = ExtResource( 15 )
 
 [node name="Sheriff" parent="NPCs" instance=ExtResource( 3 )]
 position = Vector2( 4648, -848 )
+in_building = "HouseE"
 
 [node name="Handler" type="Node" parent="NPCs/Sheriff"]
 script = ExtResource( 16 )
 
 [node name="GeneralStoreman" parent="NPCs" instance=ExtResource( 3 )]
 position = Vector2( 7552, -920 )
+in_building = "HouseF"
 
 [node name="Handler" type="Node" parent="NPCs/GeneralStoreman"]
 script = ExtResource( 17 )
 
 [node name="BankWoman" parent="NPCs" instance=ExtResource( 3 )]
 position = Vector2( 7456, -1120 )
+in_building = "HouseF"
 
 [node name="Handler" type="Node" parent="NPCs/BankWoman"]
 script = ExtResource( 18 )
 
 [node name="Doctor" parent="NPCs" instance=ExtResource( 3 )]
 position = Vector2( 7984, 2408 )
+in_building = "HouseA"
 
 [node name="Handler" type="Node" parent="NPCs/Doctor"]
 script = ExtResource( 19 )
 
 [node name="FiredepartmentMan" parent="NPCs" instance=ExtResource( 3 )]
 position = Vector2( 8192, 4424 )
+in_building = "HouseA"
 
 [node name="Handler" type="Node" parent="NPCs/FiredepartmentMan"]
 script = ExtResource( 20 )
 
 [node name="FireDepartmentWoman" parent="NPCs" instance=ExtResource( 3 )]
 position = Vector2( 8328, 4552 )
+in_building = "HouseE"
 
 [node name="Handler" type="Node" parent="NPCs/FireDepartmentWoman"]
 script = ExtResource( 21 )
 
-[node name="Old Joe" parent="NPCs" instance=ExtResource( 3 )]
+[node name="OldJoe" parent="NPCs" instance=ExtResource( 3 )]
 position = Vector2( 2056, -864 )
+in_building = "HouseD"
 
-[node name="Handler" type="Node" parent="NPCs/Old Joe"]
+[node name="Handler" type="Node" parent="NPCs/OldJoe"]
 script = ExtResource( 22 )
 
 [node name="SaloonOwner" parent="NPCs" instance=ExtResource( 3 )]
 position = Vector2( 1872, -976 )
+in_building = "HouseD"
 
 [node name="Handler" type="Node" parent="NPCs/SaloonOwner"]
 script = ExtResource( 23 )

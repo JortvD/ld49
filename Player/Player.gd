@@ -43,6 +43,7 @@ func get_input(multi):
 	
 	if Input.is_action_pressed("ui_left_click"):
 		interact()
+	
 	if Input.is_action_pressed("ui_right") or Input.is_action_pressed("ui_d"):
 		velocity.x += 1
 	if Input.is_action_pressed("ui_left") or Input.is_action_pressed("ui_a"):
@@ -51,6 +52,7 @@ func get_input(multi):
 		velocity.y += 1
 	if Input.is_action_pressed("ui_up") or Input.is_action_pressed("ui_w"):
 		velocity.y -= 1
+	
 	if Input.is_action_pressed("ui_q"):
 		if (throw_start == 0): throw_start = OS.get_ticks_msec()
 	if Input.is_action_just_released("ui_q"):
@@ -65,12 +67,21 @@ func get_input(multi):
 		speed = 100 * horse_modifier
 	
 	velocity = velocity.normalized() * speed * multi
+	
+	if((abs(velocity.x) > 0 or abs(velocity.y) > 0) and horse_modifier == 1):
+		if Input.is_action_pressed("ui_shift"):
+			$AnimatedSprite.play("running")
+		else: 
+			$AnimatedSprite.play("walking")
+	else:
+		$AnimatedSprite.play("default")
 
 func modulo(a, n):
 	return a - floor(a/n) * n
 
 func _process(delta):
 	var target_position = get_global_mouse_position()
+	$Sprite2.global_rotation = lerp_angle($Sprite2.global_rotation, target_position.angle_to_point(global_position) + .5 * PI, rotation_speed * delta * 1.1)
 	rotation = lerp_angle(rotation, target_position.angle_to_point(global_position), rotation_speed * delta)
 	
 	var good_direction = abs(atan2(sin(target_position.angle_to_point(global_position)-velocity.angle()), cos(target_position.angle_to_point(global_position)-velocity.angle())))
