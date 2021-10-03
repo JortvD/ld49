@@ -73,6 +73,7 @@ func set_text(text):
 	$Label.text = text
 
 func npc_shoot():
+	return
 	var b = BULLET.instance()
 	owner.add_child(b)
 	b.transform = $LocationBullet.global_transform
