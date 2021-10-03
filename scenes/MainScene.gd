@@ -45,6 +45,7 @@ func _process(delta):
 				del_check["item"].remove()
 		$Timers/DeleteTimer.start()
 	Check_all_dead()
+	check_player_left()
 
 func decrease_all_reputations(amount, subject, exclude):
 	for player in $NPCs/Mayor.names.keys():
@@ -136,4 +137,9 @@ func _input(event):
 func Check_all_dead():
 	if(($NPCs/Mayor.dead == true and $NPCs/Postman.dead == true and $NPCs/Sheriff.dead == true and $NPCs/GeneralStoreman.dead == true and $NPCs/BankWoman.dead == true and $NPCs/Doctor.dead == true and $NPCs/FireDepartmentMan.dead == true and $NPCs/FireDepartmentWoman.dead == true and $NPCs/OldJoe.dead == true and $NPCs/SaloonOwner.dead == true) or Input.is_action_pressed("ui_1")):
 		Global.ending = 1
+		get_tree().change_scene("res://Ending.tscn")
+		
+func check_player_left():
+	if(($Player.position.x >= 6656 or $Player.position.x <= 0 or $Player.position.y >= 4000 or $Player.position.y <= 0) and $Player.in_building == null):
+		Global.ending = 2
 		get_tree().change_scene("res://Ending.tscn")
