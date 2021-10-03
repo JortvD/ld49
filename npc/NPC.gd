@@ -96,6 +96,7 @@ func _process(delta):
 			pass
 		else:
 			var to = position.direction_to(target.global_position) * (position.distance_to(target.global_position) - followDistance)
+			next_moves
 		$FollowTimer.start()
 		
 	if(path.size() == 0):
@@ -120,6 +121,7 @@ func _process(delta):
 		var seen = $"/root/MainScene".check_player_rays()
 		if(mood == MOOD.ATTACK): mood = MOOD.DEFAULT 
 		for character in seen.keys():
+			if(character == name): continue;
 			if(seen[character] and reputation[character] <= 0 and can_attack and weapon != null):
 				mood = MOOD.ATTACK
 				handle_override_task({"type": "FOLLOW_CLOSE" if weapon.action == "STAB" else "FOLLOW_DISTANT", "target": character})
