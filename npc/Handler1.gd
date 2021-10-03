@@ -1,10 +1,14 @@
 extends Node
 
+var first_time
+
 func _ready():
 	var house_b = $"/root/MainScene/Buildings/HouseB"
 	var city_hall  = $"/root/MainScene/Buildings/CityHall"
 	var saloon  = $"/root/MainScene/Buildings/Saloon"
 	var bank  = $"/root/MainScene/Buildings/Bank"
+	
+	first_time = false
 	
 	$"..".npc_name = "Mayor"
 	$"..".child = self
@@ -20,8 +24,12 @@ func _ready():
 	
 func _input(event):
 	if event is InputEventKey and event.pressed and $"..".player_close:
-		if event.scancode == KEY_SPACE:
+		if event.scancode == KEY_SPACE and not first_time:
+			first_time = true
 			$"/root/MainScene/CanvasLayer/Dialog".start_story("mayor-intro", {"npc": $"..".names["Mayor"]}, {}, self)
+			$"..".start_conversation()
+		if event.scancode == KEY_SPACE and $"/root/MainScene/CanvasLayer/DayNightCycle".hour == 7:
+			$"/root/MainScene/CanvasLayer/Dialog".start_story("mayor-walking", {"npc": $"..".names["Mayor"]}, {}, self)
 			$"..".start_conversation()
 
 func _story_message(id):

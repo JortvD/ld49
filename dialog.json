@@ -96,6 +96,93 @@
 					"text": "Goodbye then"
 				}
 			]
+		},
+		{
+			"id": "OldJoe",
+			"dictionary": ["npc"],
+			"variables": ["hour", "alcohol"],
+			"start": "a1",
+			"messages": [
+				{
+					"id": "a1",
+					"type": "CONTINUE",
+					"name": "Old Joe #npc#",
+					"text": "And who the heck might you be strange fella, Haven't seen you around town.",
+					"next": "a2"
+				},
+				{
+					"id": "a2",
+					"type": "LOGIC",
+					"t": "b1",
+					"f": "b3",
+					"var": "hour",
+					"prop": "GT",
+					"const": 10
+				},
+				{
+					"id": "b1",
+					"type": "LOGIC",
+					"t": "b2",
+					"f": "b3",
+					"var": "hour",
+					"prop": "LT",
+					"const": 20
+				},
+				{
+					"id": "b2",
+					"type": "QUESTION",
+					"text": "Well if you are here, might you be interested in some 'Good stuf'? For some kind of payment ofcourse!",
+					"name": "Old Joe",
+					"choices": [
+						{"text": "Yes (Give alcohol)", "next": "b4"},
+						{"text": "No", "next": "b3"}
+					]
+				},
+				{
+					"id": "b3",
+					"type": "EXIT",
+					"name": "Old Joe",
+					"text": "Get the hell out of here than!!"
+				},
+				{
+					"id": "b4",
+					"type": "LOGIC",
+					"t": "b5",
+					"f": "b6",
+					"var": "alcohol",
+					"prop": "EQ",
+					"const": 1
+				},
+				{
+					"id": "b5",
+					"type": "EXIT",
+					"name": "Old Joe",
+					"text": "Pleasure doin business with ya"
+				},
+				{
+					"id": "b6",
+					"type": "EXIT",
+					"name": "Old Joe",
+					"text": "Ya don't got any, what are ya doin?? tryin to scam me?!"
+				}
+
+
+			]
+		},
+		{
+			"id": "mayor-walking",
+			"dictionary": ["npc"],
+			"variables": [],
+			"start": "a1",
+			"messages": [
+				{
+					"id": "a1",
+					"type": "EXIT",
+					"name": "#npc#",
+					"text": "Beautiful day for a walk isn't it?"
+				}
+			]	
+				
 		}
 	]
 }

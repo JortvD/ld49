@@ -14,6 +14,8 @@ var interact_lock = false
 onready var BULLET = preload("res://objects/Bullet.tscn")
 var throw_start = 0
 
+var alcohol = 1
+
 func _ready():
 	for n in range(INVENTORY_SIZE):
 		inventory.push_back(null)
