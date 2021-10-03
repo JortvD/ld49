@@ -1,5 +1,7 @@
 extends Node2D
 
+var ending = 0
+
 var city = {
 	"unplaced_money": 4,
 	"bankrupt": false
@@ -42,6 +44,7 @@ func _process(delta):
 				del_checks.erase(del_check)
 				del_check["item"].remove()
 		$Timers/DeleteTimer.start()
+	Check_all_dead()
 
 func decrease_all_reputations(amount, subject, exclude):
 	for player in $NPCs/Mayor.names.keys():
@@ -104,3 +107,8 @@ func _input(event):
 	if event is InputEventKey and event.pressed:
 		if event.scancode == KEY_H:
 			print(check_player_rays())
+			
+func Check_all_dead():
+	if($NPCs/Mayor.dead == true and $NPCs/Postman.dead == true and $NPCs/Sheriff.dead == true and $NPCs/GeneralStoreman.dead == true and $NPCs/BankWoman.dead == true and $NPCs/Doctor.dead == true and $NPCs/FireDepartmentMan.dead == true and $NPCs/FireDepartmentWoman.dead == true and $NPCs/OldJoe.dead == true and $NPCs/SaloonOwner.dead == true):
+		ending = 1
+		get_tree().change_scene("res://Ending.tscn")

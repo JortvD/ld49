@@ -646,6 +646,138 @@
 			]
 		},
 		{
+			"id": "generalstoreman-first-time",
+			"dictionary": ["npc"],
+			"variables": [],
+			"start": "a1",
+			"messages": [
+				{
+					"id": "a1",
+					"name": "GeneralStoreMan",
+					"text": "Hi! Nice meeting you, I hope you will enjoy it here in our little town",
+					"next": "a2",
+					"type": "CONTINUE"
+				},{
+					"id": "a2",
+					"name": "GeneralStoreMan",
+					"text": "If you want to find me, I'll be spending most of the time at my store",
+					"type": "EXIT"
+				}
+			]
+		},
+		{
+			"id": "generalstoreman-sleeping",
+			"dictionary": ["npc"],
+			"variables": [],
+			"start": "a1",
+			"messages": [
+				{
+					"id": "a1",
+					"name": "GeneralStoreMan",
+					"text": "Would you kindly let me sleep please",
+					"type": "EXIT"
+				}
+			]
+		},
+		{
+			"id": "generalstoreman-working",
+			"dictionary": ["npc"],
+			"variables": ["money", "reputation"],
+			"start": "a1",
+			"messages": [
+				{
+					"id": "a1",
+					"t": "b1",
+					"f": "c1",
+					"var": "reputation",
+					"prop": "GT",
+					"const": "70",
+					"type": "LOGIC"
+				},{
+					"id": "b1",
+					"name": "GeneralStoreMan",
+					"text": "Welcome to the store my friend!",
+					"next": "b2",
+					"type": "CONTINUE"
+				},{
+					"id": "b2",
+					"name": "GeneralStoreMan",
+					"text": "How can I help you?",
+					"choices": [
+						{
+							"text": "buy apple",
+							"next": "b2a1"
+						},
+						{
+							"text": "buy saw",
+							"next": "b2a1"
+						},
+						{
+							"text": "Next page",
+							"next": "b2c1"
+						}
+					],
+					"type": "QUESTION"
+				},{
+					"id": "b2c2",
+					"name": "GeneralStoreMan",
+					"text": "How can I help you?",
+					"choices": [
+						{
+							"text": "buy gun",
+							"next": "b2a1"
+						},
+						{
+							"text": "buy pen and paper",
+							"next": "b2a1"
+						},
+						{
+							"text": "leave",
+							"next": "b4"
+						}
+					],
+					"type": "QUESTION"
+				},{
+					"id": "b2a1",
+					"t": "b2a2",
+					"f": "b2a3",
+					"var": "money",
+					"prop": "EQ",
+					"const": "1",
+					"type": "LOGIC"
+				},{
+					"id": "b2a2",
+					"name": "GeneralStoreMan",
+					"text": "Thank you for buying come again!",
+					"type": "EXIT"
+				},{
+					"id": "b2a3",
+					"name": "GeneralStoreMan",
+					"text": "I am sorry, but you don't have enough money",
+					"type": "EXIT"
+				},{
+					"id": "c1",
+					"name": "GeneralStoreMan",
+					"text": "Welcome to my store!",
+					"choices": [
+						{
+							"text": "buy apple",
+							"next": "b2a1"
+						},
+						{
+							"text": "buy pen and paper",
+							"next": "b2a1"
+						},
+						{
+							"text": "leave",
+							"next": "b4"
+						}
+					],
+					"type": "QUESTION"
+				}
+			]
+		},
+		{
 			"id": "template",
 			"dictionary": ["npc"],
 			"variables": ["money", "reputation"],

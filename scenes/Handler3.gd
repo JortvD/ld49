@@ -42,7 +42,7 @@ func _input(event):
 			$"/root/MainScene/CanvasLayer/Dialog".start_story("sheriff-bank", {"npc": $"..".names["Postman"]}, {}, self)
 			$"..".start_conversation()
 		if event.scancode == KEY_SPACE and (($"/root/MainScene/CanvasLayer/DayNightCycle".hour >= 14 and $"/root/MainScene/CanvasLayer/DayNightCycle".hour < 17)):
-			$"/root/MainScene/CanvasLayer/Dialog".start_story("sherrif-following", {"npc": $"..".names["Postman"]}, {}, self)
+			$"/root/MainScene/CanvasLayer/Dialog".start_story("sheriff-following", {"npc": $"..".names["Postman"]}, {}, self)
 			$"..".start_conversation()
 		if event.scancode == KEY_SPACE and (($"/root/MainScene/CanvasLayer/DayNightCycle".hour >= 20 and $"/root/MainScene/CanvasLayer/DayNightCycle".hour < 21)):
 			$"/root/MainScene/CanvasLayer/Dialog".start_story("sherrif-city-hall", {"npc": $"..".names["Postman"]}, {}, self)
