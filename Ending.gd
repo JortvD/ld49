@@ -1,11 +1,5 @@
 extends Control
 
-func everyoneDead():
-	if():
-		return true
-	else:
-		return false
-
 func _ready():
-	if (everyoneDead()):
+	if ($"/root/MainScene".ending == 1):
 		$RichTextLabel.text = "Well done. Everyone is dead"
