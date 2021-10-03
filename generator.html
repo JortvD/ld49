@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Generator</title>
+
+		<style>
+			#inputs1, #inputs2 {
+				margin-bottom: 16px;
+			}
+
+			textarea {
+				width: 400px;
+				height: 200px;
+			}
+
+			#next button {
+				margin-right: 4px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="inputs1">
+			<input type="text" id="idn" placeholder="id n">
+			<input type="text" id="idi" placeholder="id i">
+			<select id="type" value="CONTINUE">
+				<option value="CONTINUE">CONTINUE</option>
+				<option value="EXIT">EXIT</option>
+				<option value="QUESTION">QUESTION</option>
+				<option value="LOGIC">LOGIC</option>
+			</select>
+			<button id="create">Create</button>
+		</div>
+		<div id="inputs2"></div>
+		<button id="generate">Generate</button> <br >
+		<textarea id="generated"></textarea>
+		<div id="next"></div>
+
+		<script>
+			const alf = "abcdefghijklmnopqrstuvwxyz"
+
+			let n, i, type;
+			
+			document.getElementById("create").addEventListener("click", () => {
+				n = document.getElementById("idn").value
+				i = document.getElementById("idi").value
+				type = document.getElementById("type").value
+				const el = document.getElementById("inputs2");
+				el.innerHTML = "";
+				document.getElementById("generated").value = ""
+
+				switch(type) {
+					case "CONTINUE":
+						generateContinue(el);
+						break;
+					case "EXIT":
+					generateExit(el);
+						break;
+					case "QUESTION":
+						generateQuestion(el);
+						break;
+					case "LOGIC":
+						generateLogic(el);
+						break;
+				}
+			})
+
+			const generateContinue = el => {
+				let name = document.createElement("input")
+				name.id = "name"
+				name.type = "text"
+				name.placeholder = "name"
+				el.appendChild(name)
+
+				let text = document.createElement("input")
+				text.id = "text"
+				text.type = "text"
+				text.placeholder = "text"
+				el.appendChild(text)
+
+				let nextn = document.createElement("input")
+				nextn.id = "nextn"
+				nextn.type = "text"
+				nextn.value = n
+				nextn.placeholder = "nextn"
+				el.appendChild(nextn)
+
+				let nexti = document.createElement("input")
+				nexti.id = "nexti"
+				nexti.type = "text"
+				nexti.value = parseInt(i) + 1
+				nexti.placeholder = "nexti"
+				el.appendChild(nexti)
+			}
+
+			const generateExit = el => {
+				let name = document.createElement("input")
+				name.id = "name"
+				name.type = "text"
+				name.placeholder = "name"
+				el.appendChild(name)
+
+				let text = document.createElement("input")
+				text.id = "text"
+				text.type = "text"
+				text.placeholder = "text"
+				el.appendChild(text)
+			}
+
+			const generateLogic = el => {
+				let variable = document.createElement("input")
+				variable.id = "variable"
+				variable.type = "text"
+				variable.placeholder = "var"
+				el.appendChild(variable)
+
+				let prop = document.createElement("input")
+				prop.id = "prop"
+				prop.type = "text"
+				prop.placeholder = "prop"
+				el.appendChild(prop)
+
+				let constant = document.createElement("input")
+				constant.id = "constant"
+				constant.type = "text"
+				constant.placeholder = "const"
+				el.appendChild(constant)
+
+
+				let tn = document.createElement("input")
+				tn.id = "tn"
+				tn.type = "text"
+				tn.placeholder = "tn"
+				tn.value = alf.charAt(alf.indexOf(n.charAt(0)) + 1)
+				el.appendChild(tn)
+
+				let ti = document.createElement("input")
+				ti.id = "ti"
+				ti.type = "text"
+				ti.placeholder = "ti"
+				ti.value = 1
+				el.appendChild(ti)
+
+				let fn = document.createElement("input")
+				fn.id = "fn"
+				fn.type = "text"
+				fn.placeholder = "fn"
+				fn.value = alf.charAt(alf.indexOf(n.charAt(0)) + 2)
+				el.appendChild(fn)
+
+				let fi = document.createElement("input")
+				fi.id = "fi"
+				fi.type = "text"
+				fi.placeholder = "fi"
+				fi.value = 1
+				el.appendChild(fi)
+			}
+
+			const generateQuestion = el => {
+				let name = document.createElement("input")
+				name.id = "name"
+				name.type = "text"
+				name.placeholder = "name"
+				el.appendChild(name)
+
+				let text = document.createElement("input")
+				text.id = "text"
+				text.type = "text"
+				text.placeholder = "text"
+				el.appendChild(text)
+
+				let j = 0
+
+				let addBtn = document.createElement("button")
+				addBtn.innerText = "Add choice"
+				addBtn.addEventListener("click", () => {
+					generationQuestionItem(choiceContainer, j)
+					j += 1
+				})
+				el.appendChild(addBtn)
+
+				let choiceContainer = document.createElement("div")
+				choiceContainer.id = "choices"
+				el.appendChild(choiceContainer)
+			}
+
+			const generationQuestionItem = (el, j) => {
+				let item = document.createElement("div")
+				item.id = j
+				el.appendChild(item)
+
+				let text = document.createElement("input")
+				text.id = "text" + j
+				text.type = "text"
+				text.placeholder = "text"
+				item.appendChild(text)
+
+				let nextn = document.createElement("input")
+				nextn.id = "nextn" + j
+				nextn.type = "text"
+				nextn.value = n + i + alf.charAt(j)
+				nextn.placeholder = "nextn"
+				item.appendChild(nextn)
+
+				let nexti = document.createElement("input")
+				nexti.id = "nexti" + j
+				nexti.type = "text"
+				nexti.value = 1
+				nexti.placeholder = "nexti"
+				item.appendChild(nexti)
+
+				let remove = document.createElement("button")
+				remove.innerText = "Remove"
+				remove.addEventListener("click", () => el.removeChild(item))
+				item.appendChild(remove)
+			}
+
+			document.getElementById("generate").addEventListener("click", () => {
+				const ta = document.getElementById("generated")
+
+				switch(type) {
+					case "CONTINUE":
+						const next = document.getElementById("nextn").value + document.getElementById("nexti").value
+						ta.value = JSON.stringify({id: n + i, name: document.getElementById("name").value, text: document.getElementById("text").value, next}, null, "\t")
+						generateNextButton(document.getElementById("nextn").value, document.getElementById("nexti").value)
+						break;
+					case "EXIT":
+						ta.value = JSON.stringify({id: n + i, name: document.getElementById("name").value, text: document.getElementById("text").value}, null, "\t")
+						break;
+					case "QUESTION":
+						let choices = []
+						for(const node of document.getElementById("choices").childNodes) {
+							let j = parseInt(node.id)
+							choices.push({text: document.getElementById("text" + j).value, next: document.getElementById("nextn" + j).value + document.getElementById("nexti" + j).value})
+						generateNextButton(document.getElementById("nextn" + j).value, document.getElementById("nexti" + j).value)
+						}
+
+						ta.value = JSON.stringify({id: n + i, name: document.getElementById("name").value, text: document.getElementById("text").value, choices}, null, "\t")
+						break;
+					case "LOGIC":
+						let tn = document.getElementById("tn").value
+						let ti = document.getElementById("ti").value
+						let fn = document.getElementById("fn").value
+						let fi = document.getElementById("fi").value
+						let variable = document.getElementById("variable").value
+						let prop = document.getElementById("prop").value
+						let constant = document.getElementById("constant").value
+
+						ta.value = JSON.stringify({
+							id: n + i, t: tn + "" + ti, f: fn + "" + fi, "var": variable, prop, "const": constant
+						}, null, "\t");
+
+						generateNextButton(tn, ti)
+						generateNextButton(fn, fi)
+						break;
+				}
+			});
+
+			const generateNextButton = (n, i) => {
+					let btn = document.createElement("button")
+					btn.innerText = n + i
+					btn.addEventListener("click", () => {
+						document.getElementById("idn").value = n
+						document.getElementById("idi").value = i
+
+					})
+					document.getElementById("next").prepend(btn)
+				}
+		</script>
+	</body>
+</html>
