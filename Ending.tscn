@@ -1,6 +1,20 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Ending.gd" type="Script" id=1]
+
+[sub_resource type="DynamicFontData" id=1]
+font_path = "res://AmaticSC-Bold.ttf"
+
+[sub_resource type="DynamicFont" id=2]
+size = 60
+font_data = SubResource( 1 )
+
+[sub_resource type="DynamicFontData" id=3]
+font_path = "res://Merriweather-Regular.ttf"
+
+[sub_resource type="DynamicFont" id=4]
+size = 18
+font_data = SubResource( 3 )
 
 [node name="Ending" type="Control"]
 anchor_right = 1.0
@@ -11,11 +25,29 @@ __meta__ = {
 }
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
-margin_left = 64.0
-margin_top = 40.0
-margin_right = 976.0
-margin_bottom = 536.0
+margin_left = 2.05945
+margin_top = 228.449
+margin_right = 1025.06
+margin_bottom = 306.449
+custom_fonts/normal_font = SubResource( 2 )
 text = "Testing"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Label" type="Label" parent="."]
+margin_left = 6.0
+margin_top = 307.0
+margin_right = 1026.0
+margin_bottom = 344.0
+custom_fonts/font = SubResource( 4 )
+text = "Testing"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

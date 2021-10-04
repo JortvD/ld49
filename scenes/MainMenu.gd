@@ -14,6 +14,22 @@ func _ready():
 		data = reset_data()
 	
 	load_data(data)
+	
+	if(Global.days >= 0 or Global.hours >= 0):
+		var ending = get_ending("Ending" + str(Global.ending))
+		
+		if(ending != null and (ending.node.locked or (Global.days < ending.node.days or (Global.days == ending.node.days and Global.hours < ending.node.hours)))):
+			ending.node.set_locked(false)
+			ending.node.set_time(Global.days, Global.hours)
+			reload_total_time()
+
+func get_ending(name):
+	var e = null
+	for ending in endings:
+		if(ending.name == name): 
+			e = ending
+			break
+	return e
 
 func reset_data():
 	return {"list": [
@@ -42,6 +58,9 @@ func load_data(data):
 		if(!node.locked): 
 			node.set_time(ending.days, ending.hours)
 	
+	reload_total_time()
+
+func reload_total_time():
 	var days = 0
 	var hours = 0
 	

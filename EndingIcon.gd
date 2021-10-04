@@ -12,7 +12,11 @@ func _ready():
 
 func set_locked(v):
 	locked = v
-	if(locked): $Label.text = "Locked"
+	if(locked): 
+		$Label.text = "Locked"
+		$Sprite.texture = load("res://locked.png")
+	else:
+		$Sprite.texture = load("res://unlocked.png")
 
 func set_time(d, h):
 	days = d
