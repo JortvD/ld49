@@ -14,6 +14,9 @@ func _ready():
 		{"at": 19, "mins": 0,  "type": "MOVE", "moves": [general_store.get_entrance_position(),general_store.get_random_spot()]},
 		{"at": 21, "mins": 0,  "type": "MOVE", "moves": [general_store.get_exit_position(), Vector2(2560,600)]}
 	]
+	$"..".weapon = $"/root/MainScene/Items".get_type("knife")
+	$"..".can_attack = true
+	$".."._load_graphics()
 
 func _input(event):
 	if event is InputEventKey and event.pressed and $"..".player_close:

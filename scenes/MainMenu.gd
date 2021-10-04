@@ -41,8 +41,7 @@ func reset_data():
 		{"name": "Ending6", "locked": true},
 		{"name": "Ending7", "locked": true},
 		{"name": "Ending8", "locked": true},
-		{"name": "Ending9", "locked": true},
-		{"name": "Ending10", "locked": true}
+		{"name": "Ending9", "locked": true}
 	]}
 
 func load_data(data):
@@ -50,6 +49,7 @@ func load_data(data):
 	
 	for ending in data.list:
 		var node = get_node("CanvasLayer/Panel/Endings/" + ending.name)
+		if(node == null): continue
 		endings.push_back({
 			"node": node,
 			"name": ending.name

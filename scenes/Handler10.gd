@@ -17,6 +17,9 @@ func _ready():
 		{"at": 17, "mins": 0,  "type": "MOVE", "moves": [bank.get_exit_position(), general_store.get_entrance_position(), general_store.get_random_spot()]},
 		{"at": 18, "mins": 0,  "type": "MOVE", "moves": [general_store.get_exit_position(), saloon.get_entrance_position(), saloon.get_random_spot()]}
 	]
+	$"..".weapon = $"/root/MainScene/Items".get_type("gun")
+	$"..".can_attack = true
+	$".."._load_graphics()
 
 func _story_message(id, story):
 	pass

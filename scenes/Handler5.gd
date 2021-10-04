@@ -23,6 +23,9 @@ func _ready():
 		{"at": 16, "mins": 0,  "type": "MOVE", "moves": [doctor.get_exit_position(), bank.get_entrance_position(), bank.get_random_spot()]},
 		{"at": 21, "mins": 0,  "type": "MOVE", "moves": [bank.get_exit_position(), saloon.get_entrance_position(), saloon.get_random_spot()]}
 	]
+	$"..".weapon = $"/root/MainScene/Items".get_type("gun")
+	$"..".can_attack = true
+	$".."._load_graphics()
 
 func _story_message(id, story):
 	pass
@@ -47,7 +50,7 @@ func _input(event):
 			$"/root/MainScene/CanvasLayer/Dialog".start_story("bankwoman-first-time", {"npc": $"..".names["BankWoman"]}, {}, self)
 			$"..".start_conversation()
 		if event.scancode == KEY_SPACE and (($"/root/MainScene/CanvasLayer/DayNightCycle".hour >= 6 and $"/root/MainScene/CanvasLayer/DayNightCycle".hour < 9) or ($"/root/MainScene/CanvasLayer/DayNightCycle".hour >= 10 and $"/root/MainScene/CanvasLayer/DayNightCycle".hour < 12) or ($"/root/MainScene/CanvasLayer/DayNightCycle".hour >= 16 and $"/root/MainScene/CanvasLayer/DayNightCycle".hour < 21)):
-			$"/root/MainScene/CanvasLayer/Dialog".start_story("bankwoman-working", {"npc": $"..".names["BankWoman"]}, {"money": $"/root/MainScene/Player".money, "reputation": $"..".reputation["Player"]}, self)
+			$"/root/MainScene/CanvasLayer/Dialog".start_story("bankwoman-working", {"npc": $"..".names["BankWoman"]}, {"money": 1 if $"/root/MainScene/Player".has_item("money") else 0, "reputation": $"..".reputation["Player"]}, self)
 			$"..".start_conversation()
 		if event.scancode == KEY_SPACE and ($"/root/MainScene/CanvasLayer/DayNightCycle".hour >= 1 and $"/root/MainScene/CanvasLayer/DayNightCycle".hour < 6):
 			$"/root/MainScene/CanvasLayer/Dialog".start_story("bankwoman-sleeping", {"npc": $"..".names["BankWoman"]}, {}, self)

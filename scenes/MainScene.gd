@@ -15,6 +15,12 @@ var last_hour = -1
 var rob_checks = []
 var del_checks = []
 var bodies_discovery = {}
+onready var FIRE = preload("res://objects/Fire.tscn")
+var days_disconnected = 0
+
+func _ready():
+	$Items.create_item("gun", Vector2(5250, -1250))
+	$Items.create_item("knife", Vector2(3750, -1300))
 
 func _process(delta):
 	# Every hour
@@ -142,7 +148,14 @@ func hour_events(hour):
 	match hour:
 		7:
 			spawn_money_at_bank()
-			
+		8:
+			if($NPCs/Postman.is_gone() and $NPCs/GeneralStoreman.is_gone()):
+				days_disconnected += 1
+				
+				if(days_disconnected >= 3):
+					Global.ending = 7
+					get_tree().change_scene("res://Ending.tscn")
+	
 func spawn_money_at_bank():
 	var loc1 = $Buildings/Bank/Location1
 	var loc2 = $Buildings/Bank/Location2
@@ -242,7 +255,8 @@ func _input(event):
 
 func check_too_many_fires(n):
 	if(n > MAX_FIRES):
-		pass
+		Global.ending = 4
+		get_tree().change_scene("res://Ending.tscn")
 
 func Check_all_dead():
 	if(($NPCs/Mayor.dead == true and $NPCs/Postman.dead == true and $NPCs/Sheriff.dead == true and $NPCs/GeneralStoreman.dead == true and $NPCs/BankWoman.dead == true and $NPCs/Doctor.dead == true and $NPCs/FireDepartmentMan.dead == true and $NPCs/FireDepartmentWoman.dead == true and $NPCs/OldJoe.dead == true and $NPCs/SaloonOwner.dead == true) or Input.is_action_pressed("ui_1")):
@@ -253,3 +267,46 @@ func check_player_left():
 	if(($Player.position.x >= 6656 or $Player.position.x <= 0 or $Player.position.y >= 4000 or $Player.position.y <= 0) and $Player.in_building == null):
 		Global.ending = 2
 		get_tree().change_scene("res://Ending.tscn")
+
+var entered_firearea = false
+
+func _on_FireArea2_body_entered(body):
+	entered_firearea(body, "FireArea2")
+
+func _on_FireArea1_body_entered(body):
+	entered_firearea(body, "FireArea1")
+	
+func entered_firearea(body, name):
+	if(body.name == "Bullet"):
+		var fire = FIRE.instance()
+		fire.global_position = get_node("World/misc/" + name).global_position
+		$World/fires.add_child(fire)
+	
+	if(body.name != "Player"): return
+	
+	if(!entered_firearea):
+		entered_firearea = true
+		$CanvasLayer/Dialog.start_story("fire-start", [], [], self)
+	elif($Player.has_item("gun")):
+		$CanvasLayer/Dialog.start_story("fire-yes", [], [], self)
+	else:
+		$CanvasLayer/Dialog.start_story("fire-no", [], [], self)
+
+func _story_message(id, story):
+	pass
+
+func _story_exit(id, story):
+	if(story == "fire-start" or story == "fire-yes" or story == "fire-no"):
+		$Player.interact_lock = false
+
+func _on_FireArea1_area_entered(area):
+	entered_firearea(area, "FireArea2")
+
+func _on_FireArea2_area_entered(area):
+	entered_firearea(area, "FireArea2")
+
+func _on_AudioStreamPlayer_finished():
+	$Timers/MusicTimer.start()
+
+func _on_MusicTimer_timeout():
+	$AudioStreamPlayer.play()

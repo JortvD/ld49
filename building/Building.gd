@@ -70,3 +70,4 @@ func _on_Timer_timeout():
 		get_node("../../Player/Camera2D").set_follow_smoothing(camera_speed)
 		moving_camera = false
 		$Timer.stop()
+		get_node("../../Player").entered_building()

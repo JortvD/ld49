@@ -17,6 +17,24 @@ func _ready():
 	if (Global.ending == 3): #PLAYER DIED
 		set_text("Please don't die")
 		set_subtext("At " + str(days) + " days and " + str(hours) + " hours old")
+	if (Global.ending == 4): #CITY BURNED DOWN
+		set_text("You let the city burn down")
+		set_subtext("It was out of control after " + str(days) + " days and " + str(hours) + " hours")
+	if (Global.ending == 5): #CITY BURNED DOWN
+		set_text("You bought the whole city")
+		set_subtext("After just " + str(days) + " days and " + str(hours) + " hours of playing")
+	if (Global.ending == 6): #DIED WITH RESPECT
+		set_text("You died while everyone liked you")
+		set_subtext("But it took you " + str(days) + " days and " + str(hours) + " hours of playing")
+	if (Global.ending == 7): #KILLED WITH RESPECT
+		set_text("All the NPCs died while respecting you")
+		set_subtext("But it took you " + str(days) + " days and " + str(hours) + " hours of playing")
+	if (Global.ending == 8): # CITY FORGOTTEN
+		set_text("With no communication to the outside, the city has been forgotten")
+		set_subtext("You were there for " + str(days) + " days and " + str(hours) + " hours")
+	if (Global.ending == 9): # BARRICADED DOORS
+		set_text("As all the doors are barricaded everyone is stuck")
+		set_subtext("You were able to after " + str(days) + " days and " + str(hours) + " hours of playing")
 	
 	Global.hours = hours
 	Global.days = days

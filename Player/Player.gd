@@ -15,6 +15,7 @@ onready var BULLET = preload("res://objects/Bullet.tscn")
 var throw_start = 0
 var in_building = null
 var dragging = null
+var killed_by = null
 
 var alcohol = 1
 var money = 0
@@ -27,9 +28,9 @@ func _ready():
 		inventory.push_back(null)
 
 func _input(event):
-	if event is InputEventKey and event.pressed:
-		if event.scancode == KEY_R:
-			$"/root/MainScene/Items".create_item_for_player("gun", $LocationBullet.global_transform, self, 1000)
+	#if event is InputEventKey and event.pressed:
+		#if event.scancode == KEY_R:
+		#	$"/root/MainScene/Items".create_item_for_player("gun", $LocationBullet.global_transform, self, 1000)
 	if Input.is_action_just_pressed("ui_scroll_down"):
 		selected_slot = (selected_slot+1)%INVENTORY_SIZE
 		if(selected_slot < 0): selected_slot += 5
@@ -172,6 +173,20 @@ func interact():
 		"STAB":
 			if $BulletTimer.is_stopped(): stab(options)
 
+func has_item(name):
+	for item in inventory:
+		if(item != null and item.name == name):
+			return true
+	return false
+	
+func remove_item(name):
+	for i in range(len(inventory)):
+		if(inventory[i] != null and inventory[i].name == name):
+			inventory[i] = null
+			break
+			
+	switch_holding()
+
 func switch_holding():
 	$"/root/MainScene/CanvasLayer/GUI".update()
 	
@@ -202,3 +217,7 @@ func _story_message(id, story):
 
 func _story_exit(id, story):
 	interact_lock = false
+
+func entered_building():
+	if((in_building == "Postman" or in_building == "HouseC") and $"../NPCs/Postman".fired):
+		$"../CanvasLayer/Dialog".start_story("postman-fired", {}, {}, self)

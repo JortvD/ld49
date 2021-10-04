@@ -37,6 +37,9 @@ func _ready():
 		{"at": 20, "mins": 0,  "type": "MOVE", "moves": [house_e.get_exit_position(), saloon.get_entrance_position(), saloon.get_random_spot()]},
 		{"at": 23, "mins": 0,  "type": "MOVE", "moves": [saloon.get_exit_position(), house_d.get_entrance_position(), house_d.get_random_spot()]}
 	]
+	$"..".weapon = $"/root/MainScene/Items".get_type("knife")
+	$"..".can_attack = true
+	$".."._load_graphics()
 	
 func _input(event):
 	if event is InputEventKey and event.pressed and $"..".player_close:
@@ -51,7 +54,7 @@ func _input(event):
 			$"/root/MainScene/CanvasLayer/Dialog".start_story("postman-working", {"npc": $"..".names["Postman"]}, {}, self)
 			$"..".start_conversation()
 		if event.scancode == KEY_SPACE and (($"/root/MainScene/CanvasLayer/DayNightCycle".hour >= 12 and $"/root/MainScene/CanvasLayer/DayNightCycle".hour < 14) or ($"/root/MainScene/CanvasLayer/DayNightCycle".hour >= 20 and $"/root/MainScene/CanvasLayer/DayNightCycle".hour < 23)):
-			$"/root/MainScene/CanvasLayer/Dialog".start_story("postman-relaxing", {"npc": $"..".names["Postman"]}, {}, self)
+			$"/root/MainScene/CanvasLayer/Dialog".start_story("postman-relaxing", {"npc": $"..".names["Postman"], "post": 1 if $"/root/MainScene/Player".has_item("post") else 0}, {}, self)
 			$"..".start_conversation()
 
 func _story_message(id, story):
@@ -59,6 +62,13 @@ func _story_message(id, story):
 
 func _story_exit(id, story):
 	$"..".end_conversation()
+	if(story == "postman-warning"):
+		$"..".reputation["Player"] -= 20
+	if(story == "postman-working"):
+		$"..".reputation["Player"] -= 20
+		
+	if(story == "postman-relaxing" and id == "b1"):
+		$"/root/MainScene/Player".remove_item("letter")
 
 func _handle_entering_player(distance):
 	$"..".show_text()

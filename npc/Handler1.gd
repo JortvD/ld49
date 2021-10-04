@@ -5,6 +5,7 @@ var first_time
 onready var dialog = $"/root/MainScene/CanvasLayer/Dialog"
 onready var day_night_cycle = $"/root/MainScene/CanvasLayer/DayNightCycle"
 onready var player = $"/root/MainScene/Player"
+onready var main_scene = $"/root/MainScene"
 
 func _ready():
 	var house_b = $"/root/MainScene/Buildings/HouseB"
@@ -38,11 +39,11 @@ func _input(event):
 		if event.scancode == KEY_SPACE and day_night_cycle.hour == 7:
 			dialog.start_story("mayor-walking", {"npc": $"..".names["Mayor"]}, {}, self)
 			$"..".start_conversation()
-		if event.scancode == KEY_SPACE and day_night_cycle.hour >= 14 and day_night_cycle.hour < 18 and not player.city_money == 0:
-			dialog.start_story("mayor-bribing", {"npc": $"..".names["Mayor"]}, {"money": $"/root/MainScene/Player".money, "reputation": $"..".reputation["Player"]}, self)
+		if event.scancode == KEY_SPACE and day_night_cycle.hour >= 14 and day_night_cycle.hour < 18 and not main_scene.city.bankrupt:
+			dialog.start_story("mayor-bribing", {"npc": $"..".names["Mayor"]}, {"money": 1 if player.has_item("money") else 0, "reputation": $"..".reputation["Player"]}, self)
 			$"..".start_conversation()
-		if event.scancode == KEY_SPACE and day_night_cycle.hour >= 14 and day_night_cycle.hour < 18 and $"/root/MainScene/Player".city_money == 0:
-			dialog.start_story("mayor-buying-city", {"npc": $"..".names["Mayor"]}, {"money": $"/root/MainScene/Player".money, "reputation": $"..".reputation["Player"]}, self)
+		if event.scancode == KEY_SPACE and day_night_cycle.hour >= 14 and day_night_cycle.hour < 18 and main_scene.city.bankrupt:
+			dialog.start_story("mayor-buying-city", {"npc": $"..".names["Mayor"]}, {"money": 1 if player.has_item("money") else 0, "reputation": $"..".reputation["Player"]}, self)
 			$"..".start_conversation()
 		if event.scancode == KEY_SPACE and day_night_cycle.hour >= 18 and day_night_cycle.hour < 19:
 			dialog.start_story("mayor-bank", {"npc": $"..".names["Mayor"]}, {}, self)
@@ -68,6 +69,14 @@ func _story_message(id, story):
 
 func _story_exit(id, story):
 	$"..".end_conversation()
+	
+	if(story == "mayor-bribing" and id == "b3") or (story == "mayor-buying-city" and id == "a4b2"):
+		player.remove_item("money")
+		main_scene.city.money += 1
+		main_scene.city.bankrupt = false
+	if(story == "mayor-buying-city" and id == "a4a2"):
+		Global.ending = 5
+		get_tree().change_scene("res://Ending.tscn")
 
 func _handle_entering_player(distance):
 	$"..".show_text()

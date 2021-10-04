@@ -159,7 +159,7 @@ func _process(delta):
 	
 	if(mood == MOOD.ATTACK):
 		rotation = global_position.angle_to_point(target.global_position) + PI
-		
+	
 	if(path.size() == 0):
 		if(len(next_moves) > 0):
 			var move = next_moves.pop_front()
@@ -232,6 +232,9 @@ func _input(event):
 	if event is InputEventKey and event.pressed and player_close and dead and Input.is_action_pressed("ui_e"):
 		$"/root/MainScene/Player".dragging = self
 		dragged = true
+
+func is_gone():
+	return fired or health <= 0
 
 func attack():
 	if weapon.action == "STAB":

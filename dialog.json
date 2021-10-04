@@ -246,7 +246,7 @@
 					"const": "1"
 				},
 				{
-					"id": "b2",
+					"id": "b3",
 					"type": "EXIT",
 					"name": "Mayor",
 					"text": "Oh wow, I don't know what to say. Thanks for the 'donation' though!"
@@ -501,11 +501,11 @@
 					"text": "Finally a break, so what do you want from me?",
 					"choices": [
 						{
-							"text": "give post",
+							"text": "Give post",
 							"next": "aa1"
 						},
 						{
-							"text": "just checking on you",
+							"text": "Just checking on you",
 							"next": "ab1"
 						}
 					],
@@ -691,7 +691,7 @@
 					"f": "c1",
 					"var": "reputation",
 					"prop": "GT",
-					"const": "70",
+					"const": "40",
 					"type": "LOGIC"
 				},{
 					"id": "b1",
@@ -714,7 +714,7 @@
 						},
 						{
 							"text": "Next page",
-							"next": "b2c1"
+							"next": "b2c2"
 						}
 					],
 					"type": "QUESTION"
@@ -729,7 +729,7 @@
 						},
 						{
 							"text": "buy pen and paper",
-							"next": "b2a1"
+							"next": "b2b1"
 						},
 						{
 							"text": "leave",
@@ -756,17 +756,35 @@
 					"text": "I am sorry, but you don't have enough money",
 					"type": "EXIT"
 				},{
+					"id": "b2b1",
+					"t": "b2b2",
+					"f": "b2b3",
+					"var": "money",
+					"prop": "EQ",
+					"const": "1",
+					"type": "LOGIC"
+				},{
+					"id": "b2b2",
+					"name": "GeneralStoreMan",
+					"text": "Thank you for buying come again!",
+					"type": "EXIT"
+				},{
+					"id": "b2b3",
+					"name": "GeneralStoreMan",
+					"text": "I am sorry, but you don't have enough money",
+					"type": "EXIT"
+				},{
 					"id": "c1",
 					"name": "GeneralStoreMan",
 					"text": "Welcome to my store!",
 					"choices": [
 						{
 							"text": "buy apple",
-							"next": "b2a1"
+							"next": "c2a1"
 						},
 						{
 							"text": "buy pen and paper",
-							"next": "b2a1"
+							"next": "c2b1"
 						},
 						{
 							"text": "leave",
@@ -774,6 +792,52 @@
 						}
 					],
 					"type": "QUESTION"
+				},{
+					"id": "c2a1",
+					"t": "c2a2",
+					"f": "c2a3",
+					"var": "money",
+					"prop": "EQ",
+					"const": "1",
+					"type": "LOGIC"
+				},{
+					"id": "c2a2",
+					"name": "GeneralStoreMan",
+					"text": "Thank you for buying come again!",
+					"type": "EXIT"
+				},{
+					"id": "c2a3",
+					"name": "GeneralStoreMan",
+					"text": "I am sorry, but you don't have enough money",
+					"type": "EXIT"
+				},{
+					"id": "c2b1",
+					"t": "c2b2",
+					"f": "c2b3",
+					"var": "money",
+					"prop": "EQ",
+					"const": "1",
+					"type": "LOGIC"
+				},{
+					"id": "c2b2",
+					"name": "GeneralStoreMan",
+					"text": "Thank you for buying come again!",
+					"type": "EXIT"
+				},{
+					"id": "c2b3",
+					"name": "GeneralStoreMan",
+					"text": "I am sorry, but you don't have enough money",
+					"type": "EXIT"
+				},{
+					"id": "c2b3",
+					"name": "GeneralStoreMan",
+					"text": "Please do not bother me if you're not buying anything",
+					"type": "EXIT"
+				},{
+					"id": "c1",
+					"name": "GeneralStoreMan",
+					"text": "Don't come to me with stolen money! Leave now!",
+					"type": "EXIT"
 				}
 			]
 		},
@@ -1169,6 +1233,62 @@
 					"id": "a1",
 					"name": "Firedepartment Man",
 					"text": "I'm just having a walk around town trying to spot some fires",
+					"type": "EXIT"
+				}
+			]
+		},
+		{
+			"id": "fire-start",
+			"dictionary": [],
+			"variables": [],
+			"start": "a1",
+			"messages": [
+				{
+					"id": "a1",
+					"name": "You",
+					"text": "This hay looks like a tinderbox, maybe there is something to set it on fire.",
+					"type": "EXIT"
+				}
+			]
+		},
+		{
+			"id": "fire-no",
+			"dictionary": [],
+			"variables": [],
+			"start": "a1",
+			"messages": [
+				{
+					"id": "a1",
+					"name": "You",
+					"text": "I don't think I have anything that will set the hay on fire.",
+					"type": "EXIT"
+				}
+			]
+		},
+		{
+			"id": "fire-yes",
+			"dictionary": [],
+			"variables": [],
+			"start": "a1",
+			"messages": [
+				{
+					"id": "a1",
+					"name": "You",
+					"text": "Maybe by shooting the hay with my gun I can start a fire here.",
+					"type": "EXIT"
+				}
+			]
+		},
+		{
+			"id": "postman-fired",
+			"dictionary": [],
+			"variables": [],
+			"start": "a1",
+			"messages": [
+				{
+					"id": "a1",
+					"name": "You",
+					"text": "I heard the Postman was fired because he didn't deliver the mail in time.",
 					"type": "EXIT"
 				}
 			]
