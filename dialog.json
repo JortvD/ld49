@@ -899,6 +899,54 @@
 			]
 		},
 		{
+			"id": "bankwoman-relaxing",
+			"dictionary": ["npc"],
+			"variables": [],
+			"start": "a1",
+			"messages": [
+				{
+					"id": "a1",
+					"name": "BankWoman",
+					"text": "To be fair I don't know what I am doing here. It's like I'll buy anything here",
+					"type": "EXIT"
+				}
+			]
+		},
+		{
+			"id": "bankwoman-city-hall",
+			"dictionary": ["npc"],
+			"variables": [],
+			"start": "a1",
+			"messages": [
+				{
+					"id": "a1",
+					"name": "BankWoman",
+					"text": "Oh don't mind me being here, I always have to help the mayor with his finances",
+					"next": "a2",
+					"type": "CONTINUE"
+				},{
+					"id": "a2",
+					"name": "BankWoman",
+					"text": "I seriously think without me he would have lost all money already, he is very bad with these kind of things",
+					"type": "EXIT"
+				}
+			]
+		},
+		{
+			"id": "bankwoman-doctor",
+			"dictionary": ["npc"],
+			"variables": [],
+			"start": "a1",
+			"messages": [
+				{
+					"id": "a1",
+					"name": " BankWoman",
+					"text": "You are also here for a daily examination?",
+					"type": "EXIT"
+				}
+			]
+		},
+		{
 			"id": "template",
 			"dictionary": ["npc"],
 			"variables": ["money", "reputation"],
