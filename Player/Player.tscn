@@ -5,7 +5,9 @@
 [ext_resource path="res://head.png" type="Texture" id=3]
 [ext_resource path="res://npc/blue_sholders.tres" type="SpriteFrames" id=4]
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 23.9568
+height = 39.7626
 
 [node name="Player" type="KinematicBody2D"]
 script = ExtResource( 2 )
@@ -27,7 +29,7 @@ smoothing_enabled = true
 smoothing_speed = 2.0
 
 [node name="LocationBullet" type="Node2D" parent="."]
-position = Vector2( 52, 11 )
+position = Vector2( 48.2159, 21.5112 )
 
 [node name="BulletTimer" type="Timer" parent="."]
 wait_time = 0.1
@@ -35,15 +37,13 @@ one_shot = true
 
 [node name="Item" type="Sprite" parent="."]
 visible = false
-position = Vector2( 32.2806, 10 )
-rotation = 1.5708
+position = Vector2( 18.4058, 20.9317 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 1 )
 
 [node name="Holster" type="Sprite" parent="."]
 visible = false
-position = Vector2( -10, 28 )
-rotation = 1.5708
+position = Vector2( -11.6818, -32.5445 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 1 )
 

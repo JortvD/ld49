@@ -41,7 +41,7 @@ __meta__ = {
 }
 
 [node name="LocationBullet" type="Node2D" parent="."]
-position = Vector2( 52.0714, 18.24 )
+position = Vector2( 44.2141, 15.7145 )
 
 [node name="BulletTimer" type="Timer" parent="."]
 wait_time = 0.5
@@ -58,14 +58,12 @@ wait_time = 0.25
 one_shot = true
 
 [node name="Holster" type="Sprite" parent="."]
-position = Vector2( -14.7261, 28.0321 )
-rotation = 1.5708
+position = Vector2( -15.568, -31.739 )
 scale = Vector2( 0.3, 0.3 )
 texture = ExtResource( 1 )
 
 [node name="Holding" type="Sprite" parent="."]
-position = Vector2( 34.2209, 13.8738 )
-rotation = 1.5708
+position = Vector2( 29.1698, 16.3994 )
 scale = Vector2( 0.3, 0.3 )
 texture = ExtResource( 1 )
 

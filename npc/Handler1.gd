@@ -2,6 +2,10 @@ extends Node
 
 var first_time
 
+onready var dialog = $"/root/MainScene/CanvasLayer/Dialog"
+onready var day_night_cycle = $"/root/MainScene/CanvasLayer/DayNightCycle"
+onready var player = $"/root/MainScene/Player"
+
 func _ready():
 	var house_b = $"/root/MainScene/Buildings/HouseB"
 	var city_hall  = $"/root/MainScene/Buildings/CityHall"
@@ -28,36 +32,35 @@ func _input(event):
 	if event is InputEventKey and event.pressed and $"..".player_close:
 		if event.scancode == KEY_SPACE and not first_time:
 			first_time = true
-			$"/root/MainScene/CanvasLayer/Dialog".start_story("mayor-intro", {"npc": $"..".names["Mayor"]}, {}, self)
+			dialog.start_story("mayor-intro", {"npc": $"..".names["Mayor"]}, {}, self)
 			$"..".start_conversation()
-		if event.scancode == KEY_SPACE and $"/root/MainScene/CanvasLayer/DayNightCycle".hour == 7:
-			$"/root/MainScene/CanvasLayer/Dialog".start_story("mayor-walking", {"npc": $"..".names["Mayor"]}, {}, self)
+		if event.scancode == KEY_SPACE and day_night_cycle.hour == 7:
+			dialog.start_story("mayor-walking", {"npc": $"..".names["Mayor"]}, {}, self)
 			$"..".start_conversation()
-		if event.scancode == KEY_SPACE and $"/root/MainScene/CanvasLayer/DayNightCycle".hour >= 14 and $"/root/MainScene/CanvasLayer/DayNightCycle".hour < 18 and not $"/root/MainScene/Player".city_money == 0:
-			$"/root/MainScene/CanvasLayer/Dialog".start_story("mayor-bribing", {"npc": $"..".names["Mayor"]}, {"money": $"/root/MainScene/Player".money, "reputation": $"..".reputation["Player"]}, self)
+		if event.scancode == KEY_SPACE and day_night_cycle.hour >= 14 and day_night_cycle.hour < 18 and not player.city_money == 0:
+			dialog.start_story("mayor-bribing", {"npc": $"..".names["Mayor"]}, {"money": $"/root/MainScene/Player".money, "reputation": $"..".reputation["Player"]}, self)
 			$"..".start_conversation()
-		if event.scancode == KEY_SPACE and $"/root/MainScene/CanvasLayer/DayNightCycle".hour >= 14 and $"/root/MainScene/CanvasLayer/DayNightCycle".hour < 18 and $"/root/MainScene/Player".city_money == 0:
-			$"/root/MainScene/CanvasLayer/Dialog".start_story("mayor-buying-city", {"npc": $"..".names["Mayor"]}, {"money": $"/root/MainScene/Player".money, "reputation": $"..".reputation["Player"]}, self)
+		if event.scancode == KEY_SPACE and day_night_cycle.hour >= 14 and day_night_cycle.hour < 18 and $"/root/MainScene/Player".city_money == 0:
+			dialog.start_story("mayor-buying-city", {"npc": $"..".names["Mayor"]}, {"money": $"/root/MainScene/Player".money, "reputation": $"..".reputation["Player"]}, self)
 			$"..".start_conversation()
-		if event.scancode == KEY_SPACE and $"/root/MainScene/CanvasLayer/DayNightCycle".hour >= 18 and $"/root/MainScene/CanvasLayer/DayNightCycle".hour < 19:
-			$"/root/MainScene/CanvasLayer/Dialog".start_story("mayor-bank", {"npc": $"..".names["Mayor"]}, {}, self)
+		if event.scancode == KEY_SPACE and day_night_cycle.hour >= 18 and day_night_cycle.hour < 19:
+			dialog.start_story("mayor-bank", {"npc": $"..".names["Mayor"]}, {}, self)
 			$"..".start_conversation()
-		if event.scancode == KEY_SPACE and $"/root/MainScene/CanvasLayer/DayNightCycle".hour >= 2 and $"/root/MainScene/CanvasLayer/DayNightCycle".hour < 8:
-			$"/root/MainScene/CanvasLayer/Dialog".start_story("mayor-sleeping", {"npc": $"..".names["Mayor"]}, {}, self)
+		if event.scancode == KEY_SPACE and day_night_cycle.hour >= 2 and day_night_cycle.hour < 8:
+			dialog.start_story("mayor-sleeping", {"npc": $"..".names["Mayor"]}, {}, self)
 			$"..".start_conversation()
-		if event.scancode == KEY_SPACE and $"/root/MainScene/CanvasLayer/DayNightCycle".hour >= 2 and $"/root/MainScene/CanvasLayer/DayNightCycle".hour < 8:
-			$"/root/MainScene/CanvasLayer/Dialog".start_story("mayor-sleeping", {"npc": $"..".names["Mayor"]}, {}, self)
+		if event.scancode == KEY_SPACE and day_night_cycle.hour >= 2 and day_night_cycle.hour < 8:
+			dialog.start_story("mayor-sleeping", {"npc": $"..".names["Mayor"]}, {}, self)
 			$"..".start_conversation()
-		if event.scancode == KEY_SPACE and $"/root/MainScene/CanvasLayer/DayNightCycle".hour >= 8 and $"/root/MainScene/CanvasLayer/DayNightCycle".hour < 12:
-			$"/root/MainScene/CanvasLayer/Dialog".start_story("mayor-working", {"npc": $"..".names["Mayor"]}, {"reputation": $"..".reputation["Player"]}, self)
+		if event.scancode == KEY_SPACE and day_night_cycle.hour >= 8 and day_night_cycle.hour < 12:
+			dialog.start_story("mayor-working", {"npc": $"..".names["Mayor"]}, {"reputation": $"..".reputation["Player"]}, self)
 			$"..".start_conversation()
-		if event.scancode == KEY_SPACE and $"/root/MainScene/CanvasLayer/DayNightCycle".hour >= 12 and $"/root/MainScene/CanvasLayer/DayNightCycle".hour < 14:
-			$"/root/MainScene/CanvasLayer/Dialog".start_story("mayor-relaxing", {"npc": $"..".names["Mayor"]}, {}, self)
+		if event.scancode == KEY_SPACE and day_night_cycle.hour >= 12 and day_night_cycle.hour < 14:
+			dialog.start_story("mayor-relaxing", {"npc": $"..".names["Mayor"]}, {}, self)
 			$"..".start_conversation()
-		if event.scancode == KEY_SPACE and ($"/root/MainScene/CanvasLayer/DayNightCycle".hour >= 19 or $"/root/MainScene/CanvasLayer/DayNightCycle".hour < 2):
-			$"/root/MainScene/CanvasLayer/Dialog".start_story("mayor-relaxing", {"npc": $"..".names["Mayor"]}, {}, self)
+		if event.scancode == KEY_SPACE and (day_night_cycle.hour >= 19 or day_night_cycle.hour < 2):
+			dialog.start_story("mayor-relaxing", {"npc": $"..".names["Mayor"]}, {}, self)
 			$"..".start_conversation()
-		
 
 func _story_message(id, story):
 	pass
