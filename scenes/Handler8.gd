@@ -1,5 +1,7 @@
 extends Node
 
+var first_time = false
+
 func _ready():
 	var fire_department  = $"/root/MainScene/Buildings/FireDepartment"
 	var saloon = $"/root/MainScene/Buildings/Saloon"
@@ -33,3 +35,23 @@ func _handle_leaving_player(distance):
 
 func _handle_custom_task(task):
 	pass
+	
+func _input(event):
+	if event is InputEventKey and event.pressed and $"..".player_close:
+		if event.scancode == KEY_SPACE and not first_time:
+			first_time = true
+			$"/root/MainScene/CanvasLayer/Dialog".start_story("firedepartmentman-first-time", {"npc": $"..".names["Firedepartment Man"]}, {}, self)
+			$"..".start_conversation()
+		if event.scancode == KEY_SPACE and (($"/root/MainScene/CanvasLayer/DayNightCycle".hour >= 5 and $"/root/MainScene/CanvasLayer/DayNightCycle".hour < 9) or ($"/root/MainScene/CanvasLayer/DayNightCycle".hour >= 15 and $"/root/MainScene/CanvasLayer/DayNightCycle".hour < 18)):
+			$"/root/MainScene/CanvasLayer/Dialog".start_story("firedepartment-working", {"npc": $"..".names["Firedepartment Man"]}, {"apple": $"/root/MainScene/Player".apple, "apple pie": $"/root/MainScene/Player".applepie}, self)
+			$"..".start_conversation()
+		if event.scancode == KEY_SPACE and ($"/root/MainScene/CanvasLayer/DayNightCycle".hour >= 0 and $"/root/MainScene/CanvasLayer/DayNightCycle".hour < 8):
+			$"/root/MainScene/CanvasLayer/Dialog".start_story("firedepartment-sleeping", {"npc": $"..".names["Firedepartment Man"]}, {}, self)
+			$"..".start_conversation()
+		if event.scancode == KEY_SPACE and ($"/root/MainScene/CanvasLayer/DayNightCycle".hour >= 20 or $"/root/MainScene/CanvasLayer/DayNightCycle".hour < 0):
+			$"/root/MainScene/CanvasLayer/Dialog".start_story("firedepartment-relaxing", {"npc": $"..".names["Firedepartment Man"]}, {}, self)
+			$"..".start_conversation()
+		if event.scancode == KEY_SPACE and (($"/root/MainScene/CanvasLayer/DayNightCycle".hour >= 8 and $"/root/MainScene/CanvasLayer/DayNightCycle".hour < 10)):
+			$"/root/MainScene/CanvasLayer/Dialog".start_story("firedepartment-walking", {"npc": $"..".names["Firedepartment Man"]}, {}, self)
+			$"..".start_conversation()
+

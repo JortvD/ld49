@@ -101,7 +101,7 @@ func _process(delta):
 		dragging.position = position - Vector2(cos(rotation) * 70, sin(rotation) * 70)
 	
 	if (health <= 0):
-		#Global.ending = 3
+		Global.ending = 3
 		get_tree().change_scene("res://Ending.tscn")
 	
 	$"/root/MainScene/CanvasLayer/GUI".set_health(health, health_max)

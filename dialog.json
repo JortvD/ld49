@@ -1104,6 +1104,76 @@
 			]
 		},
 		{
+			"id": "firedepartmentman-first-time",
+			"dictionary": ["npc"],
+			"variables": [],
+			"start": "a1",
+			"messages": [
+				{
+					"id": "a1",
+					"name": "Firedepartment Man",
+					"text": "welcome to our town, please don't start any fires",
+					"type": "EXIT"
+				}
+			]
+		},
+		{
+			"id": "firedepartmentman-working",
+			"dictionary": ["npc"],
+			"variables": [],
+			"start": "a1",
+			"messages": [
+				{
+					"id": "a1",
+					"name": "Firedepartment Man",
+					"text": "Just waiting for some fires",
+					"type": "EXIT"
+				}
+			]
+		},
+		{
+			"id": "firedepartment-sleeping",
+			"dictionary": ["npc"],
+			"variables": [],
+			"start": "a1",
+			"messages": [
+				{
+					"id": "a1",
+					"name": "Firedepartment Man",
+					"text": "Leave me alone I want to sleep",
+					"type": "EXIT"
+				}
+			]
+		},
+		{
+			"id": "firedepartment-relaxing",
+			"dictionary": ["npc"],
+			"variables": [],
+			"start": "a1",
+			"messages": [
+				{
+					"id": "a1",
+					"name": "Firedepartment Man",
+					"text": "Gotta hose my stomach full with beer",
+					"type": "EXIT"
+				}
+			]
+		},
+		{
+			"id": "firedepartment-walking",
+			"dictionary": ["npc"],
+			"variables": [],
+			"start": "a1",
+			"messages": [
+				{
+					"id": "a1",
+					"name": "Firedepartment Man",
+					"text": "I'm just having a walk around town trying to spot some fires",
+					"type": "EXIT"
+				}
+			]
+		},
+		{
 			"id": "template",
 			"dictionary": ["npc"],
 			"variables": ["money", "reputation"],
