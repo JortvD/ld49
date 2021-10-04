@@ -1,4 +1,4 @@
-[gd_scene load_steps=93 format=2]
+[gd_scene load_steps=112 format=2]
 
 [ext_resource path="res://world/World.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
@@ -39,6 +39,15 @@
 [ext_resource path="res://objects/Decoration.tscn" type="PackedScene" id=37]
 [ext_resource path="res://cactus.png" type="Texture" id=38]
 [ext_resource path="res://rock.png" type="Texture" id=39]
+[ext_resource path="res://npc/sheriff_hat.png" type="Texture" id=40]
+[ext_resource path="res://npc/fireman_hat_2.png" type="Texture" id=41]
+[ext_resource path="res://npc/fireman_hat.png" type="Texture" id=42]
+[ext_resource path="res://npc/doctor_hat.png" type="Texture" id=43]
+[ext_resource path="res://npc/firedep_anim.tres" type="SpriteFrames" id=44]
+[ext_resource path="res://haybale.png" type="Texture" id=45]
+[ext_resource path="res://firestation.png" type="Texture" id=46]
+[ext_resource path="res://npc/shoulders_white.png" type="Texture" id=47]
+[ext_resource path="res://npc/blue_sholders.tres" type="SpriteFrames" id=48]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 437.006
@@ -193,7 +202,7 @@ extents = Vector2( 2.59387, 16.5221 )
 extents = Vector2( 3.45886, 18.51 )
 
 [sub_resource type="RectangleShape2D" id=42]
-extents = Vector2( 15.6008, 2.99347 )
+extents = Vector2( 20.7245, 2.99347 )
 
 [sub_resource type="RectangleShape2D" id=43]
 extents = Vector2( 18.9092, 4.20313 )
@@ -244,7 +253,56 @@ animations = [ {
 "frames": [ SubResource( 45 ), SubResource( 46 ), SubResource( 47 ), SubResource( 48 ), SubResource( 49 ), SubResource( 50 ), SubResource( 51 ), SubResource( 52 ) ],
 "loop": true,
 "name": "walking",
+"speed": 8.0
+} ]
+
+[sub_resource type="AtlasTexture" id=54]
+atlas = ExtResource( 47 )
+region = Rect2( 320, 0, 160, 100 )
+
+[sub_resource type="AtlasTexture" id=55]
+atlas = ExtResource( 47 )
+region = Rect2( 0, 0, 160, 100 )
+
+[sub_resource type="AtlasTexture" id=56]
+atlas = ExtResource( 47 )
+region = Rect2( 160, 0, 160, 100 )
+
+[sub_resource type="AtlasTexture" id=57]
+atlas = ExtResource( 47 )
+region = Rect2( 320, 0, 160, 100 )
+
+[sub_resource type="AtlasTexture" id=58]
+atlas = ExtResource( 47 )
+region = Rect2( 480, 0, 160, 100 )
+
+[sub_resource type="AtlasTexture" id=59]
+atlas = ExtResource( 47 )
+region = Rect2( 640, 0, 160, 100 )
+
+[sub_resource type="AtlasTexture" id=60]
+atlas = ExtResource( 47 )
+region = Rect2( 800, 0, 160, 100 )
+
+[sub_resource type="AtlasTexture" id=61]
+atlas = ExtResource( 47 )
+region = Rect2( 960, 0, 160, 100 )
+
+[sub_resource type="AtlasTexture" id=62]
+atlas = ExtResource( 47 )
+region = Rect2( 1120, 0, 160, 100 )
+
+[sub_resource type="SpriteFrames" id=63]
+animations = [ {
+"frames": [ SubResource( 54 ) ],
+"loop": true,
+"name": "default",
 "speed": 5.0
+}, {
+"frames": [ SubResource( 55 ), SubResource( 56 ), SubResource( 57 ), SubResource( 58 ), SubResource( 59 ), SubResource( 60 ), SubResource( 61 ), SubResource( 62 ) ],
+"loop": true,
+"name": "walking",
+"speed": 8.0
 } ]
 
 [node name="MainScene" type="Node2D"]
@@ -3479,6 +3537,23 @@ position = Vector2( 1848.14, -665.855 )
 rotation = -0.71384
 shape = SubResource( 1 )
 
+[node name="hay" type="Node" parent="World"]
+
+[node name="Decoration7" parent="World/hay" instance=ExtResource( 37 )]
+position = Vector2( 3240.32, 1727.66 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 45 )
+
+[node name="Decoration8" parent="World/hay" instance=ExtResource( 37 )]
+position = Vector2( 3241.74, 1460.38 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 45 )
+
+[node name="Decoration9" parent="World/hay" instance=ExtResource( 37 )]
+position = Vector2( 3241.74, 1594.73 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 45 )
+
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 2951.08, 3006.19 )
 z_index = 2
@@ -3583,7 +3658,14 @@ position = Vector2( -287.624, -642.102 )
 [node name="Roof" type="Sprite" parent="Buildings/Postman"]
 position = Vector2( 4.86951, -14.6085 )
 scale = Vector2( 0.2, 0.2 )
+z_index = 5
 texture = ExtResource( 33 )
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Buildings/Postman"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Buildings/Postman/StaticBody2D2"]
+z_index = 8
+polygon = PoolVector2Array( -44.8585, 31.2795, -44.8585, -60.0376, 52.2495, -60.483, 54.0313, 30.3887 )
 
 [node name="HouseC" parent="Buildings" instance=ExtResource( 6 )]
 position = Vector2( 2044.45, 1852.45 )
@@ -3621,7 +3703,13 @@ position = Vector2( -247.45, -641.708 )
 [node name="Roof" type="Sprite" parent="Buildings/HouseC"]
 position = Vector2( 17.75, -30.75 )
 scale = Vector2( 0.25, 0.25 )
+z_index = 5
 texture = ExtResource( 34 )
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Buildings/HouseC"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Buildings/HouseC/StaticBody2D2"]
+polygon = PoolVector2Array( -42.7942, 31.1672, -41.793, -93.6404, 42.3019, -93.9741, 42.9693, 30.8334 )
 
 [node name="Saloon" parent="Buildings" instance=ExtResource( 6 )]
 position = Vector2( 2800, 1792 )
@@ -3661,7 +3749,13 @@ position = Vector2( 268.242, -632.717 )
 [node name="Roof" type="Sprite" parent="Buildings/Saloon"]
 position = Vector2( 17.6653, -39.2413 )
 scale = Vector2( 0.25, 0.25 )
+z_index = 5
 texture = ExtResource( 30 )
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Buildings/Saloon"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Buildings/Saloon/StaticBody2D2"]
+polygon = PoolVector2Array( -58.4016, -0.815887, -60.0701, -110.94, 98.1084, -111.941, 96.1061, 30.5529, -27.3666, 29.218 )
 
 [node name="HouseD" parent="Buildings" instance=ExtResource( 6 )]
 position = Vector2( 2689.5, 1022.29 )
@@ -3700,7 +3794,14 @@ position = Vector2( -71.5497, -423.854 )
 position = Vector2( 39.2444, -5.65698 )
 rotation = 1.5708
 scale = Vector2( 0.25, 0.25 )
+z_index = 5
 texture = ExtResource( 25 )
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Buildings/HouseD"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Buildings/HouseD/StaticBody2D2"]
+position = Vector2( 1.33484, 0 )
+polygon = PoolVector2Array( -32.1115, 32.5192, -31.7777, -41.2307, 109.382, -42.2318, 110.383, 32.8529 )
 
 [node name="HouseE" parent="Buildings" instance=ExtResource( 6 )]
 position = Vector2( 3648.35, 1856.11 )
@@ -3734,6 +3835,12 @@ position = Vector2( 200.107, -728.324 )
 
 [node name="BR" type="Node2D" parent="Buildings/HouseE"]
 position = Vector2( 336.251, -639.016 )
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Buildings/HouseE"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Buildings/HouseE/StaticBody2D2"]
+z_index = 8
+polygon = PoolVector2Array( -56.3771, 28.2653, -57.712, -27.4643, 2.02209, -27.1306, 2.02209, -76.1859, 72.4349, -77.5208, 73.436, 27.9315 )
 
 [node name="Sheriff" parent="Buildings" instance=ExtResource( 6 )]
 position = Vector2( 4331.41, 1856.11 )
@@ -3771,10 +3878,17 @@ position = Vector2( 349.334, -640.314 )
 [node name="Roof" type="Sprite" parent="Buildings/Sheriff"]
 position = Vector2( -99.7793, -18.354 )
 scale = Vector2( 0.25, 0.25 )
+z_index = 5
 texture = ExtResource( 31 )
 __meta__ = {
 "_edit_lock_": true
 }
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Buildings/Sheriff"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Buildings/Sheriff/StaticBody2D2"]
+position = Vector2( -54.061, -3.3371 )
+polygon = PoolVector2Array( -42.7942, 31.1672, -43.2679, -83.5276, 82.5408, -81.859, 81.8733, 30.9349 )
 
 [node name="Bank" parent="Buildings" instance=ExtResource( 6 )]
 position = Vector2( 4865.98, 1919.74 )
@@ -3818,7 +3932,13 @@ position = Vector2( 451.013, -825.445 )
 [node name="Roof" type="Sprite" parent="Buildings/Bank"]
 position = Vector2( 0.529541, -30.7245 )
 scale = Vector2( 0.25, 0.25 )
+z_index = 5
 texture = ExtResource( 35 )
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Buildings/Bank"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Buildings/Bank/StaticBody2D2"]
+polygon = PoolVector2Array( -47.0973, 31.3792, -47.431, 10.6892, -44.0939, 10.3555, -44.7614, -94.4294, 44.3392, -95.0969, 45.3405, 11.0229, 49.6786, 11.6903, 48.6775, 30.3781 )
 
 [node name="HouseF" parent="Buildings" instance=ExtResource( 6 )]
 position = Vector2( 5059.73, 2431.69 )
@@ -3856,7 +3976,14 @@ position = Vector2( 678.041, -776.841 )
 [node name="Roof" type="Sprite" parent="Buildings/HouseF"]
 position = Vector2( 10.5945, 31.2542 )
 scale = Vector2( 0.25, 0.25 )
+z_index = 5
 texture = ExtResource( 32 )
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Buildings/HouseF"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Buildings/HouseF/StaticBody2D2"]
+position = Vector2( 6.00671, 63.0712 )
+polygon = PoolVector2Array( -42.7942, 31.1672, -41.793, -93.6404, 42.3019, -93.9741, 42.9693, 30.8334 )
 
 [node name="GeneralStore" parent="Buildings" instance=ExtResource( 6 )]
 position = Vector2( 4637.01, 2432.65 )
@@ -3927,10 +4054,17 @@ position = Vector2( 1303.78, -469.291 )
 [node name="Roof" type="Sprite" parent="Buildings/CityHall"]
 position = Vector2( 64.1448, -3.56372 )
 scale = Vector2( 0.25, 0.25 )
+z_index = 5
 texture = ExtResource( 29 )
 __meta__ = {
 "_edit_lock_": true
 }
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Buildings/CityHall"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Buildings/CityHall/StaticBody2D2"]
+position = Vector2( 11.6798, 28.6991 )
+polygon = PoolVector2Array( -42.7942, 31.1672, -43.1078, -63.6011, 17.2937, -63.6011, 16.6262, -76.9495, 34.6466, -76.6158, 34.6466, -85.6259, 69.6862, -85.6259, 70.0198, -77.2831, 88.3739, -76.282, 88.0402, -63.6011, 148.108, -63.6011, 149.109, 31.5063 )
 
 [node name="HouseB" parent="Buildings" instance=ExtResource( 6 )]
 position = Vector2( 3202.83, 3005.85 )
@@ -3969,7 +4103,14 @@ position = Vector2( 1272.78, -344.291 )
 position = Vector2( 31.7839, 0.529785 )
 rotation = 1.5708
 scale = Vector2( 0.25, 0.25 )
+z_index = 5
 texture = ExtResource( 24 )
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Buildings/HouseB"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Buildings/HouseB/StaticBody2D2"]
+position = Vector2( 12.3472, 50.0565 )
+polygon = PoolVector2Array( -41.1815, -1.73694, -42.1827, -97.178, -35.1499, -96.953, -35.1747, -92.506, 82.9586, -93.1735, 83.9597, -4.7403, -34.8411, -5.74146, -34.8411, -1.4032 )
 
 [node name="HouseA" parent="Buildings" instance=ExtResource( 6 )]
 position = Vector2( 2689.09, 2910.72 )
@@ -4008,7 +4149,14 @@ position = Vector2( 1404.08, -79.6801 )
 position = Vector2( -38.8418, -2.42395 )
 rotation = 1.5708
 scale = Vector2( 0.25, -0.25 )
+z_index = 5
 texture = ExtResource( 25 )
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Buildings/HouseA"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Buildings/HouseA/StaticBody2D2"]
+position = Vector2( -75.3568, 56.2998 )
+polygon = PoolVector2Array( -35.0842, -93.8092, 107.323, -95.2957, 107.026, -11.1593, 98.9989, -10.862, 98.7016, -20.0784, -34.7869, -20.9703 )
 
 [node name="Doctor" parent="Buildings" instance=ExtResource( 6 )]
 position = Vector2( 2368, 2423.14 )
@@ -4057,7 +4205,7 @@ position = Vector2( 1649.41, 475.782 )
 position = Vector2( 39.2789, 2.12311 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Buildings/FireDepartment/Entrance"]
-position = Vector2( -37.1868, -35.5662 )
+position = Vector2( -83.2214, -47.6702 )
 shape = SubResource( 42 )
 
 [node name="Exit" type="Area2D" parent="Buildings/FireDepartment"]
@@ -4068,7 +4216,7 @@ position = Vector2( -13.003, 0.523933 )
 shape = SubResource( 43 )
 
 [node name="EntranceLocation" type="Node2D" parent="Buildings/FireDepartment"]
-position = Vector2( 1.72186, -53.0013 )
+position = Vector2( -40.1458, -70.4627 )
 
 [node name="TL" type="Node2D" parent="Buildings/FireDepartment"]
 position = Vector2( 1495.26, 463.886 )
@@ -4076,12 +4224,35 @@ position = Vector2( 1495.26, 463.886 )
 [node name="BR" type="Node2D" parent="Buildings/FireDepartment"]
 position = Vector2( 1689.04, 599.695 )
 
+[node name="Roof" type="Sprite" parent="Buildings/FireDepartment"]
+position = Vector2( -68, 10.5 )
+scale = Vector2( 0.25, 0.25 )
+z_index = 5
+texture = ExtResource( 46 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Buildings/FireDepartment"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Buildings/FireDepartment/StaticBody2D2"]
+position = Vector2( -75.3568, 56.2998 )
+z_index = 8
+polygon = PoolVector2Array( -93.2463, -97.5651, 99.5751, -98.6246, 99.6864, -53.3328, 107.257, -53.5974, 107.787, -11.7486, 99.7885, -11.7465, 99.8399, 9.17578, -35.5065, 8.91089, -35.2407, -53.8622, -92.1868, -54.1271 )
+
 [node name="WaterTower" type="Node2D" parent="Buildings"]
 position = Vector2( 1412.14, 3207.71 )
 
 [node name="Sprite" type="Sprite" parent="Buildings/WaterTower"]
 position = Vector2( -0.943848, -9.43872 )
+z_index = 5
 texture = ExtResource( 26 )
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Buildings/WaterTower"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Buildings/WaterTower/StaticBody2D2"]
+position = Vector2( -131.547, -85.5131 )
+polygon = PoolVector2Array( -37.4452, 240.286, -42.1827, -97.178, 302.668, -95.0708, 302.668, 245.042 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 2
@@ -4120,7 +4291,7 @@ position = Vector2( 5.99319, 39.7052 )
 script = ExtResource( 10 )
 
 [node name="Horse" parent="." instance=ExtResource( 4 )]
-position = Vector2( 2888.19, 2028.36 )
+position = Vector2( 3250.23, 1886.94 )
 rotation = 0.0
 
 [node name="NPCs" type="Node" parent="."]
@@ -4136,6 +4307,7 @@ script = ExtResource( 9 )
 
 [node name="Postman" parent="NPCs" instance=ExtResource( 3 )]
 position = Vector2( 328, -848 )
+shoulders = ExtResource( 48 )
 in_building = "Postmaster"
 
 [node name="Handler" type="Node" parent="NPCs/Postman"]
@@ -4143,6 +4315,8 @@ script = ExtResource( 15 )
 
 [node name="Sheriff" parent="NPCs" instance=ExtResource( 3 )]
 position = Vector2( 4648, -848 )
+shoulders = ExtResource( 48 )
+hat = ExtResource( 40 )
 in_building = "HouseE"
 
 [node name="Handler" type="Node" parent="NPCs/Sheriff"]
@@ -4164,6 +4338,8 @@ script = ExtResource( 18 )
 
 [node name="Doctor" parent="NPCs" instance=ExtResource( 3 )]
 position = Vector2( 7984, 2408 )
+shoulders = SubResource( 63 )
+hat = ExtResource( 43 )
 in_building = "HouseA"
 
 [node name="Handler" type="Node" parent="NPCs/Doctor"]
@@ -4171,6 +4347,8 @@ script = ExtResource( 19 )
 
 [node name="FireDepartmentMan" parent="NPCs" instance=ExtResource( 3 )]
 position = Vector2( 8192, 4424 )
+shoulders = ExtResource( 44 )
+hat = ExtResource( 42 )
 in_building = "FireDepartment"
 
 [node name="Handler" type="Node" parent="NPCs/FireDepartmentMan"]
@@ -4178,6 +4356,8 @@ script = ExtResource( 20 )
 
 [node name="FireDepartmentWoman" parent="NPCs" instance=ExtResource( 3 )]
 position = Vector2( 8328, 4552 )
+shoulders = ExtResource( 44 )
+hat = ExtResource( 41 )
 in_building = "FireDepartment"
 
 [node name="Handler" type="Node" parent="NPCs/FireDepartmentWoman"]
@@ -4212,6 +4392,10 @@ one_shot = true
 autostart = true
 
 [node name="BodyTimer" type="Timer" parent="Timers"]
+one_shot = true
+autostart = true
+
+[node name="KillTimer" type="Timer" parent="Timers"]
 one_shot = true
 autostart = true
 

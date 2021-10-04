@@ -23,7 +23,6 @@ func _ready():
 	]
 	$"..".weapon = $"/root/MainScene/Items".get_type("gun")
 	$"..".can_attack = true
-	$"..".health = 0
 	
 func _input(event):
 	if event is InputEventKey and event.pressed and $"..".player_close:

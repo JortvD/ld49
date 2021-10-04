@@ -99,7 +99,6 @@ func _process(delta):
 	
 	if(dragging != null):
 		dragging.position = position - Vector2(cos(rotation) * 70, sin(rotation) * 70)
-		
 	
 	if (health <= 0):
 		#Global.ending = 3
@@ -119,9 +118,22 @@ func shoot(options):
 	var b = BULLET.instance()
 	b.damage = options.damage
 	b.speed = options.speed
+	b.creator = "Player"
 	b.get_node("Sprite").texture = load(options.img)
-	owner.add_child(b)
+	$"/root/MainScene/World".add_child(b)
 	b.transform = $LocationBullet.global_transform
+	$BulletTimer.wait_time = 1.0 / options.rps
+	$BulletTimer.start()
+
+func stab(options):
+	for c in $"../NPCs".get_children():
+		if($StabPoint.global_position.distance_to(c.global_position) <= 50):
+			c.health -= options.damage
+			c.reputation["Player"] = 0
+			$"..".seen_attack(self, c.name)
+			
+			if(c.health <= 0):
+				c.killed_by = name
 	$BulletTimer.wait_time = 1.0 / options.rps
 	$BulletTimer.start()
 
@@ -157,6 +169,8 @@ func interact():
 	match item.action:
 		"SHOOT":
 			if $BulletTimer.is_stopped(): shoot(options)
+		"STAB":
+			if $BulletTimer.is_stopped(): stab(options)
 
 func switch_holding():
 	$"/root/MainScene/CanvasLayer/GUI".update()
@@ -164,7 +178,7 @@ func switch_holding():
 	if(inventory[selected_slot] == null): 
 		$Item.visible = false
 	else:
-		$Item.texture = load(inventory[selected_slot].img)
+		$Item.texture = load(inventory[selected_slot].img_holding)
 		$Item.visible = true
 	
 	var next_slot = (selected_slot+1)%INVENTORY_SIZE
@@ -173,7 +187,7 @@ func switch_holding():
 	if(inventory[next_slot] == null):
 		$Holster.visible = false
 	else:
-		$Holster.texture = load(inventory[next_slot].img)
+		$Holster.texture = load(inventory[next_slot].img_holding)
 		$Holster.visible = true
 
 func _on_BodyLocation_body_entered(body):

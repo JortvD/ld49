@@ -34,6 +34,8 @@ var fightFire = false
 var moves = 0
 var finished_moves = 0
 var last_move = null
+var killed_by = null
+var dead_timer = 0
 var MAX_MISSED_DISTANCE = 50
 # Mostly temporary names
 var names = {
@@ -51,6 +53,7 @@ var names = {
 var reputation = {}
 var target = null
 var dragged = false
+var no_path = false
 
 var npc_name = "Test"
 var schedule = []
@@ -82,6 +85,12 @@ func _process(delta):
 	if(health <= 0):
 		dead = true
 		
+		if(weapon != null):
+			$"/root/MainScene/Items".create_item(weapon.name, global_position)
+			weapon = null
+			$Holster.visible = false
+			$Holding.visible = false
+		
 		return
 	
 	if(fired):
@@ -111,7 +120,7 @@ func _process(delta):
 		# Update the distance to walk
 		distance_to_walk -= distance_to_next_point
 		
-		if(len(path) > 0): rotation = position.angle_to_point(path[0]) + PI
+		if(len(path) > 0 && mood != MOOD.ATTACK): rotation = position.angle_to_point(path[0]) + PI
 	
 	if($FireTimer.is_stopped() and fightFire and mood == MOOD.DEFAULT and in_building == null):
 		var fire = find_fire()
@@ -133,7 +142,7 @@ func _process(delta):
 		$FollowTimer.start()
 	
 	if(mood == MOOD.ATTACK):
-		rotation = lerp_angle(rotation, target.position.angle_to_point(global_position), rotation_speed * delta)
+		rotation = global_position.angle_to_point(target.global_position) + PI
 		
 	if(path.size() == 0):
 		if(len(next_moves) > 0):
@@ -142,11 +151,13 @@ func _process(delta):
 			if(last_move != null and position.distance_to(last_move) < MAX_MISSED_DISTANCE): finished_moves += 1
 			last_move = move
 			path = $"/root/MainScene/Navigation2D".get_simple_path(position, move)
+			if(len(path) == 0): no_path = true
+			else: no_path = false
 		elif(walking):
 			walking = false
 			if($AnimatedSprite.frames != null): $AnimatedSprite.play("default")
 			
-	if(mood == MOOD.ATTACK and len(path) == 0):
+	if(mood == MOOD.ATTACK and no_path):
 		override_task == null
 		mood = MOOD.DEFAULT
 	
@@ -163,14 +174,20 @@ func _process(delta):
 		if(mood == MOOD.ATTACK): mood = MOOD.DEFAULT 
 		for c in seen.keys():
 			if(c == name): continue;
-			#print(c, " ", seen[c], " ", reputation[c], can_attack, weapon)
-			if(seen[c] and reputation[c] <= 0 and can_attack and weapon != null):
+			var node
+			if(c == "Player"): node = $"/root/MainScene/Player"
+			else: node = get_node("/root/MainScene/NPCs/" + c)
+			if(seen[c] and position.distance_to(node.global_position) <= 500 and reputation[c] <= 0 and can_attack and weapon != null):
 				mood = MOOD.ATTACK
 				handle_override_task({"type": "FOLLOW_CLOSE" if weapon.action == "STAB" else "FOLLOW_DISTANT", "target": c})
 				break
+		#if(name == "Mayor"): print(reputation["Player"], " ", health, " ", target.position if target != null else "no target", " ", next_moves,  " ", mood, " ", position.distance_to($"/root/MainScene/Player".global_position))
 		$AttackTimer.start()
-		
+	
 	if(weapon != null):
+		$Holster.texture = load(weapon.img_holding)
+		$Holding.texture = load(weapon.img_holding)
+		
 		if(mood == MOOD.ATTACK or mood == MOOD.BLOODTHIRST):
 			$Holster.visible = false
 			$Holding.visible = true
@@ -276,12 +293,20 @@ func stab():
 	if(position.angle_to(target.global_position) > .5*PI): return
 	
 	target.health -= weapon.options.damage
+	$"/root/MainScene".seen_attack(self, target.name)
+	
+	if(target.health <= 0):
+		target.killed_by = name
 
 func shoot():
 	if(!$"/root/MainScene".check_ray(self, target)): return
 	
 	var b = BULLET.instance()
-	owner.add_child(b)
+	b.speed = weapon.options.speed
+	b.damage = weapon.options.damage
+	b.creator = name
+	$"/root/MainScene/World".add_child(b)
+	b.get_node("Sprite").texture = load(weapon.options.img)
 	b.transform = $LocationBullet.global_transform
 	
 func npc_dead():

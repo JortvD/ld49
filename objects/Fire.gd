@@ -8,6 +8,8 @@ var southFire
 var westFire
 var sidesFire = [false, false, false, false]
 var PEOPLE_CLOSE = 300
+var extinguish_chance = 5
+var spread_chance = 10
 
 func _ready():
 	rng.randomize()
@@ -31,14 +33,14 @@ func check_remove():
 		if(npc.fightFire and position.distance_to(npc.global_position) <= PEOPLE_CLOSE):
 			fire_department_close = true
 	
-	if(fire_department_close and rng.randi_range(1, 2) == 1):
+	if(fire_department_close and rng.randi_range(1, extinguish_chance) == 1):
 		queue_free()
 		return true
 		
 	return false
 
 func spread():
-	if (rng.randi_range(1, 10) == 1):
+	if (rng.randi_range(1, spread_chance) == 1):
 		var side = rng.randi_range(1, 4)
 		if (side == 1 and !checklocation(1)):
 			var f = FIRE.instance()

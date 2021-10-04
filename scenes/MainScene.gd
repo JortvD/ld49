@@ -43,6 +43,12 @@ func _process(delta):
 			if(rob_check["i"] == 0): rob_checks.erase(rob_check)
 		$Timers/RobbedTimer.start()
 	
+	if $Timers/KillTimer.is_stopped():
+		for c in $NPCs.get_children():
+			if(c.health <= 0):
+				c.dead_timer += 1
+		$Timers/KillTimer.start()
+	
 	if $Timers/BodyTimer.is_stopped():
 		for c in $NPCs.get_children():
 			if(c.health <= 0 and !(c.name in bodies_discovery)):
@@ -58,7 +64,7 @@ func _process(delta):
 				if(seen): 
 					bodies_discovery[body] = true
 					# Say that body has been found
-					body_discovered()
+					body_discovered(get_node("NPCs/" + body).dead_timer < 10)
 		
 		if($Player.dragging != null):
 			var seen = false
@@ -107,8 +113,11 @@ func set_all_reputations(amount, subject, exclude):
 		if(exclude.has(c)): continue
 		get_node("NPCs/" + c).reputation[subject] = amount
 
-func body_discovered():
-	decrease_all_reputations(5, "Player", [])
+func body_discovered(fresh):
+	if fresh:
+		set_all_reputations(0, "Player", [])
+	else:
+		decrease_all_reputations(5, "Player", [])
 
 func check_postman_efficiency():
 	var postman = $NPCs/Postman
@@ -202,6 +211,25 @@ func check_ray(c1, c2):
 	if result: return false
 	
 	return true
+
+func seen_attack(by, on):
+	var seen = false
+	if(by.name == "Player"):
+		var check = check_player_rays()
+		for c in check.keys():
+			if c == on: continue
+			if get_node("NPCs/" + c).position.distance_to($Player.position) <= MAX_SEEN_DISTANCE:
+				seen = true
+		if seen:
+			set_all_reputations(0, by.name, [])
+	else:
+		var check = check_npc_rays(by.name)
+		for c in check.keys():
+			if c == on: continue
+			if get_node("NPCs/" + c).position.distance_to(by.position) <= MAX_SEEN_DISTANCE:
+				seen = true
+		if seen:
+			set_all_reputations(0, by.name, [by.name])
 
 func _input(event):
 	if event is InputEventKey and event.pressed:

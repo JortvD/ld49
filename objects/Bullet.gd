@@ -2,32 +2,46 @@ extends Area2D
 
 var speed = 750
 var damage = 10
+var creator = null
 
 func _physics_process(delta):
 	position += transform.x * speed * delta
 
 func _on_Bullet_body_entered(body):
+	var node = null
+	
 	if (body.name == "Mayor"):
-		get_node("../NPCs/Mayor").health -= damage
+		node = get_node("/root/MainScene/NPCs/Mayor")
 	if (body.name == "Postman"):
-		get_node("../NPCs/Postman").health -= damage
+		node = get_node("/root/MainScene/NPCs/Postman")
 	if (body.name == "Sheriff"):
-		get_node("../NPCs/Sheriff").health -= damage
+		node = get_node("/root/MainScene/NPCs/Sheriff")
 	if (body.name == "GeneralStoreman"):
-		get_node("../NPCs/GeneralStoreman").health -= damage
+		node = get_node("/root/MainScene/NPCs/GeneralStoreman")
 	if (body.name == "BankWoman"):
-		get_node("../NPCs/BankWoman").health -= damage
+		node = get_node("/root/MainScene/NPCs/BankWoman")
 	if (body.name == "Doctor"):
-		get_node("../NPCs/Doctor").health -= damage
+		node = get_node("/root/MainScene/NPCs/Doctor")
 	if (body.name == "FireDepartmentMan"):
-		get_node("../NPCs/FireDepartmentMan").health -= damage
+		node = get_node("/root/MainScene/NPCs/FireDepartmentMan")
 	if (body.name == "FireDepartmentWoman"):
-		get_node("../NPCs/FireDepartmentWoman").health -= damage
+		node = get_node("/root/MainScene/NPCs/FireDepartmentWoman")
 	if (body.name == "OldJoe"):
-		get_node("../NPCs/OldJoe").health -= damage
+		node = get_node("/root/MainScene/NPCs/OldJoe")
 	if (body.name == "SaloonOwner"):
-		get_node("../NPCs/SaloonOwner").health -= damage
+		node = get_node("/root/MainScene/NPCs/SaloonOwner")
 	if (body.name == "Player"):
-		get_node("../Player").health -= damage
+		node = get_node("/root/MainScene/Player")
+	
+	if(node != null):
+		node.health -= damage
+		
+		if(node.name != "Player"):
+			node.reputation[creator] = 0
+			var creater_node = $"/root/MainScene/Player" if creator == "Player" else get_node("/root/MainScene/NPCs/" + creator)
+			$"/root/MainScene".seen_attack(creater_node, node.name)
+			
+			if(node.health <= 0):
+				node.killed_by = creater_node
 	
 	queue_free()
