@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://icon.png" type="Texture" id=1]
 [ext_resource path="res://objects/Fire.gd" type="Script" id=2]
@@ -6,6 +6,23 @@
 [sub_resource type="RectangleShape2D" id=1]
 
 [sub_resource type="RectangleShape2D" id=2]
+
+[sub_resource type="Curve" id=3]
+_data = [ Vector2( 0, 0.509091 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=4]
+curve = SubResource( 3 )
+
+[sub_resource type="ParticlesMaterial" id=5]
+flag_disable_z = true
+direction = Vector3( 0, -1, 0 )
+spread = 180.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 50.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale = 0.7
+scale_curve = SubResource( 4 )
 
 [node name="Fire" type="Node2D"]
 script = ExtResource( 2 )
@@ -50,6 +67,12 @@ position = Vector2( -64, 0 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Check4"]
 shape = SubResource( 2 )
+
+[node name="Particles2D" type="Particles2D" parent="."]
+amount = 12
+lifetime = 1.5
+process_material = SubResource( 5 )
+texture = ExtResource( 1 )
 
 [connection signal="body_entered" from="CollisionShape2D" to="." method="_on_CollisionShape2D_body_entered"]
 [connection signal="body_entered" from="Check1" to="." method="_on_Check_body_entered"]

@@ -30,7 +30,7 @@ func get_exit_position():
 	return $Exit/CollisionShape2D.global_position
 
 func _on_entrance_entered(body):
-	if (body.name == "Player"):
+	if (body.name == "Player" and body.horse_modifier == 1):
 		entering = true
 		body.in_building = name
 		$"/root/MainScene/CanvasLayer/Blacken".effect(effect_duration)

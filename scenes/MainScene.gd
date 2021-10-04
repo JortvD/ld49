@@ -14,6 +14,7 @@ var bank_money = [null, null]
 var last_hour = -1
 var rob_checks = []
 var del_checks = []
+var bodies_discovery = {}
 
 func _process(delta):
 	# Every hour
@@ -40,6 +41,24 @@ func _process(delta):
 			
 			rob_check["i"] -= 1;
 			if(rob_check["i"] == 0): rob_checks.erase(rob_check)
+		$Timers/RobbedTimer.start()
+	
+	if $Timers/BodyTimer.is_stopped():
+		for c in $NPCs.get_children():
+			if(c.health <= 0 and !(c.name in bodies_discovery)):
+				bodies_discovery[c.name] = false
+		
+		for body in bodies_discovery.keys():
+			if(!bodies_discovery[body]):
+				var seen = false
+				var check = check_npc_rays(body)
+				for c in check.keys():
+					if(c != "Player" and check[c] and get_node("NPCs/" + c).position.distance_to(get_node("NPCs/" + body).position) <= MAX_SEEN_DISTANCE): 
+						seen = true
+				if(seen): 
+					bodies_discovery[body] = true
+					# Say that body has been found
+					body_discovered()
 		
 		if($Player.dragging != null):
 			var seen = false
@@ -49,8 +68,8 @@ func _process(delta):
 					seen = true
 			if(seen):
 				set_all_reputations(0, "Player", [])
-		
-		$Timers/RobbedTimer.start()
+				# Say that you were seen carrying the body
+		$Timers/BodyTimer.start()
 	
 	if($Timers/DeleteTimer.is_stopped()):
 		for del_check in del_checks:
@@ -87,6 +106,9 @@ func set_all_reputations(amount, subject, exclude):
 	for c in $NPCs/Mayor.names.keys():
 		if(exclude.has(c)): continue
 		get_node("NPCs/" + c).reputation[subject] = amount
+
+func body_discovered():
+	decrease_all_reputations(5, "Player", [])
 
 func check_postman_efficiency():
 	var postman = $NPCs/Postman
