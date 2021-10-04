@@ -51,7 +51,7 @@ func open_message(id):
 		crash_dialog()
 		return
 	
-	cur_story.node._story_message(message.id)
+	cur_story.node._story_message(message.id, cur_story.data.id)
 	cur_message = message
 	
 	match message.type:
@@ -103,7 +103,7 @@ func _dialog_pressed(n):
 			open_message(choice.next)
 		"EXIT":
 			hide_dialog()
-			cur_story.node._story_exit(cur_message.id)
+			cur_story.node._story_exit(cur_message.id, cur_story.data.id)
 			cur_story = null
 			cur_message = null
 			

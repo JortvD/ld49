@@ -23,10 +23,10 @@ func _ready():
 		{"at": 22, "mins": 0,  "type": "MOVE", "moves": [saloon.get_exit_position(), house_a.get_entrance_position(), house_a.get_random_spot()]}
 	]
 
-func _story_message(id):
+func _story_message(id, story):
 	pass
 
-func _story_exit(id):
+func _story_exit(id, story):
 	$"..".end_conversation()
 
 func _handle_entering_player(distance):

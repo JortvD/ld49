@@ -865,6 +865,40 @@
 			]
 		},
 		{
+			"id": "body-drop",
+			"dictionary": [],
+			"variables": [],
+			"start": "a1",
+			"messages": [
+				{
+					"id": "a1",
+					"name": "You",
+					"text": "Well, this place looks like it is well suited to dump this body",
+					"choices": [
+						{
+							"text": "Hide body",
+							"next": "a1a1"
+						},
+						{
+							"text": "Keep body",
+							"next": "a1b1"
+						}
+					],
+					"type": "QUESTION"
+				},{
+					"id": "a1a1",
+					"name": "You",
+					"text": "The body does not look like it's hidden that well, but no one comes here anyway",
+					"type": "EXIT"
+				},{
+					"id": "a1b1",
+					"name": "You",
+					"text": "Okay then. Who knows what you can do with it?",
+					"type": "EXIT"
+				}
+			]
+		},
+		{
 			"id": "template",
 			"dictionary": ["npc"],
 			"variables": ["money", "reputation"],

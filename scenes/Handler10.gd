@@ -18,10 +18,10 @@ func _ready():
 		{"at": 18, "mins": 0,  "type": "MOVE", "moves": [general_store.get_exit_position(), saloon.get_entrance_position(), saloon.get_random_spot()]}
 	]
 
-func _story_message(id):
+func _story_message(id, story):
 	pass
 
-func _story_exit(id):
+func _story_exit(id, story):
 	$"..".end_conversation()
 
 func _handle_entering_player(distance):

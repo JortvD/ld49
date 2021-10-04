@@ -21,10 +21,10 @@ func _input(event):
 			$"/root/MainScene/CanvasLayer/Dialog".start_story("OldJoe", {"npc": $"..".names["OldJoe"]}, {"hour": $"/root/MainScene/CanvasLayer/DayNightCycle".hour, "alcohol": $"/root/MainScene/Player".alcohol}, self)
 			$"..".start_conversation()
 
-func _story_message(id):
+func _story_message(id, story):
 	pass
 
-func _story_exit(id):
+func _story_exit(id, story):
 	$"..".end_conversation()
 
 func _handle_entering_player(distance):

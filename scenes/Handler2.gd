@@ -18,7 +18,6 @@ func _ready():
 	var house_e = $"/root/MainScene/Buildings/HouseE"
 	var house_d = $"/root/MainScene/Buildings/HouseD"
 	
-	
 	$"..".npc_name = "Postman"
 	$"..".child = self
 	$"..".schedule = [
@@ -55,10 +54,10 @@ func _input(event):
 			$"/root/MainScene/CanvasLayer/Dialog".start_story("postman-relaxing", {"npc": $"..".names["Postman"]}, {}, self)
 			$"..".start_conversation()
 
-func _story_message(id):
+func _story_message(id, story):
 	pass
 
-func _story_exit(id):
+func _story_exit(id, story):
 	$"..".end_conversation()
 
 func _handle_entering_player(distance):

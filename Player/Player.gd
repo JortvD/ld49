@@ -14,6 +14,7 @@ var interact_lock = false
 onready var BULLET = preload("res://objects/Bullet.tscn")
 var throw_start = 0
 var in_building = null
+var dragging = null
 
 var alcohol = 1
 var money = 0
@@ -54,13 +55,16 @@ func get_input(multi):
 	if Input.is_action_pressed("ui_up") or Input.is_action_pressed("ui_w"):
 		velocity.y -= 1
 	
-	if Input.is_action_pressed("ui_q"):
+	if Input.is_action_pressed("ui_q") and dragging == null:
 		if (throw_start == 0): throw_start = OS.get_ticks_msec()
 	if Input.is_action_just_released("ui_q"):
-		var diff = OS.get_ticks_msec()-throw_start
-		throw_start = 0
-		if diff>1000: diff = 1000
-		throw(selected_slot, diff)
+		if dragging != null:
+			dragging = null
+		else:
+			var diff = OS.get_ticks_msec()-throw_start
+			throw_start = 0
+			if diff>1000: diff = 1000
+			throw(selected_slot, diff)
 	
 	if Input.is_action_pressed("ui_shift"):
 		speed = 300 * horse_modifier
@@ -82,16 +86,21 @@ func modulo(a, n):
 
 func _process(delta):
 	var target_position = get_global_mouse_position()
-	$Sprite2.global_rotation = lerp_angle($Sprite2.global_rotation, target_position.angle_to_point(global_position) + .5 * PI, rotation_speed * delta * 1.1)
-	rotation = lerp_angle(rotation, target_position.angle_to_point(global_position), rotation_speed * delta)
+	var rotate_speed = rotation_speed - (.5*rotation_speed if dragging != null else 0)
+	$Sprite2.global_rotation = lerp_angle($Sprite2.global_rotation, target_position.angle_to_point(global_position) + .5 * PI, rotate_speed * delta * 1.1)
+	rotation = lerp_angle(rotation, target_position.angle_to_point(global_position), rotate_speed * delta)
 	
 	var good_direction = abs(atan2(sin(target_position.angle_to_point(global_position)-velocity.angle()), cos(target_position.angle_to_point(global_position)-velocity.angle())))
 	
-	get_input(1 - (good_direction / PI) * .5)
+	get_input(1 - (good_direction / PI) * .5 - (.5 if dragging != null else 0))
 	velocity = move_and_slide(velocity)
 	
+	if(dragging != null):
+		dragging.position = position - Vector2(cos(rotation) * 70, sin(rotation) * 70)
+		
+	
 	if (health <= 0):
-		Global.ending = 3
+		#Global.ending = 3
 		get_tree().change_scene("res://Ending.tscn")
 	
 	$"/root/MainScene/CanvasLayer/GUI".set_health(health, health_max)
@@ -164,3 +173,16 @@ func switch_holding():
 	else:
 		$Holster.texture = load(inventory[next_slot].img)
 		$Holster.visible = true
+
+func _on_BodyLocation_body_entered(body):
+	if(body.name == "Player" and dragging != null):
+		$"../CanvasLayer/Dialog".start_story("body-drop", {}, {}, self)
+		interact_lock = true
+
+func _story_message(id, story):
+	if(story == "body-drop" and id == "a1a1"):
+		dragging.position = Vector2(-1000, -1000)
+		dragging = null
+
+func _story_exit(id, story):
+	interact_lock = false

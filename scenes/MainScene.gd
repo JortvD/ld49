@@ -2,10 +2,12 @@ extends Node2D
 
 var ending = 0
 var MAX_FIRES = 1000
+var MAX_SEEN_DISTANCE = 300
 
 var city = {
 	"unplaced_money": 4,
-	"bankrupt": false
+	"bankrupt": false,
+	"post_efficiency": 1
 }
 
 var bank_money = [null, null]
@@ -14,9 +16,12 @@ var rob_checks = []
 var del_checks = []
 
 func _process(delta):
+	# Every hour
 	if($CanvasLayer/DayNightCycle.hour != last_hour):
 		last_hour = $CanvasLayer/DayNightCycle.hour
 		hour_events(last_hour)
+		
+		if(!check_ray($Player, $NPCs/Postman)): check_postman_efficiency()
 		
 	if($Timers/RobbedTimer.is_stopped()):
 		for rob_check in rob_checks:
@@ -35,6 +40,16 @@ func _process(delta):
 			
 			rob_check["i"] -= 1;
 			if(rob_check["i"] == 0): rob_checks.erase(rob_check)
+		
+		if($Player.dragging != null):
+			var seen = false
+			var check = check_player_rays()
+			for c in check.keys():
+				if(c != $Player.dragging.name and check[c] and get_node("NPCs/" + c).position.distance_to($Player.position) <= MAX_SEEN_DISTANCE): 
+					seen = true
+			if(seen):
+				set_all_reputations(0, "Player", [])
+		
 		$Timers/RobbedTimer.start()
 	
 	if($Timers/DeleteTimer.is_stopped()):
@@ -64,9 +79,25 @@ func _process(delta):
 	check_player_left()
 
 func decrease_all_reputations(amount, subject, exclude):
-	for player in $NPCs/Mayor.names.keys():
-		if(exclude.has(player)): continue
-		get_node("NPCs/" + player).reputation[subject] -= amount
+	for c in $NPCs/Mayor.names.keys():
+		if(exclude.has(c)): continue
+		get_node("NPCs/" + c).reputation[subject] -= amount
+
+func set_all_reputations(amount, subject, exclude):
+	for c in $NPCs/Mayor.names.keys():
+		if(exclude.has(c)): continue
+		get_node("NPCs/" + c).reputation[subject] = amount
+
+func check_postman_efficiency():
+	var postman = $NPCs/Postman
+	if(postman.moves > 0):
+		city.post_efficiency = postman.finished_moves / postman.moves
+	
+	if(city.post_efficiency < .75): set_all_reputations(30, "Postman", ["Postman"])
+	if(city.post_efficiency < .50): set_all_reputations(10, "Postman", ["Postman"])
+	if(city.post_efficiency < .25): 
+		set_all_reputations(0, "Postman", ["Postman"])
+		postman.fired = true
 
 func count_children(node, name):
 	var count = 0
@@ -164,10 +195,10 @@ func check_too_many_fires(n):
 
 func Check_all_dead():
 	if(($NPCs/Mayor.dead == true and $NPCs/Postman.dead == true and $NPCs/Sheriff.dead == true and $NPCs/GeneralStoreman.dead == true and $NPCs/BankWoman.dead == true and $NPCs/Doctor.dead == true and $NPCs/FireDepartmentMan.dead == true and $NPCs/FireDepartmentWoman.dead == true and $NPCs/OldJoe.dead == true and $NPCs/SaloonOwner.dead == true) or Input.is_action_pressed("ui_1")):
-		Global.ending = 1
+		#Global.ending = 1
 		get_tree().change_scene("res://Ending.tscn")
 		
 func check_player_left():
 	if(($Player.position.x >= 6656 or $Player.position.x <= 0 or $Player.position.y >= 4000 or $Player.position.y <= 0) and $Player.in_building == null):
-		Global.ending = 2
+		#Global.ending = 2
 		get_tree().change_scene("res://Ending.tscn")

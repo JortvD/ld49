@@ -23,6 +23,7 @@ func _ready():
 	]
 	$"..".weapon = $"/root/MainScene/Items".get_type("gun")
 	$"..".can_attack = true
+	$"..".health = 0
 	
 func _input(event):
 	if event is InputEventKey and event.pressed and $"..".player_close:
@@ -59,10 +60,10 @@ func _input(event):
 			$"..".start_conversation()
 		
 
-func _story_message(id):
+func _story_message(id, story):
 	pass
 
-func _story_exit(id):
+func _story_exit(id, story):
 	$"..".end_conversation()
 
 func _handle_entering_player(distance):

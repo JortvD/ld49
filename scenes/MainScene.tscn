@@ -1,4 +1,4 @@
-[gd_scene load_steps=79 format=2]
+[gd_scene load_steps=93 format=2]
 
 [ext_resource path="res://world/World.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
@@ -35,6 +35,14 @@
 [ext_resource path="res://building/Postman.png" type="Texture" id=33]
 [ext_resource path="res://building/HouseC.png" type="Texture" id=34]
 [ext_resource path="res://building/Bank.png" type="Texture" id=35]
+[ext_resource path="res://tumbleweed.png" type="Texture" id=36]
+[ext_resource path="res://objects/Decoration.tscn" type="PackedScene" id=37]
+[ext_resource path="res://cactus.png" type="Texture" id=38]
+[ext_resource path="res://rock.png" type="Texture" id=39]
+
+[sub_resource type="CapsuleShape2D" id=53]
+radius = 437.006
+height = 474.629
 
 [sub_resource type="NavigationPolygon" id=1]
 vertices = PoolVector2Array( 2744, 1388.74, 3816.79, 2113.92, 1059.91, 1940.11, 802.198, 1166.99, 999.975, 2030.01, -2512.06, 2107.92, -1265.47, 1274.87, 251.185, 1158.89, -1660.57, -1218.25, -2694.61, -2065.82, 751.4, -2050.19, -262.686, -1318.88, -2739.8, 2167.86, -2741.22, -2002.25, -1711.43, -1201.3, -1359.68, -591.046, -1698.94, 155.267, -1019.74, 1017.16, 23.7671, 995.418, 241.106, 966.122, 54.1941, 888.747, 3993.33, -1873.65, 3990.6, 1922.13, 2779.96, 1352.78, 2484.69, 708.249, 2523.93, 162.402, 2282.44, -33.2422, 2335.27, -1888.77, 2362.13, 127.546, 1270.51, 659.491, 2431.62, 744.603, 819.763, 708.684, 1076.67, 655.923, 825.991, -80.6051, 821.272, -156.115, 949.639, -151.396, 949.639, -76.8296, 1993.29, -9.30664, 1988.77, -78.0596, 2142.75, -76.4722, 2141.21, -11.6926, 1479.15, -65.5032, 1474.43, -148.564, 1643.55, -147.537, 1642.44, -63.6155, 11.2859, 891.925, 8.63721, 738.833, 61.0806, 736.714, 236.066, 813.672, 292.762, 818.711, 296.542, 967.382, 247.79, 83.9148, 48.3379, 619.644, -260.343, 384.863, -313.26, 387.383, -313.26, 241.232, -263.394, 238.766, 751.507, 80.6216, 752.697, 132.947, 569.559, 132.947, 571.937, 75.8647, 580.767, -130.143, -224.888, -1156.35, -226.653, -1012.73, -276.545, -1015.24, -280.589, -1157.6, -295.528, -282.043, -229.938, -345.11, -104.645, -204.68, -178.644, -141.613, -436.417, -96.2024, 1910.99, 193.386, 1760.19, 191.799, 1763.04, 131.463, 1913.36, 127.885, -816.753, -82.0774, -818.311, -143.044, -677.2, -143.044, -675.983, -79.6915, 1271.7, 154.078, 1082.61, 102.942, -1206.37, -101.467, -1206.37, -141.784, -1052.66, -140.524, -1054.15, -78.4985, -1134.55, 142.958, 841.197, -2036.72, 2282.44, -2009.78, 2251.06, -620.341, 1695.27, -630.241, 563.474, -1403.61, 815.632, -635.898, 2361.24, 197.036, 2228.05, 196.591, 2225.37, 134.228, -972.958, -662.905, -979.308, -559.724, -1301.55, -561.311, 809.975, -419.523, 580.767, -411.985, 548.658, -124.197, -272.348, 566.639, -261.192, 131.483, -980.887, 151.342, -992.18, 197.135, -1126.99, 197.135, -927.924, 150.518, -1702.51, 739.168, -1619.07, 1412.71, 356.214, -1331.06, -442.767, -672.429, -1367.16, -89.7106 )
@@ -194,6 +202,51 @@ extents = Vector2( 18.9092, 4.20313 )
 atlas = ExtResource( 28 )
 region = Rect2( 320, 0, 160, 100 )
 
+[sub_resource type="AtlasTexture" id=44]
+atlas = ExtResource( 28 )
+region = Rect2( 0, 0, 160, 100 )
+
+[sub_resource type="AtlasTexture" id=45]
+atlas = ExtResource( 28 )
+region = Rect2( 160, 0, 160, 100 )
+
+[sub_resource type="AtlasTexture" id=46]
+atlas = ExtResource( 28 )
+region = Rect2( 320, 0, 160, 100 )
+
+[sub_resource type="AtlasTexture" id=47]
+atlas = ExtResource( 28 )
+region = Rect2( 480, 0, 160, 100 )
+
+[sub_resource type="AtlasTexture" id=48]
+atlas = ExtResource( 28 )
+region = Rect2( 640, 0, 160, 100 )
+
+[sub_resource type="AtlasTexture" id=49]
+atlas = ExtResource( 28 )
+region = Rect2( 800, 0, 160, 100 )
+
+[sub_resource type="AtlasTexture" id=50]
+atlas = ExtResource( 28 )
+region = Rect2( 960, 0, 160, 100 )
+
+[sub_resource type="AtlasTexture" id=51]
+atlas = ExtResource( 28 )
+region = Rect2( 1120, 0, 160, 100 )
+
+[sub_resource type="SpriteFrames" id=52]
+animations = [ {
+"frames": [ SubResource( 43 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 44 ), SubResource( 45 ), SubResource( 46 ), SubResource( 47 ), SubResource( 48 ), SubResource( 49 ), SubResource( 50 ), SubResource( 51 ) ],
+"loop": true,
+"name": "walking",
+"speed": 5.0
+} ]
+
 [node name="MainScene" type="Node2D"]
 script = ExtResource( 11 )
 
@@ -202,8 +255,3232 @@ script = ExtResource( 11 )
 [node name="Fire" parent="World" instance=ExtResource( 8 )]
 position = Vector2( 2449.34, 2082.65 )
 
+[node name="weed" type="Node" parent="World"]
+
+[node name="Decoration" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3639.75, 1231.06 )
+texture = ExtResource( 36 )
+
+[node name="Decoration2" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3674.24, 1222.73 )
+texture = ExtResource( 36 )
+
+[node name="Decoration3" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3693.26, 1266.73 )
+texture = ExtResource( 36 )
+
+[node name="Decoration4" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3708.72, 1219.17 )
+texture = ExtResource( 36 )
+
+[node name="Decoration5" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3604.07, 1276.25 )
+rotation = -0.584685
+texture = ExtResource( 36 )
+
+[node name="Decoration6" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3638.56, 1267.92 )
+rotation = -0.584685
+texture = ExtResource( 36 )
+
+[node name="Decoration7" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3657.59, 1311.92 )
+rotation = -0.584685
+texture = ExtResource( 36 )
+
+[node name="Decoration8" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3673.05, 1264.35 )
+rotation = -0.584685
+texture = ExtResource( 36 )
+
+[node name="Decoration9" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3623.1, 1168.03 )
+rotation = 0.16057
+texture = ExtResource( 36 )
+
+[node name="Decoration10" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3657.59, 1159.71 )
+rotation = 0.16057
+texture = ExtResource( 36 )
+
+[node name="Decoration11" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3676.61, 1203.71 )
+rotation = 0.16057
+texture = ExtResource( 36 )
+
+[node name="Decoration12" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3692.07, 1156.14 )
+rotation = 0.16057
+texture = ExtResource( 36 )
+
+[node name="Decoration13" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3587.42, 1213.22 )
+rotation = 0.16057
+texture = ExtResource( 36 )
+
+[node name="Decoration14" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3621.91, 1204.9 )
+rotation = 0.16057
+texture = ExtResource( 36 )
+
+[node name="Decoration15" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3640.94, 1248.9 )
+rotation = 0.16057
+texture = ExtResource( 36 )
+
+[node name="Decoration16" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3656.4, 1201.33 )
+rotation = 0.16057
+texture = ExtResource( 36 )
+
+[node name="Decoration17" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3727.75, 1254.84 )
+rotation = -0.0244346
+texture = ExtResource( 36 )
+
+[node name="Decoration18" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3762.24, 1246.52 )
+rotation = -0.0244346
+texture = ExtResource( 36 )
+
+[node name="Decoration19" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3781.26, 1290.52 )
+rotation = -0.0244346
+texture = ExtResource( 36 )
+
+[node name="Decoration20" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3796.72, 1242.95 )
+rotation = -0.0244346
+texture = ExtResource( 36 )
+
+[node name="Decoration21" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3692.07, 1300.03 )
+rotation = -0.0244346
+texture = ExtResource( 36 )
+
+[node name="Decoration22" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3726.56, 1291.71 )
+rotation = -0.0244346
+texture = ExtResource( 36 )
+
+[node name="Decoration23" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3745.59, 1335.71 )
+rotation = -0.0244346
+texture = ExtResource( 36 )
+
+[node name="Decoration24" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3761.05, 1288.14 )
+rotation = -0.0244346
+texture = ExtResource( 36 )
+
+[node name="Decoration25" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3744.4, 1157.33 )
+rotation = -0.439823
+texture = ExtResource( 36 )
+
+[node name="Decoration26" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3778.89, 1149 )
+rotation = -0.439823
+texture = ExtResource( 36 )
+
+[node name="Decoration27" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3797.91, 1193 )
+rotation = -0.439823
+texture = ExtResource( 36 )
+
+[node name="Decoration28" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3813.37, 1145.43 )
+rotation = -0.439823
+texture = ExtResource( 36 )
+
+[node name="Decoration29" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3708.72, 1202.52 )
+rotation = -0.439823
+texture = ExtResource( 36 )
+
+[node name="Decoration30" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3743.21, 1194.19 )
+rotation = -0.439823
+texture = ExtResource( 36 )
+
+[node name="Decoration31" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3762.24, 1238.19 )
+rotation = -0.439823
+texture = ExtResource( 36 )
+
+[node name="Decoration32" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3777.7, 1190.62 )
+rotation = -0.439823
+texture = ExtResource( 36 )
+
+[node name="Decoration33" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3499.42, 1156.14 )
+texture = ExtResource( 36 )
+
+[node name="Decoration34" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3533.91, 1147.81 )
+texture = ExtResource( 36 )
+
+[node name="Decoration35" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3552.94, 1191.81 )
+texture = ExtResource( 36 )
+
+[node name="Decoration36" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3568.4, 1144.25 )
+texture = ExtResource( 36 )
+
+[node name="Decoration37" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3463.75, 1201.33 )
+rotation = -0.584685
+texture = ExtResource( 36 )
+
+[node name="Decoration38" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3498.23, 1193 )
+rotation = -0.584685
+texture = ExtResource( 36 )
+
+[node name="Decoration39" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3517.26, 1237 )
+rotation = -0.584685
+texture = ExtResource( 36 )
+
+[node name="Decoration40" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3532.72, 1189.43 )
+rotation = -0.584685
+texture = ExtResource( 36 )
+
+[node name="Decoration41" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3482.77, 1093.11 )
+rotation = 0.16057
+texture = ExtResource( 36 )
+
+[node name="Decoration42" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3517.26, 1084.78 )
+rotation = 0.16057
+texture = ExtResource( 36 )
+
+[node name="Decoration43" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3536.29, 1128.79 )
+rotation = 0.16057
+texture = ExtResource( 36 )
+
+[node name="Decoration44" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3551.75, 1081.22 )
+rotation = 0.16057
+texture = ExtResource( 36 )
+
+[node name="Decoration45" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3447.1, 1138.3 )
+rotation = 0.16057
+texture = ExtResource( 36 )
+
+[node name="Decoration46" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3481.58, 1129.97 )
+rotation = 0.16057
+texture = ExtResource( 36 )
+
+[node name="Decoration47" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3500.61, 1173.98 )
+rotation = 0.16057
+texture = ExtResource( 36 )
+
+[node name="Decoration48" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3516.07, 1126.41 )
+rotation = 0.16057
+texture = ExtResource( 36 )
+
+[node name="Decoration49" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3587.42, 1179.92 )
+rotation = -0.0244346
+texture = ExtResource( 36 )
+
+[node name="Decoration50" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3621.91, 1171.6 )
+rotation = -0.0244346
+texture = ExtResource( 36 )
+
+[node name="Decoration51" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3640.94, 1215.6 )
+rotation = -0.0244346
+texture = ExtResource( 36 )
+
+[node name="Decoration52" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3656.4, 1168.03 )
+rotation = -0.0244346
+texture = ExtResource( 36 )
+
+[node name="Decoration53" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3551.75, 1225.11 )
+rotation = -0.0244346
+texture = ExtResource( 36 )
+
+[node name="Decoration54" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3586.23, 1216.79 )
+rotation = -0.0244346
+texture = ExtResource( 36 )
+
+[node name="Decoration55" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3605.26, 1260.79 )
+rotation = -0.0244346
+texture = ExtResource( 36 )
+
+[node name="Decoration56" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3620.72, 1213.22 )
+rotation = -0.0244346
+texture = ExtResource( 36 )
+
+[node name="Decoration57" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3604.07, 1082.41 )
+rotation = -0.439823
+texture = ExtResource( 36 )
+
+[node name="Decoration58" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3638.56, 1074.08 )
+rotation = -0.439823
+texture = ExtResource( 36 )
+
+[node name="Decoration59" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3657.59, 1118.08 )
+rotation = -0.439823
+texture = ExtResource( 36 )
+
+[node name="Decoration60" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3673.05, 1070.51 )
+rotation = -0.439823
+texture = ExtResource( 36 )
+
+[node name="Decoration61" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3568.4, 1127.6 )
+rotation = -0.439823
+texture = ExtResource( 36 )
+
+[node name="Decoration62" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3602.88, 1119.27 )
+rotation = -0.439823
+texture = ExtResource( 36 )
+
+[node name="Decoration63" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3621.91, 1163.27 )
+rotation = -0.439823
+texture = ExtResource( 36 )
+
+[node name="Decoration64" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3637.37, 1115.7 )
+rotation = -0.439823
+texture = ExtResource( 36 )
+
+[node name="Decoration65" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3790.78, 1135.92 )
+texture = ExtResource( 36 )
+
+[node name="Decoration66" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3825.27, 1127.6 )
+texture = ExtResource( 36 )
+
+[node name="Decoration67" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3844.29, 1171.6 )
+texture = ExtResource( 36 )
+
+[node name="Decoration68" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3859.75, 1124.03 )
+texture = ExtResource( 36 )
+
+[node name="Decoration69" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3755.1, 1181.11 )
+rotation = -0.584685
+texture = ExtResource( 36 )
+
+[node name="Decoration70" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3789.59, 1172.79 )
+rotation = -0.584685
+texture = ExtResource( 36 )
+
+[node name="Decoration71" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3808.62, 1216.79 )
+rotation = -0.584685
+texture = ExtResource( 36 )
+
+[node name="Decoration72" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3824.08, 1169.22 )
+rotation = -0.584685
+texture = ExtResource( 36 )
+
+[node name="Decoration73" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3774.13, 1072.89 )
+rotation = 0.16057
+texture = ExtResource( 36 )
+
+[node name="Decoration74" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3808.62, 1064.57 )
+rotation = 0.16057
+texture = ExtResource( 36 )
+
+[node name="Decoration75" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3827.64, 1108.57 )
+rotation = 0.16057
+texture = ExtResource( 36 )
+
+[node name="Decoration76" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3843.1, 1061 )
+rotation = 0.16057
+texture = ExtResource( 36 )
+
+[node name="Decoration77" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3738.45, 1118.08 )
+rotation = 0.16057
+texture = ExtResource( 36 )
+
+[node name="Decoration78" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3772.94, 1109.76 )
+rotation = 0.16057
+texture = ExtResource( 36 )
+
+[node name="Decoration79" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3791.97, 1153.76 )
+rotation = 0.16057
+texture = ExtResource( 36 )
+
+[node name="Decoration80" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3807.43, 1106.19 )
+rotation = 0.16057
+texture = ExtResource( 36 )
+
+[node name="Decoration81" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3878.78, 1159.7 )
+rotation = -0.0244346
+texture = ExtResource( 36 )
+
+[node name="Decoration82" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3913.27, 1151.38 )
+rotation = -0.0244346
+texture = ExtResource( 36 )
+
+[node name="Decoration83" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3932.29, 1195.38 )
+rotation = -0.0244346
+texture = ExtResource( 36 )
+
+[node name="Decoration84" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3947.75, 1147.81 )
+rotation = -0.0244346
+texture = ExtResource( 36 )
+
+[node name="Decoration85" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3843.1, 1204.89 )
+rotation = -0.0244346
+texture = ExtResource( 36 )
+
+[node name="Decoration86" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3877.59, 1196.57 )
+rotation = -0.0244346
+texture = ExtResource( 36 )
+
+[node name="Decoration87" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3896.62, 1240.57 )
+rotation = -0.0244346
+texture = ExtResource( 36 )
+
+[node name="Decoration88" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3912.08, 1193 )
+rotation = -0.0244346
+texture = ExtResource( 36 )
+
+[node name="Decoration89" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3895.43, 1062.19 )
+rotation = -0.439823
+texture = ExtResource( 36 )
+
+[node name="Decoration90" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3929.92, 1053.87 )
+rotation = -0.439823
+texture = ExtResource( 36 )
+
+[node name="Decoration91" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3948.94, 1097.87 )
+rotation = -0.439823
+texture = ExtResource( 36 )
+
+[node name="Decoration92" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3964.4, 1050.3 )
+rotation = -0.439823
+texture = ExtResource( 36 )
+
+[node name="Decoration93" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3859.75, 1107.38 )
+rotation = -0.439823
+texture = ExtResource( 36 )
+
+[node name="Decoration94" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3894.24, 1099.06 )
+rotation = -0.439823
+texture = ExtResource( 36 )
+
+[node name="Decoration95" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3913.27, 1143.06 )
+rotation = -0.439823
+texture = ExtResource( 36 )
+
+[node name="Decoration96" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3928.73, 1095.49 )
+rotation = -0.439823
+texture = ExtResource( 36 )
+
+[node name="Decoration97" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3615.96, 1066.95 )
+rotation = -1.47306
+texture = ExtResource( 36 )
+
+[node name="Decoration98" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3650.45, 1058.62 )
+rotation = -1.47306
+texture = ExtResource( 36 )
+
+[node name="Decoration99" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3669.48, 1102.62 )
+rotation = -1.47306
+texture = ExtResource( 36 )
+
+[node name="Decoration100" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3684.94, 1055.05 )
+rotation = -1.47306
+texture = ExtResource( 36 )
+
+[node name="Decoration101" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3580.29, 1112.14 )
+rotation = -1.47306
+texture = ExtResource( 36 )
+
+[node name="Decoration102" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3614.78, 1103.81 )
+rotation = -1.47306
+texture = ExtResource( 36 )
+
+[node name="Decoration103" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3633.8, 1147.81 )
+rotation = -1.47306
+texture = ExtResource( 36 )
+
+[node name="Decoration104" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3649.26, 1100.24 )
+rotation = -1.47306
+texture = ExtResource( 36 )
+
+[node name="Decoration105" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3599.32, 1003.92 )
+rotation = -1.47306
+texture = ExtResource( 36 )
+
+[node name="Decoration106" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3633.8, 995.594 )
+rotation = -1.47306
+texture = ExtResource( 36 )
+
+[node name="Decoration107" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3652.83, 1039.59 )
+rotation = -1.47306
+texture = ExtResource( 36 )
+
+[node name="Decoration108" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3668.29, 992.027 )
+rotation = -1.47306
+texture = ExtResource( 36 )
+
+[node name="Decoration109" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3563.64, 1049.11 )
+rotation = -1.47306
+texture = ExtResource( 36 )
+
+[node name="Decoration110" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3598.13, 1040.78 )
+rotation = -1.47306
+texture = ExtResource( 36 )
+
+[node name="Decoration111" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3617.15, 1084.78 )
+rotation = -1.47306
+texture = ExtResource( 36 )
+
+[node name="Decoration112" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3632.61, 1037.22 )
+rotation = -1.47306
+texture = ExtResource( 36 )
+
+[node name="Decoration113" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3703.97, 1090.73 )
+rotation = -1.47306
+texture = ExtResource( 36 )
+
+[node name="Decoration114" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3738.45, 1082.41 )
+rotation = -1.47306
+texture = ExtResource( 36 )
+
+[node name="Decoration115" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3757.48, 1126.41 )
+rotation = -1.47306
+texture = ExtResource( 36 )
+
+[node name="Decoration116" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3772.94, 1078.84 )
+rotation = -1.47306
+texture = ExtResource( 36 )
+
+[node name="Decoration117" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3668.29, 1135.92 )
+rotation = -1.47306
+texture = ExtResource( 36 )
+
+[node name="Decoration118" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3702.78, 1127.6 )
+rotation = -1.47306
+texture = ExtResource( 36 )
+
+[node name="Decoration119" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3721.8, 1171.6 )
+rotation = -1.47306
+texture = ExtResource( 36 )
+
+[node name="Decoration120" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3737.26, 1124.03 )
+rotation = -1.47306
+texture = ExtResource( 36 )
+
+[node name="Decoration121" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3720.61, 993.216 )
+rotation = -1.47306
+texture = ExtResource( 36 )
+
+[node name="Decoration122" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3755.1, 984.891 )
+rotation = -1.47306
+texture = ExtResource( 36 )
+
+[node name="Decoration123" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3774.13, 1028.89 )
+rotation = -1.47306
+texture = ExtResource( 36 )
+
+[node name="Decoration124" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3789.59, 981.324 )
+rotation = -1.47306
+texture = ExtResource( 36 )
+
+[node name="Decoration125" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3684.94, 1038.41 )
+rotation = -1.47306
+texture = ExtResource( 36 )
+
+[node name="Decoration126" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3719.43, 1030.08 )
+rotation = -1.47306
+texture = ExtResource( 36 )
+
+[node name="Decoration127" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3738.45, 1074.08 )
+rotation = -1.47306
+texture = ExtResource( 36 )
+
+[node name="Decoration128" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3753.91, 1026.51 )
+rotation = -1.47306
+texture = ExtResource( 36 )
+
+[node name="Decoration129" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3742.02, 1380.9 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration130" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3776.51, 1372.57 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration131" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3795.54, 1416.57 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration132" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3811, 1369.01 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration133" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3706.34, 1426.09 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration134" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3740.83, 1417.76 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration135" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3759.86, 1461.76 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration136" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3775.32, 1414.2 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration137" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3725.37, 1317.87 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration138" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3759.86, 1309.55 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration139" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3778.89, 1353.55 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration140" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3794.35, 1305.98 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration141" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3689.7, 1363.06 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration142" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3724.18, 1354.74 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration143" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3743.21, 1398.74 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration144" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3758.67, 1351.17 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration145" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3830.02, 1404.68 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration146" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3864.51, 1396.36 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration147" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3883.54, 1440.36 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration148" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3899, 1392.79 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration149" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3794.35, 1449.87 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration150" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3828.83, 1441.55 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration151" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3847.86, 1485.55 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration152" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3863.32, 1437.98 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration153" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3846.67, 1307.17 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration154" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3881.16, 1298.84 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration155" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3900.19, 1342.84 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration156" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3915.65, 1295.27 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration157" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3810.99, 1352.36 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration158" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3845.48, 1344.03 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration159" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3864.51, 1388.03 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration160" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3879.97, 1340.46 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration161" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3601.69, 1305.98 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration162" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3636.18, 1297.65 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration163" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3655.21, 1341.65 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration164" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3670.67, 1294.09 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration165" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3566.02, 1351.17 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration166" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3600.51, 1342.84 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration167" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3619.53, 1386.84 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration168" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3634.99, 1339.27 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration169" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3585.05, 1242.95 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration170" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3619.53, 1234.63 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration171" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3638.56, 1278.63 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration172" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3654.02, 1231.06 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration173" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3549.37, 1288.14 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration174" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3583.86, 1279.81 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration175" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3602.88, 1323.82 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration176" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3618.34, 1276.25 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration177" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3689.7, 1329.76 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration178" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3724.18, 1321.44 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration179" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3743.21, 1365.44 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration180" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3758.67, 1317.87 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration181" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3654.02, 1374.95 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration182" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3688.51, 1366.63 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration183" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3707.53, 1410.63 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration184" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3722.99, 1363.06 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration185" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3706.34, 1232.25 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration186" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3740.83, 1223.92 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration187" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3759.86, 1265.54 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration188" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3775.32, 1220.35 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration189" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3670.67, 1277.44 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration190" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3705.16, 1269.11 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration191" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3724.18, 1313.11 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration192" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3739.64, 1265.54 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration193" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3893.05, 1285.76 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration194" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3927.54, 1277.44 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration195" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3946.56, 1321.44 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration196" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3962.02, 1273.87 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration197" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3857.37, 1330.95 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration198" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3891.86, 1322.63 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration199" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3910.89, 1366.63 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration200" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3926.35, 1319.06 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration201" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3876.4, 1222.73 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration202" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3910.89, 1214.41 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration203" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3929.92, 1258.41 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration204" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3945.38, 1210.84 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration205" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3840.73, 1267.92 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration206" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3875.21, 1259.6 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration207" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3894.24, 1303.6 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration208" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3909.7, 1256.03 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration209" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3981.05, 1309.55 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration210" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 4015.54, 1301.22 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration211" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 4034.57, 1345.22 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration212" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 4050.03, 1297.65 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration213" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3945.38, 1354.73 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration214" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3979.86, 1346.41 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration215" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3998.89, 1390.41 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration216" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 4014.35, 1342.84 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration217" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3997.7, 1212.03 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration218" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 4032.19, 1203.71 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration219" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 4051.21, 1247.71 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration220" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 4066.67, 1200.14 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration221" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3962.02, 1257.22 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration222" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3996.51, 1248.9 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration223" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 4015.54, 1292.9 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration224" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 4031, 1245.33 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration225" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3718.24, 1216.79 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration226" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3752.72, 1208.46 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration227" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 4157.05, 1459.39 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration228" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3787.21, 1204.89 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration229" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3682.56, 1261.98 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration230" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3717.05, 1253.65 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration231" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3736.07, 1297.65 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration232" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 4203.43, 1529.55 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration233" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3701.59, 1153.76 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration234" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3736.08, 1145.43 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration235" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3755.1, 1189.44 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration236" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3770.56, 1141.87 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration237" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3665.91, 1198.95 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration238" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3703.97, 1193 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration239" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3718.24, 1235.81 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration240" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3733.7, 1190.62 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration241" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3806.24, 1240.57 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration242" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3840.73, 1232.25 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration243" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3859.75, 1276.25 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration244" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 4260.52, 1435.6 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration245" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3770.56, 1285.76 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration246" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3805.05, 1279.81 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration247" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3824.08, 1321.44 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration248" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 4224.84, 1480.79 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration249" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3822.89, 1143.06 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration250" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3857.37, 1134.73 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration251" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3876.4, 1178.73 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration252" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3891.86, 1131.16 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration253" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3790.78, 1190.62 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration254" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3820.51, 1183.49 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration255" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3839.53, 1223.92 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration256" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3856.18, 1176.35 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration257" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3803.86, 1562.85 )
+texture = ExtResource( 36 )
+
+[node name="Decoration258" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3838.35, 1554.52 )
+texture = ExtResource( 36 )
+
+[node name="Decoration259" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3857.37, 1598.52 )
+texture = ExtResource( 36 )
+
+[node name="Decoration260" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3872.83, 1550.95 )
+texture = ExtResource( 36 )
+
+[node name="Decoration261" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3768.18, 1608.04 )
+rotation = -0.584685
+texture = ExtResource( 36 )
+
+[node name="Decoration262" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3802.67, 1599.71 )
+rotation = -0.584685
+texture = ExtResource( 36 )
+
+[node name="Decoration263" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3821.7, 1643.71 )
+rotation = -0.584685
+texture = ExtResource( 36 )
+
+[node name="Decoration264" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3837.16, 1596.14 )
+rotation = -0.584685
+texture = ExtResource( 36 )
+
+[node name="Decoration265" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3787.21, 1499.82 )
+rotation = 0.16057
+texture = ExtResource( 36 )
+
+[node name="Decoration266" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3821.7, 1491.49 )
+rotation = 0.16057
+texture = ExtResource( 36 )
+
+[node name="Decoration267" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3840.72, 1535.49 )
+rotation = 0.16057
+texture = ExtResource( 36 )
+
+[node name="Decoration268" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3856.18, 1487.93 )
+rotation = 0.16057
+texture = ExtResource( 36 )
+
+[node name="Decoration269" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3751.53, 1545.01 )
+rotation = 0.16057
+texture = ExtResource( 36 )
+
+[node name="Decoration270" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3786.02, 1536.68 )
+rotation = 0.16057
+texture = ExtResource( 36 )
+
+[node name="Decoration271" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3805.05, 1580.68 )
+rotation = 0.16057
+texture = ExtResource( 36 )
+
+[node name="Decoration272" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3820.51, 1533.12 )
+rotation = 0.16057
+texture = ExtResource( 36 )
+
+[node name="Decoration273" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3891.86, 1586.63 )
+rotation = -0.0244346
+texture = ExtResource( 36 )
+
+[node name="Decoration274" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3926.35, 1578.31 )
+rotation = -0.0244346
+texture = ExtResource( 36 )
+
+[node name="Decoration275" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3945.37, 1622.31 )
+rotation = -0.0244346
+texture = ExtResource( 36 )
+
+[node name="Decoration276" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3960.83, 1574.74 )
+rotation = -0.0244346
+texture = ExtResource( 36 )
+
+[node name="Decoration277" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3856.18, 1631.82 )
+rotation = -0.0244346
+texture = ExtResource( 36 )
+
+[node name="Decoration278" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3890.67, 1623.5 )
+rotation = -0.0244346
+texture = ExtResource( 36 )
+
+[node name="Decoration279" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3909.7, 1667.5 )
+rotation = -0.0244346
+texture = ExtResource( 36 )
+
+[node name="Decoration280" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3925.16, 1619.93 )
+rotation = -0.0244346
+texture = ExtResource( 36 )
+
+[node name="Decoration281" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3908.51, 1489.12 )
+rotation = -0.439823
+texture = ExtResource( 36 )
+
+[node name="Decoration282" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3943, 1480.79 )
+rotation = -0.439823
+texture = ExtResource( 36 )
+
+[node name="Decoration283" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3962.02, 1524.79 )
+rotation = -0.439823
+texture = ExtResource( 36 )
+
+[node name="Decoration284" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3977.48, 1477.22 )
+rotation = -0.439823
+texture = ExtResource( 36 )
+
+[node name="Decoration285" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3872.83, 1534.3 )
+rotation = -0.439823
+texture = ExtResource( 36 )
+
+[node name="Decoration286" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3907.32, 1525.98 )
+rotation = -0.439823
+texture = ExtResource( 36 )
+
+[node name="Decoration287" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3926.35, 1569.98 )
+rotation = -0.439823
+texture = ExtResource( 36 )
+
+[node name="Decoration288" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3941.81, 1522.41 )
+rotation = -0.439823
+texture = ExtResource( 36 )
+
+[node name="Decoration289" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3663.53, 1487.93 )
+texture = ExtResource( 36 )
+
+[node name="Decoration290" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3698.02, 1479.6 )
+texture = ExtResource( 36 )
+
+[node name="Decoration291" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3717.05, 1523.6 )
+texture = ExtResource( 36 )
+
+[node name="Decoration292" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3732.51, 1476.03 )
+texture = ExtResource( 36 )
+
+[node name="Decoration293" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3627.86, 1533.12 )
+rotation = -0.584685
+texture = ExtResource( 36 )
+
+[node name="Decoration294" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3662.34, 1524.79 )
+rotation = -0.584685
+texture = ExtResource( 36 )
+
+[node name="Decoration295" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3681.37, 1568.79 )
+rotation = -0.584685
+texture = ExtResource( 36 )
+
+[node name="Decoration296" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3696.83, 1521.22 )
+rotation = -0.584685
+texture = ExtResource( 36 )
+
+[node name="Decoration297" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3646.88, 1424.9 )
+rotation = 0.16057
+texture = ExtResource( 36 )
+
+[node name="Decoration298" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3681.37, 1416.57 )
+rotation = 0.16057
+texture = ExtResource( 36 )
+
+[node name="Decoration299" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3700.4, 1460.57 )
+rotation = 0.16057
+texture = ExtResource( 36 )
+
+[node name="Decoration300" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3715.86, 1413.01 )
+rotation = 0.16057
+texture = ExtResource( 36 )
+
+[node name="Decoration301" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3611.21, 1470.09 )
+rotation = 0.16057
+texture = ExtResource( 36 )
+
+[node name="Decoration302" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3645.7, 1461.76 )
+rotation = 0.16057
+texture = ExtResource( 36 )
+
+[node name="Decoration303" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3664.72, 1505.76 )
+rotation = 0.16057
+texture = ExtResource( 36 )
+
+[node name="Decoration304" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3680.18, 1458.2 )
+rotation = 0.16057
+texture = ExtResource( 36 )
+
+[node name="Decoration305" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3751.53, 1511.71 )
+rotation = -0.0244346
+texture = ExtResource( 36 )
+
+[node name="Decoration306" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3786.02, 1503.39 )
+rotation = -0.0244346
+texture = ExtResource( 36 )
+
+[node name="Decoration307" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3805.05, 1547.39 )
+rotation = -0.0244346
+texture = ExtResource( 36 )
+
+[node name="Decoration308" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3820.51, 1499.82 )
+rotation = -0.0244346
+texture = ExtResource( 36 )
+
+[node name="Decoration309" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3715.86, 1556.9 )
+rotation = -0.0244346
+texture = ExtResource( 36 )
+
+[node name="Decoration310" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3750.35, 1548.58 )
+rotation = -0.0244346
+texture = ExtResource( 36 )
+
+[node name="Decoration311" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3769.37, 1592.58 )
+rotation = -0.0244346
+texture = ExtResource( 36 )
+
+[node name="Decoration312" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3784.83, 1545.01 )
+rotation = -0.0244346
+texture = ExtResource( 36 )
+
+[node name="Decoration313" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3768.18, 1414.2 )
+rotation = -0.439823
+texture = ExtResource( 36 )
+
+[node name="Decoration314" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3802.67, 1405.87 )
+rotation = -0.439823
+texture = ExtResource( 36 )
+
+[node name="Decoration315" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3821.7, 1449.87 )
+rotation = -0.439823
+texture = ExtResource( 36 )
+
+[node name="Decoration316" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3837.16, 1402.3 )
+rotation = -0.439823
+texture = ExtResource( 36 )
+
+[node name="Decoration317" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3732.51, 1459.38 )
+rotation = -0.439823
+texture = ExtResource( 36 )
+
+[node name="Decoration318" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3766.99, 1451.06 )
+rotation = -0.439823
+texture = ExtResource( 36 )
+
+[node name="Decoration319" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3786.02, 1495.06 )
+rotation = -0.439823
+texture = ExtResource( 36 )
+
+[node name="Decoration320" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3801.48, 1447.49 )
+rotation = -0.439823
+texture = ExtResource( 36 )
+
+[node name="Decoration321" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3954.89, 1467.71 )
+texture = ExtResource( 36 )
+
+[node name="Decoration322" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3989.38, 1459.39 )
+texture = ExtResource( 36 )
+
+[node name="Decoration323" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 4008.4, 1503.39 )
+texture = ExtResource( 36 )
+
+[node name="Decoration324" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 4023.86, 1455.82 )
+texture = ExtResource( 36 )
+
+[node name="Decoration325" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3919.21, 1512.9 )
+rotation = -0.584685
+texture = ExtResource( 36 )
+
+[node name="Decoration326" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3953.7, 1504.58 )
+rotation = -0.584685
+texture = ExtResource( 36 )
+
+[node name="Decoration327" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3972.73, 1548.58 )
+rotation = -0.584685
+texture = ExtResource( 36 )
+
+[node name="Decoration328" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3988.19, 1501.01 )
+rotation = -0.584685
+texture = ExtResource( 36 )
+
+[node name="Decoration329" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3938.24, 1404.68 )
+rotation = 0.16057
+texture = ExtResource( 36 )
+
+[node name="Decoration330" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3972.73, 1396.36 )
+rotation = 0.16057
+texture = ExtResource( 36 )
+
+[node name="Decoration331" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3991.75, 1440.36 )
+rotation = 0.16057
+texture = ExtResource( 36 )
+
+[node name="Decoration332" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 4007.21, 1392.79 )
+rotation = 0.16057
+texture = ExtResource( 36 )
+
+[node name="Decoration333" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3902.56, 1449.87 )
+rotation = 0.16057
+texture = ExtResource( 36 )
+
+[node name="Decoration334" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3937.05, 1441.55 )
+rotation = 0.16057
+texture = ExtResource( 36 )
+
+[node name="Decoration335" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3956.08, 1485.55 )
+rotation = 0.16057
+texture = ExtResource( 36 )
+
+[node name="Decoration336" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3971.54, 1437.98 )
+rotation = 0.16057
+texture = ExtResource( 36 )
+
+[node name="Decoration337" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 4042.89, 1491.49 )
+rotation = -0.0244346
+texture = ExtResource( 36 )
+
+[node name="Decoration338" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 4077.38, 1483.17 )
+rotation = -0.0244346
+texture = ExtResource( 36 )
+
+[node name="Decoration339" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 4096.4, 1527.17 )
+rotation = -0.0244346
+texture = ExtResource( 36 )
+
+[node name="Decoration340" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 4111.86, 1479.6 )
+rotation = -0.0244346
+texture = ExtResource( 36 )
+
+[node name="Decoration341" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 4007.21, 1536.68 )
+rotation = -0.0244346
+texture = ExtResource( 36 )
+
+[node name="Decoration342" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 4041.7, 1528.36 )
+rotation = -0.0244346
+texture = ExtResource( 36 )
+
+[node name="Decoration343" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 4060.73, 1572.36 )
+rotation = -0.0244346
+texture = ExtResource( 36 )
+
+[node name="Decoration344" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 4076.19, 1524.79 )
+rotation = -0.0244346
+texture = ExtResource( 36 )
+
+[node name="Decoration345" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 4059.54, 1393.98 )
+rotation = -0.439823
+texture = ExtResource( 36 )
+
+[node name="Decoration346" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 4094.03, 1385.65 )
+rotation = -0.439823
+texture = ExtResource( 36 )
+
+[node name="Decoration347" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 4113.05, 1429.65 )
+rotation = -0.439823
+texture = ExtResource( 36 )
+
+[node name="Decoration348" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 4222.46, 1395.17 )
+rotation = -0.439823
+texture = ExtResource( 36 )
+
+[node name="Decoration349" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 4023.86, 1439.17 )
+rotation = -0.439823
+texture = ExtResource( 36 )
+
+[node name="Decoration350" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 4058.35, 1430.84 )
+rotation = -0.439823
+texture = ExtResource( 36 )
+
+[node name="Decoration351" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 4077.38, 1474.84 )
+rotation = -0.439823
+texture = ExtResource( 36 )
+
+[node name="Decoration352" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 4092.84, 1427.28 )
+rotation = -0.439823
+texture = ExtResource( 36 )
+
+[node name="Decoration353" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3780.08, 1398.74 )
+rotation = -1.47306
+texture = ExtResource( 36 )
+
+[node name="Decoration354" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3814.56, 1390.41 )
+rotation = -1.47306
+texture = ExtResource( 36 )
+
+[node name="Decoration355" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3833.59, 1434.41 )
+rotation = -1.47306
+texture = ExtResource( 36 )
+
+[node name="Decoration356" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3849.05, 1386.84 )
+rotation = -1.47306
+texture = ExtResource( 36 )
+
+[node name="Decoration357" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3744.4, 1443.93 )
+rotation = -1.47306
+texture = ExtResource( 36 )
+
+[node name="Decoration358" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3778.89, 1435.6 )
+rotation = -1.47306
+texture = ExtResource( 36 )
+
+[node name="Decoration359" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3797.91, 1479.6 )
+rotation = -1.47306
+texture = ExtResource( 36 )
+
+[node name="Decoration360" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3813.37, 1432.03 )
+rotation = -1.47306
+texture = ExtResource( 36 )
+
+[node name="Decoration361" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3763.43, 1335.71 )
+rotation = -1.47306
+texture = ExtResource( 36 )
+
+[node name="Decoration362" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3797.91, 1327.38 )
+rotation = -1.47306
+texture = ExtResource( 36 )
+
+[node name="Decoration363" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3816.94, 1371.38 )
+rotation = -1.47306
+texture = ExtResource( 36 )
+
+[node name="Decoration364" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3831.21, 1323.82 )
+rotation = -1.47306
+texture = ExtResource( 36 )
+
+[node name="Decoration365" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3727.75, 1380.9 )
+rotation = -1.47306
+texture = ExtResource( 36 )
+
+[node name="Decoration366" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3762.24, 1372.57 )
+rotation = -1.47306
+texture = ExtResource( 36 )
+
+[node name="Decoration367" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3781.26, 1416.57 )
+rotation = -1.47306
+texture = ExtResource( 36 )
+
+[node name="Decoration368" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3796.72, 1369.01 )
+rotation = -1.47306
+texture = ExtResource( 36 )
+
+[node name="Decoration369" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3868.08, 1422.52 )
+rotation = -1.47306
+texture = ExtResource( 36 )
+
+[node name="Decoration370" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3902.56, 1414.2 )
+rotation = -1.47306
+texture = ExtResource( 36 )
+
+[node name="Decoration371" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3921.59, 1458.2 )
+rotation = -1.47306
+texture = ExtResource( 36 )
+
+[node name="Decoration372" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3937.05, 1410.63 )
+rotation = -1.47306
+texture = ExtResource( 36 )
+
+[node name="Decoration373" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3832.4, 1467.71 )
+rotation = -1.47306
+texture = ExtResource( 36 )
+
+[node name="Decoration374" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3866.89, 1459.39 )
+rotation = -1.47306
+texture = ExtResource( 36 )
+
+[node name="Decoration375" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3885.91, 1503.39 )
+rotation = -1.47306
+texture = ExtResource( 36 )
+
+[node name="Decoration376" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3901.37, 1455.82 )
+rotation = -1.47306
+texture = ExtResource( 36 )
+
+[node name="Decoration377" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3884.73, 1325.01 )
+rotation = -1.47306
+texture = ExtResource( 36 )
+
+[node name="Decoration378" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 4170.14, 1480.79 )
+rotation = -1.47306
+texture = ExtResource( 36 )
+
+[node name="Decoration379" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3938.24, 1360.68 )
+rotation = -1.47306
+texture = ExtResource( 36 )
+
+[node name="Decoration380" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3953.7, 1313.11 )
+rotation = -1.47306
+texture = ExtResource( 36 )
+
+[node name="Decoration381" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3849.05, 1370.19 )
+rotation = -1.47306
+texture = ExtResource( 36 )
+
+[node name="Decoration382" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3883.54, 1361.87 )
+rotation = -1.47306
+texture = ExtResource( 36 )
+
+[node name="Decoration383" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3902.56, 1405.87 )
+rotation = -1.47306
+texture = ExtResource( 36 )
+
+[node name="Decoration384" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 4183.22, 1379.71 )
+rotation = -1.47306
+texture = ExtResource( 36 )
+
+[node name="Decoration385" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3523.21, 1530.74 )
+texture = ExtResource( 36 )
+
+[node name="Decoration386" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3620.72, 1622.31 )
+texture = ExtResource( 36 )
+
+[node name="Decoration387" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3632.61, 1407.06 )
+rotation = -1.47306
+texture = ExtResource( 36 )
+
+[node name="Decoration388" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 3599.32, 1725.77 )
+texture = ExtResource( 36 )
+
+[node name="Decoration389" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 4293.81, 1480.79 )
+texture = ExtResource( 36 )
+
+[node name="Decoration390" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6087.52, 2224.77 )
+texture = ExtResource( 36 )
+
+[node name="Decoration391" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6122.01, 2216.45 )
+texture = ExtResource( 36 )
+
+[node name="Decoration392" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6141.04, 2260.45 )
+texture = ExtResource( 36 )
+
+[node name="Decoration393" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6156.5, 2212.88 )
+texture = ExtResource( 36 )
+
+[node name="Decoration394" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6051.85, 2269.96 )
+rotation = -0.584685
+texture = ExtResource( 36 )
+
+[node name="Decoration395" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6086.33, 2261.64 )
+rotation = -0.584685
+texture = ExtResource( 36 )
+
+[node name="Decoration396" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6105.36, 2305.64 )
+rotation = -0.584685
+texture = ExtResource( 36 )
+
+[node name="Decoration397" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6120.82, 2258.07 )
+rotation = -0.584685
+texture = ExtResource( 36 )
+
+[node name="Decoration398" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6070.87, 2161.74 )
+rotation = 0.16057
+texture = ExtResource( 36 )
+
+[node name="Decoration399" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6105.36, 2153.42 )
+rotation = 0.16057
+texture = ExtResource( 36 )
+
+[node name="Decoration400" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6124.39, 2197.42 )
+rotation = 0.16057
+texture = ExtResource( 36 )
+
+[node name="Decoration401" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6139.85, 2149.85 )
+rotation = 0.16057
+texture = ExtResource( 36 )
+
+[node name="Decoration402" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6035.2, 2206.93 )
+rotation = 0.16057
+texture = ExtResource( 36 )
+
+[node name="Decoration403" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6069.68, 2198.61 )
+rotation = 0.16057
+texture = ExtResource( 36 )
+
+[node name="Decoration404" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6088.71, 2242.61 )
+rotation = 0.16057
+texture = ExtResource( 36 )
+
+[node name="Decoration405" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6104.17, 2195.04 )
+rotation = 0.16057
+texture = ExtResource( 36 )
+
+[node name="Decoration406" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6175.52, 2248.55 )
+rotation = -0.0244346
+texture = ExtResource( 36 )
+
+[node name="Decoration407" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6210.01, 2240.23 )
+rotation = -0.0244346
+texture = ExtResource( 36 )
+
+[node name="Decoration408" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6229.04, 2284.23 )
+rotation = -0.0244346
+texture = ExtResource( 36 )
+
+[node name="Decoration409" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6244.5, 2236.66 )
+rotation = -0.0244346
+texture = ExtResource( 36 )
+
+[node name="Decoration410" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6139.85, 2293.74 )
+rotation = -0.0244346
+texture = ExtResource( 36 )
+
+[node name="Decoration411" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6174.33, 2285.42 )
+rotation = -0.0244346
+texture = ExtResource( 36 )
+
+[node name="Decoration412" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6193.36, 2329.42 )
+rotation = -0.0244346
+texture = ExtResource( 36 )
+
+[node name="Decoration413" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6208.82, 2281.85 )
+rotation = -0.0244346
+texture = ExtResource( 36 )
+
+[node name="Decoration414" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6192.17, 2151.04 )
+rotation = -0.439823
+texture = ExtResource( 36 )
+
+[node name="Decoration415" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6226.66, 2142.71 )
+rotation = -0.439823
+texture = ExtResource( 36 )
+
+[node name="Decoration416" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6245.69, 2186.72 )
+rotation = -0.439823
+texture = ExtResource( 36 )
+
+[node name="Decoration417" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6261.15, 2139.15 )
+rotation = -0.439823
+texture = ExtResource( 36 )
+
+[node name="Decoration418" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6156.49, 2196.23 )
+rotation = -0.439823
+texture = ExtResource( 36 )
+
+[node name="Decoration419" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6190.98, 2187.9 )
+rotation = -0.439823
+texture = ExtResource( 36 )
+
+[node name="Decoration420" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6210.01, 2231.91 )
+rotation = -0.439823
+texture = ExtResource( 36 )
+
+[node name="Decoration421" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6225.47, 2184.34 )
+rotation = -0.439823
+texture = ExtResource( 36 )
+
+[node name="Decoration422" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 5947.2, 2149.85 )
+texture = ExtResource( 36 )
+
+[node name="Decoration423" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 5981.68, 2141.53 )
+texture = ExtResource( 36 )
+
+[node name="Decoration424" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6000.71, 2185.53 )
+texture = ExtResource( 36 )
+
+[node name="Decoration425" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6016.17, 2137.96 )
+texture = ExtResource( 36 )
+
+[node name="Decoration426" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 5911.52, 2195.04 )
+rotation = -0.584685
+texture = ExtResource( 36 )
+
+[node name="Decoration427" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 5946.01, 2186.72 )
+rotation = -0.584685
+texture = ExtResource( 36 )
+
+[node name="Decoration428" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 5965.03, 2230.72 )
+rotation = -0.584685
+texture = ExtResource( 36 )
+
+[node name="Decoration429" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 5980.49, 2183.15 )
+rotation = -0.584685
+texture = ExtResource( 36 )
+
+[node name="Decoration430" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 5930.55, 2086.82 )
+rotation = 0.16057
+texture = ExtResource( 36 )
+
+[node name="Decoration431" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 5965.03, 2078.5 )
+rotation = 0.16057
+texture = ExtResource( 36 )
+
+[node name="Decoration432" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 5984.06, 2122.5 )
+rotation = 0.16057
+texture = ExtResource( 36 )
+
+[node name="Decoration433" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 5999.52, 2074.93 )
+rotation = 0.16057
+texture = ExtResource( 36 )
+
+[node name="Decoration434" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 5894.87, 2132.01 )
+rotation = 0.16057
+texture = ExtResource( 36 )
+
+[node name="Decoration435" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 5929.36, 2123.69 )
+rotation = 0.16057
+texture = ExtResource( 36 )
+
+[node name="Decoration436" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 5948.38, 2167.69 )
+rotation = 0.16057
+texture = ExtResource( 36 )
+
+[node name="Decoration437" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 5963.84, 2120.12 )
+rotation = 0.16057
+texture = ExtResource( 36 )
+
+[node name="Decoration438" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6035.2, 2173.63 )
+rotation = -0.0244346
+texture = ExtResource( 36 )
+
+[node name="Decoration439" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6069.68, 2165.31 )
+rotation = -0.0244346
+texture = ExtResource( 36 )
+
+[node name="Decoration440" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6088.71, 2209.31 )
+rotation = -0.0244346
+texture = ExtResource( 36 )
+
+[node name="Decoration441" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6104.17, 2161.74 )
+rotation = -0.0244346
+texture = ExtResource( 36 )
+
+[node name="Decoration442" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 5999.52, 2218.82 )
+rotation = -0.0244346
+texture = ExtResource( 36 )
+
+[node name="Decoration443" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6034.01, 2210.5 )
+rotation = -0.0244346
+texture = ExtResource( 36 )
+
+[node name="Decoration444" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6053.03, 2254.5 )
+rotation = -0.0244346
+texture = ExtResource( 36 )
+
+[node name="Decoration445" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6068.49, 2206.93 )
+rotation = -0.0244346
+texture = ExtResource( 36 )
+
+[node name="Decoration446" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6051.84, 2076.12 )
+rotation = -0.439823
+texture = ExtResource( 36 )
+
+[node name="Decoration447" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6086.33, 2067.79 )
+rotation = -0.439823
+texture = ExtResource( 36 )
+
+[node name="Decoration448" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6105.36, 2111.8 )
+rotation = -0.439823
+texture = ExtResource( 36 )
+
+[node name="Decoration449" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6120.82, 2064.23 )
+rotation = -0.439823
+texture = ExtResource( 36 )
+
+[node name="Decoration450" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6016.17, 2121.31 )
+rotation = -0.439823
+texture = ExtResource( 36 )
+
+[node name="Decoration451" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6050.66, 2112.98 )
+rotation = -0.439823
+texture = ExtResource( 36 )
+
+[node name="Decoration452" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6069.68, 2156.99 )
+rotation = -0.439823
+texture = ExtResource( 36 )
+
+[node name="Decoration453" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6085.14, 2109.42 )
+rotation = -0.439823
+texture = ExtResource( 36 )
+
+[node name="Decoration454" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6238.55, 2129.63 )
+texture = ExtResource( 36 )
+
+[node name="Decoration455" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6273.04, 2121.31 )
+texture = ExtResource( 36 )
+
+[node name="Decoration456" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6292.06, 2165.31 )
+texture = ExtResource( 36 )
+
+[node name="Decoration457" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6307.52, 2117.74 )
+texture = ExtResource( 36 )
+
+[node name="Decoration458" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6202.87, 2174.82 )
+rotation = -0.584685
+texture = ExtResource( 36 )
+
+[node name="Decoration459" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6237.36, 2166.5 )
+rotation = -0.584685
+texture = ExtResource( 36 )
+
+[node name="Decoration460" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6256.39, 2210.5 )
+rotation = -0.584685
+texture = ExtResource( 36 )
+
+[node name="Decoration461" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6271.85, 2162.93 )
+rotation = -0.584685
+texture = ExtResource( 36 )
+
+[node name="Decoration462" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6221.9, 2066.61 )
+rotation = 0.16057
+texture = ExtResource( 36 )
+
+[node name="Decoration463" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6256.39, 2058.28 )
+rotation = 0.16057
+texture = ExtResource( 36 )
+
+[node name="Decoration464" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6275.42, 2102.28 )
+rotation = 0.16057
+texture = ExtResource( 36 )
+
+[node name="Decoration465" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6290.88, 2054.71 )
+rotation = 0.16057
+texture = ExtResource( 36 )
+
+[node name="Decoration466" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6186.23, 2111.8 )
+rotation = 0.16057
+texture = ExtResource( 36 )
+
+[node name="Decoration467" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6220.71, 2103.47 )
+rotation = 0.16057
+texture = ExtResource( 36 )
+
+[node name="Decoration468" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6239.74, 2147.47 )
+rotation = 0.16057
+texture = ExtResource( 36 )
+
+[node name="Decoration469" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6255.2, 2099.9 )
+rotation = 0.16057
+texture = ExtResource( 36 )
+
+[node name="Decoration470" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6326.55, 2153.42 )
+rotation = -0.0244346
+texture = ExtResource( 36 )
+
+[node name="Decoration471" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6361.04, 2145.09 )
+rotation = -0.0244346
+texture = ExtResource( 36 )
+
+[node name="Decoration472" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6380.07, 2189.09 )
+rotation = -0.0244346
+texture = ExtResource( 36 )
+
+[node name="Decoration473" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6395.53, 2141.53 )
+rotation = -0.0244346
+texture = ExtResource( 36 )
+
+[node name="Decoration474" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6290.88, 2198.61 )
+rotation = -0.0244346
+texture = ExtResource( 36 )
+
+[node name="Decoration475" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6325.36, 2190.28 )
+rotation = -0.0244346
+texture = ExtResource( 36 )
+
+[node name="Decoration476" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6344.39, 2234.28 )
+rotation = -0.0244346
+texture = ExtResource( 36 )
+
+[node name="Decoration477" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6359.85, 2186.72 )
+rotation = -0.0244346
+texture = ExtResource( 36 )
+
+[node name="Decoration478" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6343.2, 2055.9 )
+rotation = -0.439823
+texture = ExtResource( 36 )
+
+[node name="Decoration479" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6377.69, 2047.58 )
+rotation = -0.439823
+texture = ExtResource( 36 )
+
+[node name="Decoration480" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6396.71, 2091.58 )
+rotation = -0.439823
+texture = ExtResource( 36 )
+
+[node name="Decoration482" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6307.52, 2101.09 )
+rotation = -0.439823
+texture = ExtResource( 36 )
+
+[node name="Decoration483" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6342.01, 2092.77 )
+rotation = -0.439823
+texture = ExtResource( 36 )
+
+[node name="Decoration484" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6361.04, 2136.77 )
+rotation = -0.439823
+texture = ExtResource( 36 )
+
+[node name="Decoration485" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6376.5, 2089.2 )
+rotation = -0.439823
+texture = ExtResource( 36 )
+
+[node name="Decoration486" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6063.74, 2060.66 )
+rotation = -1.47306
+texture = ExtResource( 36 )
+
+[node name="Decoration487" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6098.22, 2052.34 )
+rotation = -1.47306
+texture = ExtResource( 36 )
+
+[node name="Decoration488" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6117.25, 2096.34 )
+rotation = -1.47306
+texture = ExtResource( 36 )
+
+[node name="Decoration489" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6132.71, 2048.77 )
+rotation = -1.47306
+texture = ExtResource( 36 )
+
+[node name="Decoration490" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6028.06, 2105.85 )
+rotation = -1.47306
+texture = ExtResource( 36 )
+
+[node name="Decoration491" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6062.55, 2097.52 )
+rotation = -1.47306
+texture = ExtResource( 36 )
+
+[node name="Decoration492" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6081.57, 2141.53 )
+rotation = -1.47306
+texture = ExtResource( 36 )
+
+[node name="Decoration493" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6097.03, 2093.96 )
+rotation = -1.47306
+texture = ExtResource( 36 )
+
+[node name="Decoration494" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6047.09, 1997.63 )
+rotation = -1.47306
+texture = ExtResource( 36 )
+
+[node name="Decoration495" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6081.58, 1989.31 )
+rotation = -1.47306
+texture = ExtResource( 36 )
+
+[node name="Decoration496" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6100.6, 2033.31 )
+rotation = -1.47306
+texture = ExtResource( 36 )
+
+[node name="Decoration497" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6116.06, 1985.74 )
+rotation = -1.47306
+texture = ExtResource( 36 )
+
+[node name="Decoration498" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6011.41, 2042.82 )
+rotation = -1.47306
+texture = ExtResource( 36 )
+
+[node name="Decoration499" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6045.9, 2034.5 )
+rotation = -1.47306
+texture = ExtResource( 36 )
+
+[node name="Decoration500" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6064.93, 2078.5 )
+rotation = -1.47306
+texture = ExtResource( 36 )
+
+[node name="Decoration501" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6080.38, 2030.93 )
+rotation = -1.47306
+texture = ExtResource( 36 )
+
+[node name="Decoration502" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6151.74, 2084.44 )
+rotation = -1.47306
+texture = ExtResource( 36 )
+
+[node name="Decoration503" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6186.23, 2076.12 )
+rotation = -1.47306
+texture = ExtResource( 36 )
+
+[node name="Decoration504" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6205.25, 2120.12 )
+rotation = -1.47306
+texture = ExtResource( 36 )
+
+[node name="Decoration505" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6220.71, 2072.55 )
+rotation = -1.47306
+texture = ExtResource( 36 )
+
+[node name="Decoration506" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6116.06, 2129.63 )
+rotation = -1.47306
+texture = ExtResource( 36 )
+
+[node name="Decoration507" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6150.55, 2121.31 )
+rotation = -1.47306
+texture = ExtResource( 36 )
+
+[node name="Decoration508" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6169.58, 2165.31 )
+rotation = -1.47306
+texture = ExtResource( 36 )
+
+[node name="Decoration509" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6185.04, 2117.74 )
+rotation = -1.47306
+texture = ExtResource( 36 )
+
+[node name="Decoration510" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6168.39, 1986.93 )
+rotation = -1.47306
+texture = ExtResource( 36 )
+
+[node name="Decoration511" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6202.87, 1978.6 )
+rotation = -1.47306
+texture = ExtResource( 36 )
+
+[node name="Decoration512" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6221.9, 2022.6 )
+rotation = -1.47306
+texture = ExtResource( 36 )
+
+[node name="Decoration513" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6237.36, 1975.04 )
+rotation = -1.47306
+texture = ExtResource( 36 )
+
+[node name="Decoration514" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6132.71, 2032.12 )
+rotation = -1.47306
+texture = ExtResource( 36 )
+
+[node name="Decoration515" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6167.2, 2023.79 )
+rotation = -1.47306
+texture = ExtResource( 36 )
+
+[node name="Decoration516" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6186.22, 2067.79 )
+rotation = -1.47306
+texture = ExtResource( 36 )
+
+[node name="Decoration517" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6201.68, 2020.23 )
+rotation = -1.47306
+texture = ExtResource( 36 )
+
+[node name="Decoration518" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6224.28, 2366.29 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration519" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6258.77, 2362.72 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration520" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6173.14, 2311.58 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration521" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6207.63, 2303.26 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration522" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6226.66, 2347.26 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration523" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6242.12, 2299.69 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration524" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6137.47, 2356.77 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration525" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6171.96, 2348.45 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration526" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6206.44, 2344.88 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration527" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6294.44, 2300.88 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration528" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6328.93, 2292.56 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration529" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6347.96, 2336.56 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration530" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6363.42, 2288.99 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration531" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6258.77, 2346.07 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration532" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6293.25, 2337.74 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration533" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6327.74, 2334.18 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration534" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6049.47, 2299.69 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration535" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6083.95, 2291.37 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration536" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6102.98, 2335.37 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration537" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6118.44, 2287.8 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration538" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6013.79, 2344.88 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration539" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6048.28, 2336.56 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration540" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6082.76, 2332.99 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration541" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6032.82, 2236.66 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration542" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6067.3, 2228.34 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration543" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6086.33, 2272.34 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration544" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6101.79, 2224.77 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration545" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 5997.14, 2281.85 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration546" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6031.63, 2273.53 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration547" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6050.66, 2317.53 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration548" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6066.12, 2269.96 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration549" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6137.47, 2323.47 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration550" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6171.96, 2315.15 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration551" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6190.98, 2359.15 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration552" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6206.44, 2311.58 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration553" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6101.79, 2368.66 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration554" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6136.28, 2360.34 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration555" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6170.77, 2356.77 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration556" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6154.12, 2225.96 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration557" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6188.6, 2217.63 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration558" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6207.63, 2259.26 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration559" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6223.09, 2214.07 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration560" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6118.44, 2271.15 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration561" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6152.93, 2262.82 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration562" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6171.95, 2306.83 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration563" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6187.41, 2259.26 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration564" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6340.82, 2279.47 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration565" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6375.31, 2271.15 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration566" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6394.34, 2315.15 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration567" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6409.8, 2267.58 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration568" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6305.15, 2324.66 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration569" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6339.63, 2316.34 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration570" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6358.66, 2360.34 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration571" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6374.12, 2312.77 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration572" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6324.17, 2216.45 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration573" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6358.66, 2208.12 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration574" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6377.69, 2252.12 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration575" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6393.15, 2204.55 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration576" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6288.5, 2261.64 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration577" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6322.98, 2253.31 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration578" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6342.01, 2297.31 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration579" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6357.47, 2249.74 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration580" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6428.82, 2303.26 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration581" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6463.31, 2294.93 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration582" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6482.34, 2338.93 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration583" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6497.8, 2291.37 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration584" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6393.15, 2348.45 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration585" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6427.63, 2340.12 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration586" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6462.12, 2336.56 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration587" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6445.47, 2205.74 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration588" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6479.96, 2197.42 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration589" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6498.99, 2241.42 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration590" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6514.45, 2193.85 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration591" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6409.8, 2250.93 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration592" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6444.28, 2242.61 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration593" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6463.31, 2286.61 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration594" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6478.77, 2239.04 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration595" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6166.01, 2210.5 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration596" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6200.5, 2202.18 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration597" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6234.98, 2198.61 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration598" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6130.33, 2255.69 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration599" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6164.82, 2247.37 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration600" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6183.85, 2291.37 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration601" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6149.36, 2147.47 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration602" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6183.85, 2139.15 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration603" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6202.87, 2183.15 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration604" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6218.33, 2135.58 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration605" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6113.68, 2192.66 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration606" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6151.74, 2186.72 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration607" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6166.01, 2229.53 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration608" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6181.47, 2184.34 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration609" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6254.01, 2234.28 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration610" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6288.5, 2225.96 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration611" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6307.52, 2269.96 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration612" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6218.33, 2279.47 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration613" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6252.82, 2273.53 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration614" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6271.85, 2315.15 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration615" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6270.66, 2136.77 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration616" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6305.15, 2128.44 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration617" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6324.17, 2172.44 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration618" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6339.63, 2124.88 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration619" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6238.55, 2184.34 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration620" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6268.28, 2177.2 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration621" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6287.31, 2217.63 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration622" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6303.96, 2170.07 )
+rotation = -0.820305
+texture = ExtResource( 36 )
+
+[node name="Decoration623" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6211.2, 2329.42 )
+rotation = -1.47306
+texture = ExtResource( 36 )
+
+[node name="Decoration624" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6245.69, 2321.1 )
+rotation = -1.47306
+texture = ExtResource( 36 )
+
+[node name="Decoration625" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6264.71, 2365.1 )
+rotation = -1.47306
+texture = ExtResource( 36 )
+
+[node name="Decoration626" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6278.98, 2317.53 )
+rotation = -1.47306
+texture = ExtResource( 36 )
+
+[node name="Decoration627" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6210.01, 2366.29 )
+rotation = -1.47306
+texture = ExtResource( 36 )
+
+[node name="Decoration628" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6244.5, 2362.72 )
+rotation = -1.47306
+texture = ExtResource( 36 )
+
+[node name="Decoration629" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6332.5, 2318.72 )
+rotation = -1.47306
+texture = ExtResource( 36 )
+
+[node name="Decoration630" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6386.01, 2354.39 )
+rotation = -1.47306
+texture = ExtResource( 36 )
+
+[node name="Decoration631" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6401.47, 2306.83 )
+rotation = -1.47306
+texture = ExtResource( 36 )
+
+[node name="Decoration632" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6296.82, 2363.91 )
+rotation = -1.47306
+texture = ExtResource( 36 )
+
+[node name="Decoration633" parent="World/weed" instance=ExtResource( 37 )]
+position = Vector2( 6331.31, 2355.58 )
+rotation = -1.47306
+texture = ExtResource( 36 )
+
+[node name="cactus" type="Node" parent="World"]
+
+[node name="Decoration" parent="World/cactus" instance=ExtResource( 37 )]
+position = Vector2( 5803.5, 1839.17 )
+texture = ExtResource( 38 )
+
+[node name="Decoration2" parent="World/cactus" instance=ExtResource( 37 )]
+position = Vector2( 5348.12, 1310.25 )
+texture = ExtResource( 38 )
+
+[node name="Decoration3" parent="World/cactus" instance=ExtResource( 37 )]
+position = Vector2( 6216.45, 1477.13 )
+texture = ExtResource( 38 )
+
+[node name="Decoration4" parent="World/cactus" instance=ExtResource( 37 )]
+position = Vector2( 3983.83, 3782.46 )
+texture = ExtResource( 38 )
+
+[node name="Decoration5" parent="World/cactus" instance=ExtResource( 37 )]
+position = Vector2( 4479.88, 3125.17 )
+texture = ExtResource( 38 )
+
+[node name="Decoration6" parent="World/cactus" instance=ExtResource( 37 )]
+position = Vector2( 5601.16, 3182.56 )
+texture = ExtResource( 38 )
+
+[node name="Decoration7" parent="World/cactus" instance=ExtResource( 37 )]
+position = Vector2( 1549.54, 1109.44 )
+texture = ExtResource( 38 )
+
+[node name="Decoration8" parent="World/cactus" instance=ExtResource( 37 )]
+position = Vector2( 669.9, 478.696 )
+texture = ExtResource( 38 )
+
+[node name="Decoration9" parent="World/cactus" instance=ExtResource( 37 )]
+position = Vector2( 3557.73, 458.897 )
+texture = ExtResource( 38 )
+
+[node name="Decoration10" parent="World/cactus" instance=ExtResource( 37 )]
+position = Vector2( 612.342, 3120.6 )
+texture = ExtResource( 38 )
+
+[node name="Decoration11" parent="World/cactus" instance=ExtResource( 37 )]
+position = Vector2( 910.401, 2559.49 )
+texture = ExtResource( 38 )
+
+[node name="Decoration12" parent="World/cactus" instance=ExtResource( 37 )]
+position = Vector2( 1941.18, 3131.65 )
+texture = ExtResource( 38 )
+
+[node name="Decoration13" parent="World/cactus" instance=ExtResource( 37 )]
+position = Vector2( 2258.49, 4048.33 )
+texture = ExtResource( 38 )
+
+[node name="Decoration14" parent="World/cactus" instance=ExtResource( 37 )]
+position = Vector2( 6538.97, 3419.33 )
+texture = ExtResource( 38 )
+
+[node name="Decoration15" parent="World/cactus" instance=ExtResource( 37 )]
+position = Vector2( 6709.91, 4082 )
+texture = ExtResource( 38 )
+
+[node name="rock" type="Node" parent="World"]
+
+[node name="Decoration" parent="World/rock" instance=ExtResource( 37 )]
+position = Vector2( 5701.61, 3828.92 )
+texture = ExtResource( 39 )
+
+[node name="Decoration2" parent="World/rock" instance=ExtResource( 37 )]
+position = Vector2( 5833.46, 802.341 )
+texture = ExtResource( 39 )
+
+[node name="Decoration3" parent="World/rock" instance=ExtResource( 37 )]
+position = Vector2( 3759.81, 4152.56 )
+texture = ExtResource( 39 )
+
+[node name="Decoration4" parent="World/rock" instance=ExtResource( 37 )]
+position = Vector2( 1440.43, 3822.93 )
+texture = ExtResource( 39 )
+
+[node name="Decoration5" parent="World/rock" instance=ExtResource( 37 )]
+position = Vector2( 4736.7, 784.362 )
+texture = ExtResource( 39 )
+
+[node name="Decoration6" parent="World/rock" instance=ExtResource( 37 )]
+position = Vector2( 661.307, 922.206 )
+texture = ExtResource( 39 )
+
+[node name="Decoration7" parent="World/rock" instance=ExtResource( 37 )]
+position = Vector2( 2129.65, 388.809 )
+texture = ExtResource( 39 )
+
+[node name="events" type="Node" parent="World"]
+
+[node name="BodyLocation" type="Area2D" parent="World/events"]
+position = Vector2( 2000, 2000 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/events/BodyLocation"]
+position = Vector2( 1848.14, -665.855 )
+rotation = -0.71384
+shape = SubResource( 53 )
+
 [node name="Player" parent="." instance=ExtResource( 2 )]
-position = Vector2( 4865.73, 2137.76 )
+position = Vector2( 2951.08, 3006.19 )
 z_index = 2
 
 [node name="Navigation2D" type="Navigation2D" parent="."]
@@ -850,7 +4127,7 @@ rotation = 0.0
 
 [node name="Mayor" parent="NPCs" instance=ExtResource( 3 )]
 position = Vector2( 8072.75, 1423.1 )
-shoulders = SubResource( 43 )
+shoulders = SubResource( 52 )
 hat = ExtResource( 27 )
 in_building = "HouseB"
 
@@ -934,5 +4211,6 @@ autostart = true
 one_shot = true
 autostart = true
 
+[connection signal="body_entered" from="World/events/BodyLocation" to="Player" method="_on_BodyLocation_body_entered"]
 [connection signal="tween_completed" from="CanvasLayer/Blacken/Tween" to="CanvasLayer/Blacken" method="_on_Tween_tween_completed"]
 [connection signal="timeout" from="CanvasLayer/Blacken/Timer" to="CanvasLayer/Blacken" method="_on_Timer_timeout"]

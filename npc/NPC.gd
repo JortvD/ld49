@@ -31,6 +31,10 @@ var followClose = false
 var followDistance = 300
 var fireDistance = 100
 var fightFire = false
+var moves = 0
+var finished_moves = 0
+var last_move = null
+var MAX_MISSED_DISTANCE = 50
 # Mostly temporary names
 var names = {
 	"Mayor": "Mark",
@@ -46,11 +50,13 @@ var names = {
 }
 var reputation = {}
 var target = null
+var dragged = false
 
 var npc_name = "Test"
 var schedule = []
 var can_attack = false
 var weapon = null
+var fired = false
 
 func _ready():
 	if hat != null: $Sprite.texture = hat 
@@ -64,9 +70,23 @@ func _ready():
 	reputation["Player"] = 50
 
 func _process(delta):
+	var distance = position.distance_to($"/root/MainScene/Player".position)
+	if distance <= DISTANCE_TO_CLOSE:
+		if !player_close: 
+			player_close = true
+	else:
+		if player_close:
+			player_close = false
+	
 	# Death
 	if(health <= 0):
 		dead = true
+		
+		return
+	
+	if(fired):
+		position = Vector2(-1000, -1000)
+		
 		return
 	
 	# Calculate the movement distance for this frame
@@ -115,6 +135,9 @@ func _process(delta):
 	if(path.size() == 0):
 		if(len(next_moves) > 0):
 			var move = next_moves.pop_front()
+			moves += 1
+			if(last_move != null and position.distance_to(last_move) < MAX_MISSED_DISTANCE): finished_moves += 1
+			last_move = move
 			path = $"/root/MainScene/Navigation2D".get_simple_path(position, move)
 		elif(walking):
 			walking = false
@@ -171,16 +194,11 @@ func _process(delta):
 		
 		if(task != null):
 			handle_scheduled_task(task)
-	
-	var distance = position.distance_to($"/root/MainScene/Player".position)
-	if distance <= DISTANCE_TO_CLOSE:
-		if !player_close: 
-			player_close = true
-			#child._handle_entering_player(distance)
-	else:
-		if player_close:
-			player_close = false
-			#child._handle_leaving_player(distance)
+
+func _input(event):
+	if event is InputEventKey and event.pressed and player_close and dead and Input.is_action_pressed("ui_e"):
+		$"/root/MainScene/Player".dragging = self
+		dragged = true
 
 func attack():
 	if weapon.action == "STAB":
