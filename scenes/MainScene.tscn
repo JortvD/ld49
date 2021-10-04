@@ -1,4 +1,4 @@
-[gd_scene load_steps=116 format=2]
+[gd_scene load_steps=114 format=2]
 
 [ext_resource path="res://world/World.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
@@ -27,7 +27,7 @@
 [ext_resource path="res://building/HouseD.png" type="Texture" id=25]
 [ext_resource path="res://building/water_tower.png" type="Texture" id=26]
 [ext_resource path="res://npc/top_hat.png" type="Texture" id=27]
-[ext_resource path="res://npc/shoulders_gray.png" type="Texture" id=28]
+[ext_resource path="res://npc/shoulders_brown.tres" type="SpriteFrames" id=28]
 [ext_resource path="res://city_hall.png" type="Texture" id=29]
 [ext_resource path="res://tavern.png" type="Texture" id=30]
 [ext_resource path="res://sherrif.png" type="Texture" id=31]
@@ -52,6 +52,14 @@
 [ext_resource path="res://table.png" type="Texture" id=50]
 [ext_resource path="res://doctor.png" type="Texture" id=51]
 [ext_resource path="res://general_store.png" type="Texture" id=52]
+[ext_resource path="res://postman_hat.png" type="Texture" id=53]
+[ext_resource path="res://old_head.png" type="Texture" id=54]
+[ext_resource path="res://npc/cowboy_hat.png" type="Texture" id=55]
+[ext_resource path="res://npc/top_hat_2.png" type="Texture" id=56]
+[ext_resource path="res://npc/shoulders_black.tres" type="SpriteFrames" id=57]
+[ext_resource path="res://feeding_trough.png" type="Texture" id=58]
+[ext_resource path="res://stool.png" type="Texture" id=59]
+[ext_resource path="res://barrel.png" type="Texture" id=60]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 437.006
@@ -210,55 +218,6 @@ extents = Vector2( 20.7245, 2.99347 )
 
 [sub_resource type="RectangleShape2D" id=43]
 extents = Vector2( 18.9092, 4.20313 )
-
-[sub_resource type="AtlasTexture" id=44]
-atlas = ExtResource( 28 )
-region = Rect2( 320, 0, 160, 100 )
-
-[sub_resource type="AtlasTexture" id=45]
-atlas = ExtResource( 28 )
-region = Rect2( 0, 0, 160, 100 )
-
-[sub_resource type="AtlasTexture" id=46]
-atlas = ExtResource( 28 )
-region = Rect2( 160, 0, 160, 100 )
-
-[sub_resource type="AtlasTexture" id=47]
-atlas = ExtResource( 28 )
-region = Rect2( 320, 0, 160, 100 )
-
-[sub_resource type="AtlasTexture" id=48]
-atlas = ExtResource( 28 )
-region = Rect2( 480, 0, 160, 100 )
-
-[sub_resource type="AtlasTexture" id=49]
-atlas = ExtResource( 28 )
-region = Rect2( 640, 0, 160, 100 )
-
-[sub_resource type="AtlasTexture" id=50]
-atlas = ExtResource( 28 )
-region = Rect2( 800, 0, 160, 100 )
-
-[sub_resource type="AtlasTexture" id=51]
-atlas = ExtResource( 28 )
-region = Rect2( 960, 0, 160, 100 )
-
-[sub_resource type="AtlasTexture" id=52]
-atlas = ExtResource( 28 )
-region = Rect2( 1120, 0, 160, 100 )
-
-[sub_resource type="SpriteFrames" id=53]
-animations = [ {
-"frames": [ SubResource( 44 ) ],
-"loop": true,
-"name": "default",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 45 ), SubResource( 46 ), SubResource( 47 ), SubResource( 48 ), SubResource( 49 ), SubResource( 50 ), SubResource( 51 ), SubResource( 52 ) ],
-"loop": true,
-"name": "walking",
-"speed": 8.0
-} ]
 
 [sub_resource type="AtlasTexture" id=54]
 atlas = ExtResource( 47 )
@@ -3541,17 +3500,17 @@ shape = SubResource( 1 )
 [node name="hay" type="Node" parent="World"]
 
 [node name="Decoration7" parent="World/hay" instance=ExtResource( 37 )]
-position = Vector2( 3240.32, 1727.66 )
+position = Vector2( 3243.28, 1386.43 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 45 )
 
 [node name="Decoration8" parent="World/hay" instance=ExtResource( 37 )]
-position = Vector2( 3241.74, 1460.38 )
+position = Vector2( 3241.74, 1510.38 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 45 )
 
 [node name="Decoration9" parent="World/hay" instance=ExtResource( 37 )]
-position = Vector2( 3241.74, 1594.73 )
+position = Vector2( 3241.74, 1627.76 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 45 )
 
@@ -3634,10 +3593,421 @@ __meta__ = {
 "_edit_lock_": true
 }
 
+[node name="Table2" type="StaticBody2D" parent="World/building"]
+position = Vector2( 3385.49, -1182.26 )
+
+[node name="Sprite" type="Sprite" parent="World/building/Table2"]
+texture = ExtResource( 50 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="World/building/Table2"]
+polygon = PoolVector2Array( 64, 29, 55, 29, 55, 32, 35, 32, 35, 29, -37, 29, -37, 32, -57, 32, -57, 29, -64, 29, -64, -32, 64, -32 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Table3" type="StaticBody2D" parent="World/building"]
+position = Vector2( 3256.8, -1182.97 )
+
+[node name="Sprite" type="Sprite" parent="World/building/Table3"]
+texture = ExtResource( 50 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="World/building/Table3"]
+polygon = PoolVector2Array( 64, 29, 55, 29, 55, 32, 35, 32, 35, 29, -37, 29, -37, 32, -57, 32, -57, 29, -64, 29, -64, -32, 64, -32 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Table4" type="StaticBody2D" parent="World/building"]
+position = Vector2( 3159.66, -1217.89 )
+rotation = 1.5708
+
+[node name="Sprite" type="Sprite" parent="World/building/Table4"]
+texture = ExtResource( 50 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="World/building/Table4"]
+polygon = PoolVector2Array( 64, 29, 55, 29, 55, 32, 35, 32, 35, 29, -37, 29, -37, 32, -57, 32, -57, 29, -64, 29, -64, -32, 64, -32 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Stool" type="StaticBody2D" parent="World/building"]
+position = Vector2( 3407.3, -1104.39 )
+rotation = 1.5708
+
+[node name="Sprite" type="Sprite" parent="World/building/Stool"]
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 59 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="World/building/Stool"]
+polygon = PoolVector2Array( 7, -31.4, 19, -27.4, 19, -25.8, 28, -16.8, 28, -14.4, 30.4, -8, 32, -8, 32, 7, 30.4, 7, 26.4, 19, 24.9, 19, 17.9, 27, 15.6, 27, 7.7, 32, -9.4, 32, -28, 18, -28, 15.5, -32, 8.9, -32, -8, -28.5, -18, -27, -18, -19, -28, -16.4, -28, -8, -31.4, -8, -32, 7, -32 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Stool2" type="StaticBody2D" parent="World/building"]
+position = Vector2( 3328.72, -1103.6 )
+rotation = 1.5708
+
+[node name="Sprite" type="Sprite" parent="World/building/Stool2"]
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 59 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="World/building/Stool2"]
+polygon = PoolVector2Array( 7, -31.4, 19, -27.4, 19, -25.8, 28, -16.8, 28, -14.4, 30.4, -8, 32, -8, 32, 7, 30.4, 7, 26.4, 19, 24.9, 19, 17.9, 27, 15.6, 27, 7.7, 32, -9.4, 32, -28, 18, -28, 15.5, -32, 8.9, -32, -8, -28.5, -18, -27, -18, -19, -28, -16.4, -28, -8, -31.4, -8, -32, 7, -32 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Stool3" type="StaticBody2D" parent="World/building"]
+position = Vector2( 3251.73, -1104.39 )
+rotation = 1.5708
+
+[node name="Sprite" type="Sprite" parent="World/building/Stool3"]
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 59 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="World/building/Stool3"]
+polygon = PoolVector2Array( 7, -31.4, 19, -27.4, 19, -25.8, 28, -16.8, 28, -14.4, 30.4, -8, 32, -8, 32, 7, 30.4, 7, 26.4, 19, 24.9, 19, 17.9, 27, 15.6, 27, 7.7, 32, -9.4, 32, -28, 18, -28, 15.5, -32, 8.9, -32, -8, -28.5, -18, -27, -18, -19, -28, -16.4, -28, -8, -31.4, -8, -32, 7, -32 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Stool4" type="StaticBody2D" parent="World/building"]
+position = Vector2( 3175.54, -1107.57 )
+rotation = 1.5708
+
+[node name="Sprite" type="Sprite" parent="World/building/Stool4"]
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 59 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="World/building/Stool4"]
+polygon = PoolVector2Array( 7, -31.4, 19, -27.4, 19, -25.8, 28, -16.8, 28, -14.4, 30.4, -8, 32, -8, 32, 7, 30.4, 7, 26.4, 19, 24.9, 19, 17.9, 27, 15.6, 27, 7.7, 32, -9.4, 32, -28, 18, -28, 15.5, -32, 8.9, -32, -8, -28.5, -18, -27, -18, -19, -28, -16.4, -28, -8, -31.4, -8, -32, 7, -32 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Table5" type="StaticBody2D" parent="World/building"]
+position = Vector2( 3699.68, -1009.94 )
+
+[node name="Sprite" type="Sprite" parent="World/building/Table5"]
+texture = ExtResource( 50 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="World/building/Table5"]
+polygon = PoolVector2Array( 64, 29, 55, 29, 55, 32, 35, 32, 35, 29, -37, 29, -37, 32, -57, 32, -57, 29, -64, 29, -64, -32, 64, -32 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Table6" type="StaticBody2D" parent="World/building"]
+position = Vector2( 3703.98, -775.939 )
+
+[node name="Sprite" type="Sprite" parent="World/building/Table6"]
+texture = ExtResource( 50 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="World/building/Table6"]
+polygon = PoolVector2Array( 64, 29, 55, 29, 55, 32, 35, 32, 35, 29, -37, 29, -37, 32, -57, 32, -57, 29, -64, 29, -64, -32, 64, -32 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Chair4" type="StaticBody2D" parent="World/building"]
+position = Vector2( 3705.26, -846.1 )
+rotation = 4.71239
+
+[node name="Sprite" type="Sprite" parent="World/building/Chair4"]
+texture = ExtResource( 49 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="World/building/Chair4"]
+polygon = PoolVector2Array( 32, 32, 21, 32, 19.2, 30, -22, 30, -26, 32, -32, 32, -32, 3.5, -31.1, -21.3, -32, -22.2, -32, -32, -24, -32, -23.2, -31, 18, -31, 18, -31.7, 19.8, -32, 32, -32 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Chair5" type="StaticBody2D" parent="World/building"]
+position = Vector2( 3702.09, -706.174 )
+rotation = 1.5708
+
+[node name="Sprite" type="Sprite" parent="World/building/Chair5"]
+texture = ExtResource( 49 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="World/building/Chair5"]
+polygon = PoolVector2Array( 32, 32, 21, 32, 19.2, 30, -22, 30, -26, 32, -32, 32, -32, 3.5, -31.1, -21.3, -32, -22.2, -32, -32, -24, -32, -23.2, -31, 18, -31, 18, -31.7, 19.8, -32, 32, -32 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Chair6" type="StaticBody2D" parent="World/building"]
+position = Vector2( 3701.63, -941.172 )
+rotation = 1.5708
+
+[node name="Sprite" type="Sprite" parent="World/building/Chair6"]
+texture = ExtResource( 49 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="World/building/Chair6"]
+polygon = PoolVector2Array( 32, 32, 21, 32, 19.2, 30, -22, 30, -26, 32, -32, 32, -32, 3.5, -31.1, -21.3, -32, -22.2, -32, -32, -24, -32, -23.2, -31, 18, -31, 18, -31.7, 19.8, -32, 32, -32 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Chair7" type="StaticBody2D" parent="World/building"]
+position = Vector2( 3415.89, -787.988 )
+rotation = 1.5708
+
+[node name="Sprite" type="Sprite" parent="World/building/Chair7"]
+texture = ExtResource( 49 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="World/building/Chair7"]
+polygon = PoolVector2Array( 32, 32, 21, 32, 19.2, 30, -22, 30, -26, 32, -32, 32, -32, 3.5, -31.1, -21.3, -32, -22.2, -32, -32, -24, -32, -23.2, -31, 18, -31, 18, -31.7, 19.8, -32, 32, -32 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Table7" type="StaticBody2D" parent="World/building"]
+position = Vector2( 3421.89, -860.726 )
+
+[node name="Sprite" type="Sprite" parent="World/building/Table7"]
+texture = ExtResource( 50 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="World/building/Table7"]
+polygon = PoolVector2Array( 64, 29, 55, 29, 55, 32, 35, 32, 35, 29, -37, 29, -37, 32, -57, 32, -57, 29, -64, 29, -64, -32, 64, -32 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Chair8" type="StaticBody2D" parent="World/building"]
+position = Vector2( 3421.91, -932.614 )
+rotation = 4.71239
+
+[node name="Sprite" type="Sprite" parent="World/building/Chair8"]
+texture = ExtResource( 49 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="World/building/Chair8"]
+polygon = PoolVector2Array( 32, 32, 21, 32, 19.2, 30, -22, 30, -26, 32, -32, 32, -32, 3.5, -31.1, -21.3, -32, -22.2, -32, -32, -24, -32, -23.2, -31, 18, -31, 18, -31.7, 19.8, -32, 32, -32 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Chair9" type="StaticBody2D" parent="World/building"]
+position = Vector2( 3704.47, -1079.45 )
+rotation = 4.71239
+
+[node name="Sprite" type="Sprite" parent="World/building/Chair9"]
+texture = ExtResource( 49 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="World/building/Chair9"]
+polygon = PoolVector2Array( 32, 32, 21, 32, 19.2, 30, -22, 30, -26, 32, -32, 32, -32, 3.5, -31.1, -21.3, -32, -22.2, -32, -32, -24, -32, -23.2, -31, 18, -31, 18, -31.7, 19.8, -32, 32, -32 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Table8" type="StaticBody2D" parent="World/building"]
+position = Vector2( 965.502, -1131.44 )
+
+[node name="Sprite" type="Sprite" parent="World/building/Table8"]
+texture = ExtResource( 50 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="World/building/Table8"]
+polygon = PoolVector2Array( 64, 29, 55, 29, 55, 32, 35, 32, 35, 29, -37, 29, -37, 32, -57, 32, -57, 29, -64, 29, -64, -32, 64, -32 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Chair10" type="StaticBody2D" parent="World/building"]
+position = Vector2( 965.21, -1207.49 )
+rotation = 4.71239
+
+[node name="Sprite" type="Sprite" parent="World/building/Chair10"]
+texture = ExtResource( 49 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="World/building/Chair10"]
+polygon = PoolVector2Array( 32, 32, 21, 32, 19.2, 30, -22, 30, -26, 32, -32, 32, -32, 3.5, -31.1, -21.3, -32, -22.2, -32, -32, -24, -32, -23.2, -31, 18, -31, 18, -31.7, 19.8, -32, 32, -32 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Chair11" type="StaticBody2D" parent="World/building"]
+position = Vector2( 969.21, -1050.49 )
+rotation = 1.5708
+
+[node name="Sprite" type="Sprite" parent="World/building/Chair11"]
+texture = ExtResource( 49 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="World/building/Chair11"]
+polygon = PoolVector2Array( 32, 32, 21, 32, 19.2, 30, -22, 30, -26, 32, -32, 32, -32, 3.5, -31.1, -21.3, -32, -22.2, -32, -32, -24, -32, -23.2, -31, 18, -31, 18, -31.7, 19.8, -32, 32, -32 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Table9" type="StaticBody2D" parent="World/building"]
+position = Vector2( 657.251, -753.702 )
+rotation = 1.5708
+
+[node name="Sprite" type="Sprite" parent="World/building/Table9"]
+texture = ExtResource( 50 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="World/building/Table9"]
+polygon = PoolVector2Array( 64, 29, 55, 29, 55, 32, 35, 32, 35, 29, -37, 29, -37, 32, -57, 32, -57, 29, -64, 29, -64, -32, 64, -32 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Table10" type="StaticBody2D" parent="World/building"]
+position = Vector2( 136.251, -1049.7 )
+rotation = 1.5708
+
+[node name="Sprite" type="Sprite" parent="World/building/Table10"]
+texture = ExtResource( 50 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="World/building/Table10"]
+polygon = PoolVector2Array( 64, 29, 55, 29, 55, 32, 35, 32, 35, 29, -37, 29, -37, 32, -57, 32, -57, 29, -64, 29, -64, -32, 64, -32 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Barrel" type="StaticBody2D" parent="World/building"]
+position = Vector2( 149.583, -723.534 )
+rotation = 1.5708
+
+[node name="Sprite" type="Sprite" parent="World/building/Barrel"]
+texture = ExtResource( 60 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="World/building/Barrel"]
+polygon = PoolVector2Array( 22, -29.3, 22, -27.7, 32, -15.2, 32, 13.4, 27.2, 23, 25.7, 23, 14.2, 32, -15.9, 32, -24, 27.1, -24, 25.7, -32, 16.1, -32, -16, -22, -30, -19.5, -30, -16.2, -32, 15.7, -32 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Barrel2" type="StaticBody2D" parent="World/building"]
+position = Vector2( 149.583, -798.37 )
+rotation = 1.5708
+
+[node name="Sprite" type="Sprite" parent="World/building/Barrel2"]
+texture = ExtResource( 60 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="World/building/Barrel2"]
+polygon = PoolVector2Array( 22, -29.3, 22, -27.7, 32, -15.2, 32, 13.4, 27.2, 23, 25.7, 23, 14.2, 32, -15.9, 32, -24, 27.1, -24, 25.7, -32, 16.1, -32, -16, -22, -30, -19.5, -30, -16.2, -32, 15.7, -32 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Barrel3" type="StaticBody2D" parent="World/building"]
+position = Vector2( 147.801, -873.205 )
+rotation = 1.5708
+
+[node name="Sprite" type="Sprite" parent="World/building/Barrel3"]
+texture = ExtResource( 60 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="World/building/Barrel3"]
+polygon = PoolVector2Array( 22, -29.3, 22, -27.7, 32, -15.2, 32, 13.4, 27.2, 23, 25.7, 23, 14.2, 32, -15.9, 32, -24, 27.1, -24, 25.7, -32, 16.1, -32, -16, -22, -30, -19.5, -30, -16.2, -32, 15.7, -32 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Cactus2" type="StaticBody2D" parent="World/building"]
+position = Vector2( 986.177, -741.156 )
+
+[node name="Sprite" type="Sprite" parent="World/building/Cactus2"]
+texture = ExtResource( 38 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="World/building/Cactus2"]
+polygon = PoolVector2Array( 11, -27.8, 11, -13.8, 13.7, -12.7, 30, -17.7, 30, -15, 32, -13.5, 32, 1, 24, 7, 24, 13.4, 20.4, 23, 18.9, 23, 11.9, 31, 9.5, 31, 7.9, 32, -11.2, 32, -15.7, 30.5, -17.2, 32, -32, 32, -32, 15, -28, 11.2, -28, 3.7, -25.4, -4, -23.8, -4, -15, -12.8, -15, -26.6, -12, -31.5, 7, -32 )
+__meta__ = {
+"_edit_lock_": true
+}
+
 [node name="fires" type="Node" parent="World"]
 
 [node name="Fire" parent="World/fires" instance=ExtResource( 8 )]
 position = Vector2( 2449.34, 2082.65 )
+
+[node name="misc" type="Node" parent="World"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="World/misc"]
+position = Vector2( 3000, 2000 )
+scale = Vector2( 1.2, 1.2 )
+
+[node name="Sprite" type="Sprite" parent="World/misc/StaticBody2D"]
+position = Vector2( 231.825, -215.267 )
+texture = ExtResource( 58 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="World/misc/StaticBody2D"]
+position = Vector2( 231.825, -215.267 )
+polygon = PoolVector2Array( 50, -29, 64, -29, 64, 26, 63.3, 26, 50, 27.8, 50, 32, 35, 32, 35, 28, -38, 28, -38, 32, -54, 32, -54, 27.8, -64, 27, -64, -28, -63.2, -28, -54, -28.8, -54, -32, -38, -32, -38, -29, 35, -29, 35, -32, 50, -32 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 2951.08, 3006.19 )
@@ -4396,14 +4766,15 @@ position = Vector2( 5.99319, 39.7052 )
 script = ExtResource( 10 )
 
 [node name="Horse" parent="." instance=ExtResource( 4 )]
-position = Vector2( 3250.23, 1886.94 )
+position = Vector2( 3239.14, 1840.8 )
 rotation = 0.0
+z_index = 1
 
 [node name="NPCs" type="Node" parent="."]
 
 [node name="Mayor" parent="NPCs" instance=ExtResource( 3 )]
 position = Vector2( 8072.75, 1423.1 )
-shoulders = SubResource( 53 )
+shoulders = ExtResource( 57 )
 hat = ExtResource( 27 )
 in_building = "HouseB"
 
@@ -4413,6 +4784,7 @@ script = ExtResource( 9 )
 [node name="Postman" parent="NPCs" instance=ExtResource( 3 )]
 position = Vector2( 328, -848 )
 shoulders = ExtResource( 48 )
+hat = ExtResource( 53 )
 in_building = "Postmaster"
 
 [node name="Handler" type="Node" parent="NPCs/Postman"]
@@ -4429,6 +4801,8 @@ script = ExtResource( 16 )
 
 [node name="GeneralStoreman" parent="NPCs" instance=ExtResource( 3 )]
 position = Vector2( 7552, -920 )
+shoulders = ExtResource( 28 )
+hat = ExtResource( 56 )
 in_building = "HouseF"
 
 [node name="Handler" type="Node" parent="NPCs/GeneralStoreman"]
@@ -4436,6 +4810,8 @@ script = ExtResource( 17 )
 
 [node name="BankWoman" parent="NPCs" instance=ExtResource( 3 )]
 position = Vector2( 6531.02, -952.595 )
+shoulders = ExtResource( 57 )
+hat = ExtResource( 55 )
 in_building = "HouseF"
 
 [node name="Handler" type="Node" parent="NPCs/BankWoman"]
@@ -4470,6 +4846,8 @@ script = ExtResource( 21 )
 
 [node name="OldJoe" parent="NPCs" instance=ExtResource( 3 )]
 position = Vector2( 2056, -864 )
+shoulders = ExtResource( 28 )
+hat = ExtResource( 54 )
 in_building = "HouseD"
 
 [node name="Handler" type="Node" parent="NPCs/OldJoe"]
@@ -4477,6 +4855,8 @@ script = ExtResource( 22 )
 
 [node name="SaloonOwner" parent="NPCs" instance=ExtResource( 3 )]
 position = Vector2( 1872, -976 )
+shoulders = ExtResource( 28 )
+hat = ExtResource( 55 )
 in_building = "HouseD"
 
 [node name="Handler" type="Node" parent="NPCs/SaloonOwner"]
