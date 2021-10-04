@@ -10,9 +10,10 @@ config_version=4
 
 [application]
 
-config/name="Ld 49"
-run/main_scene="res://scenes/MainScene.tscn"
-config/icon="res://icon.png"
+config/name="Fickle Frontiers"
+run/main_scene="res://scenes/MainMenu.tscn"
+config/icon="res://npc/cowboy_hat.png"
+config/windows_native_icon="res://cowboy_hat.ico"
 
 [autoload]
 

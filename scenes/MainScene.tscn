@@ -4054,7 +4054,7 @@ WASD or ARROWS for movement,
 SPACE for talking, 
 E for picking up, 
 Q for throwing,
-RMB for shooting,
+LMB for shooting,
 G for mounting[/center]"
 text = "Thank you for playing!
 The game is really unfinished, but does somewhat work
@@ -4063,7 +4063,7 @@ WASD or ARROWS for movement,
 SPACE for talking, 
 E for picking up, 
 Q for throwing,
-RMB for shooting,
+LMB for shooting,
 G for mounting"
 __meta__ = {
 "_edit_use_anchors_": false
