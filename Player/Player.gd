@@ -19,6 +19,8 @@ var dragging = null
 var alcohol = 1
 var money = 0
 var city_money = 0
+var apple = 0
+var appliepie = 0
 
 func _ready():
 	for n in range(INVENTORY_SIZE):

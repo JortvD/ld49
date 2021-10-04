@@ -1,5 +1,7 @@
 extends Node
 
+var first_time = false
+
 func _ready():
 	var fire_department  = $"/root/MainScene/Buildings/FireDepartment"
 	var doctor  = $"/root/MainScene/Buildings/Doctor"
@@ -37,3 +39,25 @@ func _handle_leaving_player(distance):
 
 func _handle_custom_task(task):
 	pass
+	
+func _input(event):
+	if event is InputEventKey and event.pressed and $"..".player_close:
+		if event.scancode == KEY_SPACE and not first_time:
+			first_time = true
+			$"/root/MainScene/CanvasLayer/Dialog".start_story("doctor-first-time", {"npc": $"..".names["Doctor"]}, {}, self)
+			$"..".start_conversation()
+		if event.scancode == KEY_SPACE and (($"/root/MainScene/CanvasLayer/DayNightCycle".hour >= 10 and $"/root/MainScene/CanvasLayer/DayNightCycle".hour < 13) or ($"/root/MainScene/CanvasLayer/DayNightCycle".hour >= 15 and $"/root/MainScene/CanvasLayer/DayNightCycle".hour < 20)):
+			$"/root/MainScene/CanvasLayer/Dialog".start_story("doctor-working", {"npc": $"..".names["Doctor"]}, {"apple": $"/root/MainScene/Player".apple, "apple pie": $"/root/MainScene/Player".applepie}, self)
+			$"..".start_conversation()
+		if event.scancode == KEY_SPACE and ($"/root/MainScene/CanvasLayer/DayNightCycle".hour >= 0 and $"/root/MainScene/CanvasLayer/DayNightCycle".hour < 8):
+			$"/root/MainScene/CanvasLayer/Dialog".start_story("doctor-sleeping", {"npc": $"..".names["Doctor"]}, {}, self)
+			$"..".start_conversation()
+		if event.scancode == KEY_SPACE and ($"/root/MainScene/CanvasLayer/DayNightCycle".hour >= 20 or $"/root/MainScene/CanvasLayer/DayNightCycle".hour < 0):
+			$"/root/MainScene/CanvasLayer/Dialog".start_story("doctor-relaxing", {"npc": $"..".names["Doctor"]}, {}, self)
+			$"..".start_conversation()
+		if event.scancode == KEY_SPACE and (($"/root/MainScene/CanvasLayer/DayNightCycle".hour >= 8 and $"/root/MainScene/CanvasLayer/DayNightCycle".hour < 10)):
+			$"/root/MainScene/CanvasLayer/Dialog".start_story("doctor-generalstore", {"npc": $"..".names["doctor"]}, {}, self)
+			$"..".start_conversation()
+		if event.scancode == KEY_SPACE and ($"/root/MainScene/CanvasLayer/DayNightCycle".hour >= 14 and $"/root/MainScene/CanvasLayer/DayNightCycle".hour < 15):
+			$"/root/MainScene/CanvasLayer/Dialog".start_story("doctor-firedepartment", {"npc": $"..".names["doctor"]}, {}, self)
+			$"..".start_conversation()

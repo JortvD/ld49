@@ -947,6 +947,163 @@
 			]
 		},
 		{
+			"id": "doctor-first-time",
+			"dictionary": ["npc"],
+			"variables": [],
+			"start": "a1",
+			"messages": [
+				{
+					"id": "a1",
+					"name": "Doctor",
+					"text": "Hi, nice meeting you. I am the doctor of this town",
+					"next": "a2",
+					"type": "CONTINUE"
+				},{
+					"id": "a2",
+					"name": "Doctor",
+					"text": "I hope you won't need to see me too often",
+					"next": "a3",
+					"type": "CONTINUE"
+				},{
+					"id": "a3",
+					"name": "Doctor",
+					"text": "Well, if you eat an apple a day it keeps me away!",
+					"next": "a4",
+					"type": "CONTINUE"
+				},{
+					"id": "a4",
+					"name": "Doctor",
+					"text": "I am actually serious about that, I am allergic for apples",
+					"type": "EXIT"
+				}
+			]
+		},
+		{
+			"id": "doctor-working",
+			"dictionary": ["npc"],
+			"variables": ["apple", "apple pie"],
+			"start": "a1",
+			"messages": [
+				{
+					"id": "a1",
+					"name": "Doctor",
+					"text": "Welcome, how can I help you?",
+					"choices": [
+						{
+							"text": "Give apple",
+							"next": "a1a1"
+						},
+						{
+							"text": "Give applepie",
+							"next": "a1b1"
+						},
+						{
+							"text": "Leave",
+							"next": "a1c1"
+						}
+					],
+					"type": "QUESTION"
+				},{
+					"id": "a1a1",
+					"t": "b1",
+					"f": "c1",
+					"var": "apple",
+					"prop": "EQ",
+					"const": "1",
+					"type": "LOGIC"
+				},{
+					"id": "b1",
+					"name": "Doctor",
+					"text": "Are you crazy?! get that thing away from me I am allergic!",
+					"type": "EXIT"
+				},{
+					"id": "c1",
+					"name": "Doctor",
+					"text": "I'm actually happy you don't have one",
+					"type": "EXIT"
+				},{
+					"id": "a1b1",
+					"t": "bb1",
+					"f": "cc1",
+					"var": "applepie",
+					"prop": "EQ",
+					"const": "1",
+					"type": "LOGIC"
+				},{
+					"id": "bb1",
+					"name": "Doctor",
+					"text": "Oh! I love pies! what kind of pie is it? actually it doesn't matter, bon appetit!",
+					"type": "EXIT"
+				},{
+					"id": "cc1",
+					"name": "Doctor",
+					"text": "I was actually looking forward to pie...",
+					"type": "EXIT"
+				},{
+					"id": "a1c1",
+					"name": "Doctor",
+					"text": "Bye!",
+					"type": "EXIT"
+				}
+			]
+		},
+		{
+			"id": "doctor-sleeping",
+			"dictionary": ["npc"],
+			"variables": [],
+			"start": "a1",
+			"messages": [
+				{
+					"id": "a1",
+					"name": "Doctor",
+					"text": "Let me sleep please, I need enough sleep to stay healthy",
+					"type": "EXIT"
+				}
+			]
+		},
+		{
+			"id": "doctor-relaxing",
+			"dictionary": ["npc"],
+			"variables": [],
+			"start": "a1",
+			"messages": [
+				{
+					"id": "a1",
+					"name": "Doctor",
+					"text": "I know alcohol isn't the most healthy, but no one is perfect",
+					"type": "EXIT"
+				}
+			]
+		},
+		{
+			"id": "doctor-generalstore",
+			"dictionary": ["npc"],
+			"variables": [],
+			"start": "a1",
+			"messages": [
+				{
+					"id": "a1",
+					"name": "Doctor",
+					"text": "Don't mind me, just getting some supplies",
+					"type": "EXIT"
+				}
+			]
+		},
+		{
+			"id": "doctor-firedepartment",
+			"dictionary": ["npc"],
+			"variables": [],
+			"start": "a1",
+			"messages": [
+				{
+					"id": "a1",
+					"name": "Doctor",
+					"text": "If you need help, please wait unitl I return to my work place, I'm busy",
+					"type": "EXIT"
+				}
+			]
+		},
+		{
 			"id": "template",
 			"dictionary": ["npc"],
 			"variables": ["money", "reputation"],
