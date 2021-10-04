@@ -115,9 +115,12 @@ func _process(delta):
 	
 	if($FireTimer.is_stopped() and fightFire and mood == MOOD.DEFAULT and in_building == null):
 		var fire = find_fire()
-		var to = position.direction_to(fire.global_position) * (position.distance_to(fire.global_position) - fireDistance) + position + Vector2(rand_range(-50, 50), rand_range(-50, 50))
-		next_moves = [to]
-		path = PoolVector2Array()
+		if(fire == null):
+			override_task = null
+		else:
+			var to = position.direction_to(fire.global_position) * (position.distance_to(fire.global_position) - fireDistance) + position + Vector2(rand_range(-50, 50), rand_range(-50, 50))
+			next_moves = [to]
+			path = PoolVector2Array()
 		$FireTimer.start()
 	
 	if($FollowTimer.is_stopped() and mood == MOOD.ATTACK):
