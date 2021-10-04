@@ -8,7 +8,7 @@ var southFire
 var westFire
 var sidesFire = [false, false, false, false]
 var PEOPLE_CLOSE = 300
-var extinguish_chance = 5
+var extinguish_chance = 6
 var spread_chance = 10
 
 func _ready():

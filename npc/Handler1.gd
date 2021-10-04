@@ -27,6 +27,7 @@ func _ready():
 	]
 	$"..".weapon = $"/root/MainScene/Items".get_type("gun")
 	$"..".can_attack = true
+	$".."._load_graphics()
 	
 func _input(event):
 	if event is InputEventKey and event.pressed and $"..".player_close:

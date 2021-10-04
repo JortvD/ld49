@@ -19,6 +19,8 @@ func _ready():
 		{"at": 19, "mins": 0,  "type": "MOVE", "moves": [saloon.get_entrance_position(), saloon.get_random_spot()]},
 		{"at": 23, "mins": 0,  "type": "MOVE", "moves": [saloon.get_exit_position(), house_e.get_entrance_position(), house_e.get_random_spot()]}
 	]
+	$"..".weapon = $"/root/MainScene/Items".get_type("firehose")
+	$".."._load_graphics()
 
 func _story_message(id, story):
 	pass

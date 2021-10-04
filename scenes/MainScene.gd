@@ -87,7 +87,7 @@ func _process(delta):
 		$Timers/DeleteTimer.start()
 	
 	if($Timers/FireTimer.is_stopped()):
-		var fires = count_children($World, "Fire")
+		var fires = count_children($World/fires, "Fire")
 		check_too_many_fires(fires)
 		
 		if(fires > 0 and ($NPCs/FireDepartmentMan.override_task == null or $NPCs/FireDepartmentWoman.override_task == null)):
@@ -245,10 +245,10 @@ func check_too_many_fires(n):
 
 func Check_all_dead():
 	if(($NPCs/Mayor.dead == true and $NPCs/Postman.dead == true and $NPCs/Sheriff.dead == true and $NPCs/GeneralStoreman.dead == true and $NPCs/BankWoman.dead == true and $NPCs/Doctor.dead == true and $NPCs/FireDepartmentMan.dead == true and $NPCs/FireDepartmentWoman.dead == true and $NPCs/OldJoe.dead == true and $NPCs/SaloonOwner.dead == true) or Input.is_action_pressed("ui_1")):
-		#Global.ending = 1
+		Global.ending = 1
 		get_tree().change_scene("res://Ending.tscn")
 		
 func check_player_left():
 	if(($Player.position.x >= 6656 or $Player.position.x <= 0 or $Player.position.y >= 4000 or $Player.position.y <= 0) and $Player.in_building == null):
-		#Global.ending = 2
+		Global.ending = 2
 		get_tree().change_scene("res://Ending.tscn")

@@ -60,6 +60,7 @@ var schedule = []
 var can_attack = false
 var weapon = null
 var fired = false
+var to_fire = null
 
 func _ready():
 	if hat != null: $Sprite.texture = hat 
@@ -71,6 +72,10 @@ func _ready():
 		reputation[key] = 50
 	
 	reputation["Player"] = 50
+	
+func _load_graphics():
+	$Holster.texture = load(weapon.img_holding)
+	$Holding.texture = load(weapon.img_holding)
 
 func _process(delta):
 	var distance = position.distance_to($"/root/MainScene/Player".position)
@@ -122,10 +127,20 @@ func _process(delta):
 		
 		if(len(path) > 0 && mood != MOOD.ATTACK): rotation = position.angle_to_point(path[0]) + PI
 	
+	if(fightFire and mood == MOOD.DEFAULT and in_building == null and to_fire != null and is_instance_valid(to_fire) and position.distance_to(to_fire.global_position) < 200 ):
+		$Water.visible = true
+		$Holding.visible = true
+		rotation = position.angle_to_point(to_fire.global_position) + PI
+	else:
+		$Water.visible = false
+	
 	if($FireTimer.is_stopped() and fightFire and mood == MOOD.DEFAULT and in_building == null):
 		var fire = find_fire()
+		to_fire = fire
 		if(fire == null):
+			$Holding.visible = false
 			override_task = null
+			to_fire = null
 		else:
 			var to = position.direction_to(fire.global_position) * (position.distance_to(fire.global_position) - fireDistance) + position + Vector2(rand_range(-50, 50), rand_range(-50, 50))
 			next_moves = [to]
@@ -185,16 +200,13 @@ func _process(delta):
 		$AttackTimer.start()
 	
 	if(weapon != null):
-		$Holster.texture = load(weapon.img_holding)
-		$Holding.texture = load(weapon.img_holding)
-		
 		if(mood == MOOD.ATTACK or mood == MOOD.BLOODTHIRST):
 			$Holster.visible = false
 			$Holding.visible = true
-		else:
+		elif(!fightFire):
 			$Holster.visible = true
 			$Holding.visible = false
-	else:
+	elif(!fightFire):
 		$Holster.visible = false
 		$Holding.visible = false
 		
@@ -223,11 +235,13 @@ func _input(event):
 func attack():
 	if weapon.action == "STAB":
 		stab()
+	elif(weapon.action == "WATER"):
+		water()
 	else:
 		shoot()
 
 func find_fire():
-	for node in $"/root/MainScene/World".get_children():
+	for node in $"/root/MainScene/World/fires".get_children():
 		if("Fire" in node.name): return node
 
 func handle_scheduled_task(task):
@@ -287,6 +301,9 @@ func hide_text():
 
 func set_text(text):
 	$Label.text = text
+
+func water():
+	pass
 
 func stab():
 	if(position.distance_to(target.global_position) > 100): return
