@@ -218,7 +218,7 @@ func seen_attack(by, on):
 		var check = check_player_rays()
 		for c in check.keys():
 			if c == on: continue
-			if get_node("NPCs/" + c).position.distance_to($Player.position) <= MAX_SEEN_DISTANCE:
+			if get_node("NPCs/" + c).position.distance_to($Player.position) <= MAX_SEEN_DISTANCE and get_node("NPCs/" + on).reputation["Player"] >= 50:
 				seen = true
 		if seen:
 			set_all_reputations(0, by.name, [])
@@ -226,7 +226,8 @@ func seen_attack(by, on):
 		var check = check_npc_rays(by.name)
 		for c in check.keys():
 			if c == on: continue
-			if get_node("NPCs/" + c).position.distance_to(by.position) <= MAX_SEEN_DISTANCE:
+			if on == "Player": return
+			if get_node("NPCs/" + c).position.distance_to(by.position) <= MAX_SEEN_DISTANCE and get_node("NPCs/" + on).reputation["player"] >= 50:
 				seen = true
 		if seen:
 			set_all_reputations(0, by.name, [by.name])

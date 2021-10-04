@@ -89,6 +89,7 @@ func _process(delta):
 	# Death
 	if(health <= 0):
 		dead = true
+		$AnimatedSprite.play("default")
 		
 		if(weapon != null):
 			$"/root/MainScene/Items".create_item(weapon.name, global_position)

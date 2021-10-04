@@ -3557,7 +3557,7 @@ texture = ExtResource( 45 )
 
 [node name="building" type="Node" parent="World"]
 
-[node name="Chair" type="RigidBody2D" parent="World/building"]
+[node name="Chair" type="StaticBody2D" parent="World/building"]
 position = Vector2( 7989.79, 1562.02 )
 
 [node name="Sprite" type="Sprite" parent="World/building/Chair"]
@@ -3572,7 +3572,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Table" type="RigidBody2D" parent="World/building"]
+[node name="Table" type="StaticBody2D" parent="World/building"]
 position = Vector2( 7886.93, 1562.02 )
 
 [node name="Sprite" type="Sprite" parent="World/building/Table"]
@@ -3587,7 +3587,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Chair2" type="RigidBody2D" parent="World/building"]
+[node name="Chair2" type="StaticBody2D" parent="World/building"]
 position = Vector2( 7889.76, 1495.53 )
 rotation = 4.71239
 
@@ -3603,6 +3603,37 @@ __meta__ = {
 "_edit_lock_": true
 }
 
+[node name="Cactus" type="StaticBody2D" parent="World/building"]
+position = Vector2( 8209.22, 1262.56 )
+
+[node name="Sprite" type="Sprite" parent="World/building/Cactus"]
+texture = ExtResource( 38 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="World/building/Cactus"]
+polygon = PoolVector2Array( 11, -27.8, 11, -13.8, 13.7, -12.7, 30, -17.7, 30, -15, 32, -13.5, 32, 1, 24, 7, 24, 13.4, 20.4, 23, 18.9, 23, 11.9, 31, 9.5, 31, 7.9, 32, -11.2, 32, -15.7, 30.5, -17.2, 32, -32, 32, -32, 15, -28, 11.2, -28, 3.7, -25.4, -4, -23.8, -4, -15, -12.8, -15, -26.6, -12, -31.5, 7, -32 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Chair3" type="StaticBody2D" parent="World/building"]
+position = Vector2( 7788.01, 1238.22 )
+rotation = 4.71239
+
+[node name="Sprite" type="Sprite" parent="World/building/Chair3"]
+texture = ExtResource( 49 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="World/building/Chair3"]
+polygon = PoolVector2Array( 32, 32, 21, 32, 19.2, 30, -22, 30, -26, 32, -32, 32, -32, 3.5, -31.1, -21.3, -32, -22.2, -32, -32, -24, -32, -23.2, -31, 18, -31, 18, -31.7, 19.8, -32, 32, -32 )
+__meta__ = {
+"_edit_lock_": true
+}
+
 [node name="fires" type="Node" parent="World"]
 
 [node name="Fire" parent="World/fires" instance=ExtResource( 8 )]
@@ -3613,6 +3644,7 @@ position = Vector2( 2951.08, 3006.19 )
 z_index = 2
 
 [node name="Navigation2D" type="Navigation2D" parent="."]
+visible = false
 __meta__ = {
 "_edit_lock_": true
 }
