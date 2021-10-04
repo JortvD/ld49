@@ -259,7 +259,7 @@ func check_too_many_fires(n):
 		get_tree().change_scene("res://Ending.tscn")
 
 func Check_all_dead():
-	if(($NPCs/Mayor.dead == true and $NPCs/Postman.dead == true and $NPCs/Sheriff.dead == true and $NPCs/GeneralStoreman.dead == true and $NPCs/BankWoman.dead == true and $NPCs/Doctor.dead == true and $NPCs/FireDepartmentMan.dead == true and $NPCs/FireDepartmentWoman.dead == true and $NPCs/OldJoe.dead == true and $NPCs/SaloonOwner.dead == true) or Input.is_action_pressed("ui_1")):
+	if(($NPCs/Mayor.dead == true and $NPCs/Postman.dead == true and $NPCs/Sheriff.dead == true and $NPCs/GeneralStoreman.dead == true and $NPCs/BankWoman.dead == true and $NPCs/Doctor.dead == true and $NPCs/FireDepartmentMan.dead == true and $NPCs/FireDepartmentWoman.dead == true and $NPCs/OldJoe.dead == true and $NPCs/SaloonOwner.dead == true)):
 		Global.ending = 1
 		get_tree().change_scene("res://Ending.tscn")
 		
@@ -300,7 +300,7 @@ func _story_exit(id, story):
 		$Player.interact_lock = false
 
 func _on_FireArea1_area_entered(area):
-	entered_firearea(area, "FireArea2")
+	entered_firearea(area, "FireArea1")
 
 func _on_FireArea2_area_entered(area):
 	entered_firearea(area, "FireArea2")

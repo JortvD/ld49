@@ -6,7 +6,7 @@
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 8.87139
-height = 14.5969
+height = 8.33752
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
@@ -74,7 +74,7 @@ __meta__ = {
 position = Vector2( 44.2141, 15.7145 )
 
 [node name="BulletTimer" type="Timer" parent="."]
-wait_time = 0.5
+wait_time = 1.5
 one_shot = true
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]

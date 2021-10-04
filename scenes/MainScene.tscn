@@ -4795,6 +4795,7 @@ layer = 2
 [node name="Dialog" parent="CanvasLayer" instance=ExtResource( 7 )]
 
 [node name="GUI" parent="CanvasLayer" instance=ExtResource( 12 )]
+visible = false
 mouse_filter = 2
 
 [node name="Blacken" type="Panel" parent="CanvasLayer"]

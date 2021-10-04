@@ -32,7 +32,6 @@ smoothing_speed = 2.0
 position = Vector2( 48.2159, 21.5112 )
 
 [node name="BulletTimer" type="Timer" parent="."]
-wait_time = 0.1
 one_shot = true
 
 [node name="Item" type="Sprite" parent="."]
